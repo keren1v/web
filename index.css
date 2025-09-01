@@ -1,0 +1,1395 @@
+
+/* Pop-up Container and Overlay */
+/* Estilo para la "tarjeta" de login en estado normal */
+.login-card {
+    list-style: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.login-card:hover {
+    background-color: #f7f3ff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.login-card a {
+    text-decoration: none;
+    color: #243b55;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+/* Oculta las iniciales por defecto, solo se mostrarán en estado minimizado */
+#login-initials {
+    display: none;
+}
+
+/* Estilo para cuando el usuario ha iniciado sesión */
+.login-card.logged-in {
+    background-color: #243b55;
+    color: white;
+}
+
+.login-card.logged-in a {
+    color: white;
+}
+
+/* --- ESTILOS PARA LA ESFERA --- */
+.login-card.minimized {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.login-card.minimized #login-full-name {
+    display: none;
+}
+
+/* Muestra las iniciales y las centra en el estado minimizado */
+.login-card.minimized #login-initials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.left2{
+  margin-left: 120px;
+  width: 250px;
+}
+
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+}
+
+.popup-container.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 590px;
+    position: relative;
+    text-align: center;
+    animation: popup-fade-in 0.4s ease-out;
+}
+
+@keyframes popup-fade-in {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #243b55;
+}
+
+.popup-title {
+    font-size: 2.25rem;
+    color: #243b55;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #243b55;
+    padding-bottom: 1rem;
+}
+
+/* Form and Tab Styling */
+.form-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+.tab-link {
+    background: none;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    position: relative;
+}
+
+.tab-link.active {
+    color: #243b55;
+    border-bottom: 2px solid #243b55;
+    transform: translateY(2px);
+    color: #ffff;
+    
+  
+}
+
+.tab-content {
+    display: none;
+    padding-top: 1.5rem;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+#login-form, #signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+   
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 999px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.popup-content input:focus {
+    outline: none;
+    border-color: #243b55;
+    box-shadow: 0 0 0 4px rgba(159, 122, 234, 0.2);
+}
+.left{
+    width: 150px;
+}
+.popup-content button {
+    background-color: #243b55;
+    color: white;
+    font-weight: 700;
+    padding: 1rem;
+    border: none;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.popup-content button:hover {
+    background-color: #243b55;
+    transform: translateY(-2px);
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 1.5rem;
+    color: #243b55;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.forgot-password:hover {
+    color: #243b55;
+}
+  
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+   font-family: 'Inter', sans-serif;
+  background: #f7f9fc;
+  color: #222;
+  line-height: 2.12;
+}
+
+/* IMPORTANT: Remove scroll-snap-type from html. The main page will now scroll normally. */
+html {
+  scroll-behavior: smooth;
+  /* scroll-snap-type: y mandatory; REMOVED! */
+}
+
+/* Hide Scrollbar (Cross-Browser Compatibility) - Apply to specific scrollable elements if needed, or globally if truly desired */
+/* For WebKit (Chrome, Safari) - For the *full-screen-vertical-snap-section* only */
+.full-screen-vertical-snap-section::-webkit-scrollbar {
+  width: 0px; /* For vertical scrollbar */
+  height: 0px; /* For horizontal scrollbar */
+  background: transparent; /* make scrollbar transparent */
+}
+/* For Firefox - For the *full-screen-vertical-snap-section* only */
+.full-screen-vertical-snap-section {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+/* For IE and Edge (though newer Edge supports -webkit-scrollbar) - For the *full-screen-vertical-snap-section* only */
+/* Note: body -ms-overflow-style: none can remain if you want to hide the *main* page scrollbar if it appears */
+
+header {
+  background: linear-gradient(to right, #141e30, #243b55);
+  padding: 6px 12px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(to right, #0a192f, #1c3b68);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 40px;
+  color: #fff;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00d9ff;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  padding: 8px 15px;
+  border-radius: 30px;
+  border: none;
+  background: white;
+  font-size: 14px;
+  color: #333;
+}
+
+.search-box i {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #555;
+}
+
+/* Responsive navbar */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #1c3b68;
+    padding: 20px;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    border-radius: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+/* Bienvenida (now .hero-section) */
+.hero-section { /* Renamed from .hola for clarity */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* IMPORTANTE: Ajuste el padding-top para compensar la altura del navbar fijo */
+  padding: 100px 2em 4em 2em; /* CAMBIO AQUÍ: Incrementamos el padding superior */
+  flex-wrap: wrap;
+  min-height: calc(100vh - 80px); /* Adjust based on your header height */
+  /* NO scroll-snap-align here, as only the dedicated section will snap */
+}
+
+.hero-content { /* Renamed from .contenido */
+  max-width: 500px;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  font-weight: 800;
+  color: #0a0a23;
+}
+
+.hero-content span {
+  color: #2a73ff;
+}
+
+.hero-content p {
+  margin-top: 1em;
+  font-size: 1.2em;
+  color: #444;
+}
+
+.hero-image img { /* Renamed from .img */
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  animation: float 2s ease-in-out infinite;
+  mask-image: radial-gradient(circle at 50% 50%, black 80%, transparent 100%);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* General Section Styles (for non-full-screen sections) */
+/* Targeted sections that should have max-width and margin auto */
+.description-section,
+.offerings-section,
+.why-choose-section,
+.impact-section,
+.explore-images-section,
+.cta-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* Reapply common styles to these specific sections' containers */
+.description-section .container,
+.why-choose-section .container,
+.offerings-section .container,
+.explore-images-section .container,
+.cta-section .container,
+.impact-section .container {
+  background: white;
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+/* Ensuring inner containers of offerings-section and explore-images-section are styled */
+.offerings-section .container,
+.explore-images-section .container {
+    padding-bottom: 20px; /* Adjust if cards add too much space */
+}
+
+
+section h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 800;
+  text-align: center;
+}
+
+section p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* Cards (for offerings-section) */
+.cards { /* Specific to offerings-section */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.offer-card { /* Renamed from .card for this section */
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.07);
+  transition: 0.3s ease;
+  color: #2c3e50;
+}
+
+.offer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px rgba(44, 62, 80, 0.15);
+}
+
+.offer-card .icon {
+  font-size: 3.5rem;
+  color: #3498db;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.offer-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.offer-card p {
+  font-size: 1rem;
+}
+
+/* Image cards (explore-images-section) */
+.explore-cards { /* Renamed from .cards for this section */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.explore-card { /* Renamed from .card for this section */
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.07);
+  transition: 0.3s ease;
+  color: #2c3e50;
+}
+
+.explore-card img {
+  width: 100%;
+  border-radius: 12px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.explore-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.explore-card p {
+  font-size: 1rem;
+}
+
+
+/* Impact that grows */
+.impact-section {
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.impact-section h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.impact-section p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+
+.impact-icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.impact-item {
+  flex: 1 1 220px;
+  max-width: 240px;
+  text-align: center;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.impact-item i {
+  font-size: 2.8rem;
+  color: #2a73ff;
+  margin-bottom: 12px;
+}
+
+.impact-item h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.impact-item p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0 auto;
+}
+
+/* Call To Action */
+.cta-section {
+  background: white; /* Reapply background, as the .container was getting it before */
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.cta-button { /* Renamed from .cta button */
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block; /* Ensure padding/margin works correctly */
+  text-decoration: none; /* In case it's an anchor */
+}
+
+.cta-button:hover {
+  background: #34495e;
+  transform: translateY(-2px);
+}
+
+/* Animaciones */
+.animate-up,
+.animate-left,
+.animate-right {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-left {
+  transform: translateX(-40px);
+}
+
+.animate-right {
+  transform: translateX(40px);
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+}
+/* Footer Minimalista y Estilizado */
+.footer {
+  background: #243b55; /* Color base */
+  color: #e0e0e0;
+  padding: 40px 20px 20px; /* Ajuste de padding */
+  font-family: 'Poppins', sans-serif; /* Usamos la fuente principal de tu sitio */
+  width: 100%;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil superior */
+}
+
+.footer-content-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3 columnas en escritorio, adaptable */
+  gap: 30px; /* Espaciado entre columnas */
+  max-width: 1200px;
+  margin: 0 auto 30px; /* Margen inferior para separar del footer-bottom */
+  text-align: left; /* Alineación de texto predeterminada */
+}
+
+/* Sección de Marca/Logo */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineación a la izquierda */
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  color: #c0c0c0;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px; /* Espacio entre iconos */
+  margin-top: 10px;
+}
+
+.social-icons a {
+  display: block; /* Asegura que el enlace envuelva bien la imagen */
+  line-height: 1; /* Elimina espacio extra debajo de las imágenes */
+}
+
+.social-icons img {
+  width: 28px; /* Tamaño de icono */
+  height: 28px;
+  filter: brightness(0) invert(1); /* Pone los iconos blancos */
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+}
+
+/* Secciones de enlaces y contacto */
+.footer-links-group h3,
+.footer-contact-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 5px; /* Pequeño padding para una línea sutil si se desea */
+}
+
+/* Línea sutil debajo de los títulos (opcional, si quieres un toque más) */
+.footer-links-group h3::after,
+.footer-contact-info h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px; /* Longitud de la línea */
+    height: 2px; /* Grosor de la línea */
+    background-color: #3498db; /* Color de tu azul de acento */
+    border-radius: 1px;
+}
+
+
+.footer-links-group ul {
+  list-style: none;
+}
+
+.footer-links-group li {
+  margin-bottom: 8px; /* Espacio entre elementos de la lista */
+}
+
+.footer-links-group a {
+  color: #c0c0c0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links-group a:hover {
+  color: #fff;
+}
+
+.footer-contact-info p {
+  font-size: 0.9rem;
+  color: #c0c0c0;
+  margin-bottom: 10px;
+  display: flex; /* Para alinear ícono y texto */
+  align-items: center;
+}
+
+.footer-contact-info p i {
+  margin-right: 10px; /* Espacio entre ícono y texto */
+  color: #3498db; /* Color de acento para los íconos */
+  font-size: 1.1em;
+}
+
+
+/* Footer Bottom - Derechos de autor y enlaces legales */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria más suave */
+  padding-top: 20px;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #a0a0a0;
+}
+
+.footer-legal-links {
+  margin-top: 10px;
+}
+
+.footer-legal-links a {
+  color: #a0a0a0;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #fff;
+}
+
+/* Responsive para el footer */
+@media (max-width: 768px) {
+  .footer-content-wrapper {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    text-align: center; /* Centrar texto */
+  }
+
+  .footer-brand,
+  .footer-links-group,
+  .footer-contact-info {
+    align-items: center; /* Centrar elementos en la columna */
+  }
+
+  .footer-links-group h3::after,
+  .footer-contact-info h3::after {
+      left: 50%; /* Centrar la línea del título */
+      transform: translateX(-50%);
+  }
+
+  .social-icons {
+    justify-content: center; /* Centrar iconos sociales */
+  }
+}
+
+
+/* Full Screen Vertical Snap Section - Ajustes para contenido */
+.full-screen-vertical-snap-section {
+  width: 100vw;
+  height: 100vh; /* El contenedor ocupa el 100% de la altura de la ventana */
+  overflow-y: auto; /* Permite el scroll dentro de la sección */
+  scroll-snap-type: y mandatory; /* Obliga a hacer "snap" verticalmente */
+  -webkit-overflow-scrolling: touch; /* Para scroll suave en iOS */
+  position: relative; /* Para la posición de los puntos de navegación */
+  font-size: 16px; /* Reducimos el tamaño de fuente base para esta sección */
+}
+
+.vertical-slide {
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
+  height: 100vh; /* Cada slide ocupa el 100% de la altura de la ventana */
+  flex-shrink: 0; /* Evita que los slides se encojan */
+  scroll-snap-align: start; /* El inicio de cada slide se alinea con el borde del contenedor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px; /* Reducimos el padding general */
+  box-sizing: border-box;
+  background-color: #243b55;
+  color: white;
+  position: relative;
+  /* Eliminamos las propiedades de opacidad y transformación iniciales */
+}
+
+.slide-content-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%; /* Reducimos el ancho máximo para dejar más margen */
+  max-width: 1200px;
+  gap: 40px; /* Reducimos el gap entre elementos */
+}
+
+.slide-content-wrapper.reverse-layout {
+  flex-direction: row-reverse;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 550px; /* Reducimos el ancho máximo del texto */
+  text-align: left;
+}
+
+.text-content h1, .text-content h2 {
+  font-size: 3.0em; /* Reducimos el tamaño del título */
+  font-weight: 800;
+  margin-bottom: 20px; /* Reducimos el margen inferior */
+  line-height: 1.2; /* Ajustamos el interlineado */
+  color: white;
+}
+
+.vertical-lines-text {
+  margin-top: 15px; /* Reducimos el margen superior */
+  margin-bottom: 30px; /* Reducimos el margen inferior */
+}
+
+.vertical-lines-text span {
+  display: block;
+  font-size: 1.2em; /* Reducimos el tamaño del texto */
+  margin-bottom: 8px; /* Reducimos el margen inferior */
+  line-height: 1.3;
+  position: relative;
+  padding-left: 20px; /* Reducimos el padding izquierdo */
+  color: #e0e0e0;
+}
+
+.vertical-lines-text span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px; /* Reducimos el ancho de la línea */
+  height: 100%;
+  background-color: white;
+  border-radius: 1.5px; /* Reducimos el radio del borde */
+}
+
+.slide-buttons {
+  margin-top: 20px; /* Reducimos el margen superior */
+  display: flex;
+  gap: 15px; /* Reducimos el gap entre botones */
+}
+
+.btn-primary, .btn-secondary {
+  padding: 12px 25px; /* Reducimos el padding de los botones */
+  border-radius: 30px; /* Ajustamos el radio del borde */
+  font-size: 1.0rem; /* Reducimos el tamaño de la fuente de los botones */
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: white;
+  color: #243b55;
+}
+
+.btn-primary:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: #1c3b68;
+  transform: translateY(-3px);
+}
+
+.image-mockup-container {
+  flex: 0 0 40%; /* Reducimos el espacio asignado a la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actual-app-screenshot {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px; /* Ajustamos el radio del borde */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Ajustamos la sombra */
+}
+
+.actual-app-screenshot.wide-mockup {
+    width: 80%; /* Reducimos el ancho de la imagen ancha */
+    max-width: 500px;
+}
+
+
+/* Vertical Navigation Dots */
+.vertical-snap-navigation-dots {
+  position: fixed; /* Los puntos se mantienen fijos en la ventana */
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 100;
+}
+
+.vertical-snap-navigation-dots .dot {
+  width: 16px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.vertical-snap-navigation-dots .dot.active {
+  background-color: white;
+  transform: scale(1.4);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+
+/* Responsive Adjustments for Full Screen Section */
+@media (max-width: 1200px) {
+  .vertical-slide {
+    padding: 20px;
+  }
+  .text-content h1, .text-content h2 {
+    font-size: 2.5em;
+  }
+  .vertical-lines-text span {
+    font-size: 1.1em;
+  }
+  .image-mockup-container {
+    flex: 0 0 35%;
+  }
+  .actual-app-screenshot.wide-mockup {
+      width: 70%;
+  }
+}
+
+@media (max-width: 992px) {
+  .slide-content-wrapper, .slide-content-wrapper.reverse-layout {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .text-content {
+    max-width: 80%;
+  }
+  .text-content h1, .text-content h2 {
+    font-size: 2.0em;
+    margin-bottom: 15px;
+  }
+  .vertical-lines-text {
+    padding-left: 0;
+  }
+  .vertical-lines-text span::before {
+    display: none;
+  }
+  .slide-buttons { /* Target specific slide buttons */
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    font-size: 1.0rem;
+  }
+  .image-mockup-container {
+    flex: 0 0 auto;
+    width: 70%;
+    max-width: 300px;
+  }
+  .actual-app-screenshot.wide-mockup {
+      width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .vertical-slide {
+    padding: 15px 10px;
+    font-size: 14px; /* Reducimos aún más la fuente base en pantallas pequeñas */
+  }
+  .text-content h1, .text-content h2 {
+    font-size: 1.8em;
+  }
+  .vertical-lines-text span {
+    font-size: 1.0em;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  .image-mockup-container {
+    width: 80%;
+    max-width: 250px;
+  }
+  .actual-app-screenshot.wide-mockup {
+      width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-content h1, .text-content h2 {
+    font-size: 1.6em;
+  }
+  .vertical-lines-text span {
+    font-size: 0.9em;
+  }
+  .slide-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+  }
+  .image-mockup-container {
+    width: 90%;
+    max-width: 200px;
+  }
+  .cards, .explore-cards {
+    grid-template-columns: 1fr; /* Single column */
+  }
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2em 1em;
+  }
+  .hero-content h1 {
+    font-size: 40px;
+  }
+  .hero-content p {
+    font-size: 1em;
+  }
+}
+
+/* Nueva Sección: Nuestro Proceso de Aprendizaje / Descubre Tu Camino */
+.learning-process-section {
+    background: #f0f4f8; /* Un fondo suave para esta sección */
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Para contener las posibles animaciones */
+}
+
+.process-intro {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.process-intro h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #141e30;
+    margin-bottom: 20px;
+}
+
+.process-intro p {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.process-steps-container {
+    display: flex;
+    flex-direction: column; /* Apila los pasos verticalmente por defecto */
+    align-items: center; /* Centra los pasos */
+    max-width: 1000px; /* Ancho máximo para el contenedor de pasos */
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Conectores entre pasos (solo visibles en desktop) */
+.process-connector {
+    width: 2px; /* Ancho de la línea */
+    height: 60px; /* Altura del conector */
+    background: linear-gradient(to bottom, #3498db, #2c3e50); /* Degradado de tus colores */
+    margin: 15px 0; /* Espacio entre el paso y el conector */
+    position: relative;
+}
+
+.process-connector::before { /* Círculo en el medio del conector */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background-color: #3498db; /* Color de acento */
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+/* Opcional: una flecha o diseño diferente para el conector final */
+.final-connector {
+    background: none; /* Elimina la línea si prefieres una flecha */
+}
+.final-connector::before {
+    content: '\f063'; /* Icono de flecha hacia abajo (Font Awesome) */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #2c3e50; /* Color del texto del ícono */
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    top: 0; /* Ajusta la posición para que la flecha quede bien */
+    transform: translate(-50%, 0);
+}
+
+
+/* Estilo de cada paso */
+.process-step {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Ancho máximo para cada tarjeta de paso */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Para el icono/número */
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.step-icon-wrapper {
+    position: relative;
+    width: 100px; /* Tamaño del círculo del icono */
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #3498db, #00d9ff); /* Degradado por defecto */
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background: #2c3e50; /* Color oscuro */
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.process-step i {
+    font-size: 3.5rem; /* Tamaño del icono */
+    color: white; /* Color del icono dentro del círculo */
+}
+
+.process-step h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #141e30;
+    margin-bottom: 12px;
+}
+
+.process-step p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn-process-explore {
+    display: inline-block;
+    background-color: #9F7AEA; /* Color de acento */
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-process-explore:hover {
+    background-color: #9F7AEA;
+    transform: translateY(-2px);
+}
+
+/* Estilo para el botón final de CTA */
+.btn-process-explore.final-cta-btn {
+    background: linear-gradient(45deg, #243b55); /* Degradado más llamativo */
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    box-shadow: 0 6px 15px rgba(255, 96, 54, 0.4);
+}
+.btn-process-explore.final-cta-btn:hover {
+    background: linear-gradient(45deg, #182738);
+    transform: translateY(-3px);
+}
+
+/* Colores específicos para cada tipo de paso */
+.process-step.step-children .step-icon-wrapper {
+    background: linear-gradient(45deg, #9F7AEA, #9F7AEA); /* Niños */
+}
+.process-step.step-youth .step-icon-wrapper {
+    background: linear-gradient(45deg, #4CAF50, #4CAF50); /* Jóvenes */
+}
+.process-step.step-adult .step-icon-wrapper {
+    background: linear-gradient(45deg, #243b55, #141e30); /* Adultos */
+}
+.process-step.step-final-cta .step-icon-wrapper {
+    background: linear-gradient(45deg, #243b55, #243b55); /* CTA final */
+}
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .process-intro h2 {
+        font-size: 2.2rem;
+    }
+    .process-intro p {
+        font-size: 1rem;
+    }
+    .process-steps-container {
+        padding: 0 15px;
+    }
+    .process-step {
+        padding: 25px;
+        max-width: 450px; /* Ajuste para móviles */
+    }
+    .step-icon-wrapper {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+    }
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        top: -10px;
+        left: -10px;
+    }
+    .process-step i {
+        font-size: 2.8rem;
+    }
+    .process-step h3 {
+        font-size: 1.5rem;
+    }
+    .process-step p {
+        font-size: 0.9rem;
+    }
+    .btn-process-explore {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    .btn-process-explore.final-cta-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    .process-connector {
+        height: 50px; /* Reducir altura del conector */
+        margin: 10px 0;
+    }
+    .process-connector::before {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-intro h2 {
+        font-size: 1.8rem;
+    }
+    .process-intro p {
+        font-size: 0.85rem;
+    }
+    .process-step {
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .step-icon-wrapper {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 15px;
+    }
+    .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    .process-step i {
+        font-size: 2.5rem;
+    }
+    .process-step h3 {
+        font-size: 1.3rem;
+    }
+    .process-step p {
+        font-size: 0.8rem;
+    }
+    .btn-process-explore {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+    .btn-process-explore.final-cta-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+}

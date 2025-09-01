@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology Lesson: Internet Essentials</title>
+  <link rel="stylesheet" href="css/lecciontechno2.css">
+</head>
+<body>
+ <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+  <main>
+    <!-- Section 1 -->
+    <section class="lesson-section">
+      <div class="lesson-header">
+        <h2>1. What is the Internet?</h2>
+      </div>
+      <p>The Internet is a global network that connects millions of computers and devices worldwide, allowing information sharing and communication.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/jVDBsPZDpMs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="card">
+        <h3>Reflection activity</h3>
+        <p>Think about the ways you use the Internet daily. Write down three activities you do online.</p>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+      <div class="lesson-header">
+        <h2>2. Understanding Web Browsers</h2>
+      </div>
+      <p>Web browsers let you access and view websites by interpreting the code behind them.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/BrXPcaRlBqo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="card">
+        <h3>Try This</h3>
+        <p>List the web browsers you have used. Which one do you prefer and why?</p>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+      <div class="lesson-header">
+        <h2>3. What are Search Engines?</h2>
+      </div>
+      <p>Search engines help you find information on the Internet quickly by indexing websites and showing relevant results.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/86YTKhQDIn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="card">
+        <h3>Try This</h3>
+        <p>Write down a question you have and try finding the answer using a search engine. Compare results.</p>
+      </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+      <div class="lesson-header">
+        
+        <h2>4. Using Email</h2>
+      </div>
+      <p>Email is a quick way to send messages, documents, and media electronically to others anywhere in the world.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/SMnjShkHCug" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="card">
+        <h3>Try This</h3>
+        <p>Create a sample email (without sending) and practice formatting a subject line, message, and attachment.</p>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="lesson-section">
+      <h2>Quiz: Test Your Knowledge</h2>
+
+      <div class="quiz-question">
+        <p>1. What is the Internet?</p>
+        <label><input type="radio" name="q1" value="a" /> A way to connect computers worldwide</label>
+        <label><input type="radio" name="q1" value="b" /> A social media platform</label>
+        <label><input type="radio" name="q1" value="c" /> A search engine</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>2. Which is a popular web browser?</p>
+        <label><input type="radio" name="q2" value="a" /> Chrome</label>
+        <label><input type="radio" name="q2" value="b" /> Facebook</label>
+        <label><input type="radio" name="q2" value="c" /> Instagram</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>3. What does a search engine do?</p>
+        <label><input type="radio" name="q3" value="a" /> Helps find information online</label>
+        <label><input type="radio" name="q3" value="b" /> Sends emails</label>
+        <label><input type="radio" name="q3" value="c" /> Creates websites</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>4. What is important to stay safe online?</p>
+        <label><input type="radio" name="q4" value="a" /> Using strong passwords</label>
+        <label><input type="radio" name="q4" value="b" /> Clicking all email links</label>
+        <label><input type="radio" name="q4" value="c" /> Sharing passwords with friends</label>
+      </div>
+
+      <button onclick="checkTechAnswers()">Submit Answers</button>
+      <div class="result-box" id="quiz-result" style="display:none;"></div>
+    </section>
+  </main>
+
+  <script>
+    function checkTechAnswers() {
+      let score = 0;
+      const answers = {
+        q1: "a",
+        q2: "a",
+        q3: "a",
+        q4: "a"
+      };
+
+      Object.keys(answers).forEach(q => {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      });
+
+      const resultBox = document.getElementById("quiz-result");
+      resultBox.style.display = "block";
+      resultBox.innerHTML = `<strong>Your score:</strong> ${score}/4<br/>${score >= 3 ? "Excellent! 🎉 You know your tech basics." : "Keep learning! 💻"}`;
+    }
+  </script>
+</body>
+</html>

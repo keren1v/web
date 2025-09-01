@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+  <link rel="stylesheet" href="css/menu.css"/>
+</head>                    
+<body>
+
+   <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+
+  <main>
+    <!-- Section 1: Introduction to Money -->
+    <section>
+      <h2>1. What is Money?</h2>
+      <p>Money is a tool we use to exchange goods and services. It can be coins, bills, or digital currency. Understanding money helps us make smart financial decisions.</p>
+      <ul>
+        <li>Used to buy goods and services</li>
+        <li>Represents value</li>
+        <li>Helps store and measure wealth</li>
+        <li>Essential for trade and economy</li>
+      </ul>
+      <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/pRL93risEg4" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+      <div class="card">
+        <h3>Reflection</h3>
+        <p>Think about one way you use money in your daily life. 💰</p>
+      </div>
+    </section>
+
+    <!-- Section 2: Importance of Money -->
+    <section>
+      <h2>2. Why Money Matters</h2>
+      <p>Money affects many areas of our lives. Knowing how to manage it is key to achieving goals and security.</p>
+      <ul>
+        <li>Helps buy what we need and want</li>
+        <li>Provides security for the future</li>
+        <li>Allows investment in education or projects</li>
+        <li>Enables planning for emergencies</li>
+      </ul>
+      <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/cnW_HDIBmz4" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+      <div class="card">
+        <h3>Try This</h3>
+        <p>List 3 ways you earn or receive money. 📝</p>
+      </div>
+    </section>
+
+    <!-- Section 3: How Money Works -->
+    <section>
+      <h2>3. How Money Works</h2>
+      <p>Money has different forms and functions. Understanding this helps manage it wisely.</p>
+      <div class="card">
+        <h3>Key Points</h3>
+        <ul>
+          <li>Cash, digital payments, and bank accounts</li>
+          <li>Value changes over time (inflation)</li>
+          <li>Used for saving, spending, and investing</li>
+          <li>Needs to be managed responsibly</li>
+        </ul>
+      </div>
+      <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/OZQQMYfaBT4" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <!-- Section 4: Quiz -->
+    <section>
+      <h2>4. Quiz: What is Money?</h2>
+
+      <form id="money-quiz">
+        <div class="quiz-question">
+          <p><strong>1.</strong> What is money primarily used for?</p>
+          <label><input type="radio" name="q1" value="Communication"/> Communication</label>
+          <label><input type="radio" name="q1" value="Buying goods"/> Buying goods</label>
+          <label><input type="radio" name="q1" value="Sleeping"/> Sleeping</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>2.</strong> Which is a form of money?</p>
+          <label><input type="radio" name="q2" value="Coins"/> Coins</label>
+          <label><input type="radio" name="q2" value="Paper"/> Paper only</label>
+          <label><input type="radio" name="q2" value="Gold only"/> Gold only</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>3.</strong> Why is managing money important?</p>
+          <label><input type="radio" name="q3" value="To waste it"/> To waste it</label>
+          <label><input type="radio" name="q3" value="To meet needs and goals"/> To meet needs and goals</label>
+          <label><input type="radio" name="q3" value="To borrow endlessly"/> To borrow endlessly</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>4.</strong> Money can be:</p>
+          <label><input type="radio" name="q4" value="Digital or cash"/> Digital or cash</label>
+          <label><input type="radio" name="q4" value="Only digital"/> Only digital</label>
+          <label><input type="radio" name="q4" value="Only cash"/> Only cash</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>5.</strong> One key function of money is:</p>
+          <label><input type="radio" name="q5" value="Measure value"/> Measure value</label>
+          <label><input type="radio" name="q5" value="Destroy things"/> Destroy things</label>
+          <label><input type="radio" name="q5" value="Ignore needs"/> Ignore needs</label>
+        </div>
+
+        <button type="button" onclick="checkMoneyAnswers()">Submit Quiz</button>
+        <div id="result" class="result-box" style="display:none;"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    function checkMoneyAnswers() {
+      let score = 0;
+      const answers = {
+        q1: "Buying goods",
+        q2: "Coins",
+        q3: "To meet needs and goals",
+        q4: "Digital or cash",
+        q5: "Measure value"
+      };
+
+      Object.keys(answers).forEach(q => {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      });
+
+      const resultBox = document.getElementById("result");
+      resultBox.style.display = "block";
+      resultBox.innerHTML = `<strong>Your score:</strong> ${score}/5<br/>${score >= 4 ? "Excellent! 🌟 You understand money well!" : "Keep learning about money 💪"}`;
+    }
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+      });
+  });
+});
+
+</script>
+
+<footer class="footer">
+  <div class="footer-content-wrapper">
+    <!-- Sección de Marca/Logo -->
+    <div class="footer-brand">
+      <div class="footer-logo">LearnSphere</div>
+      <div class="footer-tagline">Empowering your journey through learning.</div>
+      <div class="social-icons">
+        <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+      </div>
+    </div>
+
+    <!-- Sección de enlaces -->
+    <div class="footer-links-group">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Sección de contacto -->
+    <div class="footer-contact-info">
+      <h3>Contact Us</h3>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Learning St, City, Country</p>
+      <p><i class="fas fa-phone-alt"></i> +123 456 7890</p>
+      <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    &copy; 2025 LearnSphere. All Rights Reserved.
+    <div class="footer-legal-links">
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+  <link rel="stylesheet" href="css/leccionesingles.css"/>
+</head>
+<body>
+ <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+  <main>
+    <!-- Section 1: Asking for Personal Information -->
+    <section>
+      <h2>1. Asking for Personal Information</h2>
+      <p>Once you know basic greetings, you can ask for personal details to keep the conversation going.</p>
+      <ul>
+        <li>What’s your name?</li>
+        <li>Where are you from?</li>
+        <li>What do you do? (for work)</li>
+        <li>What’s your phone number?</li>
+        <li>How old are you?</li>
+      </ul>
+      <iframe src="https://www.youtube.com/embed/gSq_4EVrJsE" allowfullscreen></iframe>
+      <div class="card">
+        <h3>Example Conversation</h3>
+        <p>👤 A: <strong>"Where are you from?"</strong><br/>
+           👤 B: <strong>"I’m from Mexico."</strong></p>
+      </div>
+    </section>
+
+    <!-- Section 2: Giving Personal Information -->
+    <section>
+      <h2>2. Giving Personal Information</h2>
+      <p>When someone asks you questions, respond politely using full sentences.</p>
+      <ul>
+        <li>My name is Laura.</li>
+        <li>I’m from Canada.</li>
+        <li>I work as a teacher.</li>
+        <li>My phone number is 555-234-678.</li>
+        <li>I’m 28 years old.</li>
+      </ul>
+      <iframe src="https://www.youtube.com/embed/d4xHaGUx3c0" allowfullscreen></iframe>
+      <div class="card">
+        <h3>Practice Activity</h3>
+        <p>Write your own answers to these questions:<br/>
+        <strong>What’s your name? Where are you from? What do you do?</strong></p>
+      </div>
+    </section>
+
+    <!-- Section 3: Polite Expressions -->
+    <section>
+      <h2>3. Polite Expressions for Conversations</h2>
+      <p>Adding polite words makes your conversation sound more friendly and respectful.</p>
+      <div class="card">
+        <h3>Examples</h3>
+        <ul>
+          <li>Please – <em>Please, tell me your name.</em></li>
+          <li>Thank you – <em>Thank you for the information.</em></li>
+          <li>You’re welcome – <em>You’re welcome, happy to help.</em></li>
+        </ul>
+      </div>
+      <iframe src="https://www.youtube.com/embed/rZkpJBZt_0U" allowfullscreen></iframe>
+    </section>
+
+    <!-- Section 4: Cultural Tips -->
+    <section>
+      <h2>4. Cultural Tips</h2>
+      <p>When asking personal questions in English, it’s important to be polite and respect privacy. Some topics like age or salary may be considered private in certain cultures.</p>
+      <ul>
+        <li>Smile and use a friendly tone.</li>
+        <li>Say “May I ask…?” before personal questions.</li>
+        <li>Be ready to change the topic if the other person looks uncomfortable.</li>
+      </ul>
+      <div class="card">
+        <h3>Reflection</h3>
+        <p>Which questions are considered polite in your culture? Which ones are too personal?</p>
+      </div>
+    </section>
+
+    <!-- Section 5: Quiz -->
+    <section>
+      <h2>5. Quiz: Practice Asking and Answering</h2>
+
+      <form id="english-quiz">
+        <div class="quiz-question">
+          <p><strong>1.</strong> Which is a polite way to ask someone’s name?</p>
+          <label><input type="radio" name="q1" value="What's your name?"/> What's your name?</label>
+          <label><input type="radio" name="q1" value="Tell me your name"/> Tell me your name</label>
+          <label><input type="radio" name="q1" value="Name?"/> Name?</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>2.</strong> How do you answer “Where are you from?”</p>
+          <label><input type="radio" name="q2" value="I'm from Brazil."/> I'm from Brazil.</label>
+          <label><input type="radio" name="q2" value="I'm fine, thanks."/> I'm fine, thanks.</label>
+          <label><input type="radio" name="q2" value="Yes, I am."/> Yes, I am.</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>3.</strong> What does “What do you do?” mean?</p>
+          <label><input type="radio" name="q3" value="What is your job?"/> What is your job?</label>
+          <label><input type="radio" name="q3" value="Where do you live?"/> Where do you live?</label>
+          <label><input type="radio" name="q3" value="How are you?"/> How are you?</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>4.</strong> Which one is a polite expression?</p>
+          <label><input type="radio" name="q4" value="Thanks"/> Thanks</label>
+          <label><input type="radio" name="q4" value="Go away"/> Go away</label>
+          <label><input type="radio" name="q4" value="What?"/> What?</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>5.</strong> Which is the best response to “Thank you”?</p>
+          <label><input type="radio" name="q5" value="You’re welcome"/> You’re welcome</label>
+          <label><input type="radio" name="q5" value="Yes"/> Yes</label>
+          <label><input type="radio" name="q5" value="Okay"/> Okay</label>
+        </div>
+
+        <button type="button" onclick="checkEnglishAnswers()">Submit Quiz</button>
+        <div id="result" class="result-box" style="display:none;"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    function checkEnglishAnswers() {
+      let score = 0;
+      const answers = {
+        q1: "What's your name?",
+        q2: "I'm from Brazil.",
+        q3: "What is your job?",
+        q4: "Thanks",
+        q5: "You’re welcome"
+      };
+
+      Object.keys(answers).forEach(q => {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      });
+
+      const resultBox = document.getElementById("result");
+      resultBox.style.display = "block";
+      resultBox.innerHTML = `<strong>Your score:</strong> ${score}/5<br/>${score >= 4 ? "Great job! 🌟" : "Keep going! You’re improving."}`;
+document.addEventListener('DOMContentLoaded', function() {
+    const bloquesAnimados = document.querySelectorAll('.bloque-animado');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('activo');
+            } else {
+                entry.target.classList.remove('activo'); // Quita la clase para reiniciar animación
+            }
+        });
+    }, { threshold: 0.3 });
+    bloquesAnimados.forEach(b => observer.observe(b));
+});
+
+    }
+  </script>
+</body>
+</html>

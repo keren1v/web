@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" />
+    <style>
+        :root {
+            --color-principal-morado: #6A1B9A;
+            --color-secundario-morado: #9C27B0;
+            --color-fondo-oscuro: #4A148C;
+            --color-fondo-claro: #FFFFFF;
+            --color-texto-claro: #FFF;
+            --color-texto-oscuro: #333;
+            --color-acierto: #4CAF50;
+            --color-error: #F44336;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            background-color: var(--color-fondo-claro);
+            color: var(--color-texto-oscuro);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .leccion-sociales {
+            text-align: center;
+            padding: 3rem 1rem;
+            flex-grow: 1;
+        }
+
+        .titulo-leccion {
+            font-size: 3.5rem;
+            color: var(--color-fondo-oscuro);
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .descripcion-leccion {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: var(--color-texto-oscuro);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+
+        .header-content-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .header-content-inner {
+                flex-direction: row;
+            }
+        }
+
+        .mascot-container {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+            order: 1;
+        }
+
+        .mascot-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .mascot-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .intro-text {
+            order: 2;
+        }
+
+        .map-svg {
+            max-width: 600px;
+            margin: 2rem auto;
+            animation: float 6s ease-in-out infinite;
+            border-radius: 35px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        .cultura-paises {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .pais {
+            background: #f8f8f8;
+            border: 2px solid var(--color-secundario-morado);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pais:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .icono-pais {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 1rem;
+            border-radius: 20px;
+
+        }
+
+        .pais h3 {
+            color: var(--color-fondo-oscuro);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal {
+            background: var(--color-fondo-claro);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transform: scale(0.95);
+            animation: pop-up 0.3s forwards;
+        }
+
+        @keyframes pop-up {
+            to { transform: scale(1); }
+        }
+
+        .modal h3 {
+            margin-bottom: 1rem;
+            color: var(--color-principal-morado);
+            font-size: 2rem;
+        }
+
+        .modal p {
+            margin-bottom: 1.5rem;
+            color: var(--color-texto-oscuro);
+            font-size: 1.1rem;
+        }
+
+        .modal button {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 9999px;
+            background-color: var(--color-principal-morado);
+            color: var(--color-texto-claro);
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .modal button:hover {
+            background-color: var(--color-fondo-oscuro);
+            transform: translateY(-2px);
+        }
+
+        .seccion-adicional {
+            margin-top: 4rem;
+            background-color: #f8f8f8;
+            padding: 3rem;
+            border-radius: 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .seccion-adicional h2 {
+            color: var(--color-principal-morado);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .seccion-adicional p {
+            font-size: 1.2rem;
+            color: var(--color-texto-oscuro);
+            margin-bottom: 2rem;
+        }
+
+        .quiz-section {
+            padding: 2rem;
+            border-radius: 1.5rem;
+            background-color: #f0f0f0;
+            border: 2px solid var(--color-secundario-morado);
+        }
+
+        .quiz-section h3 {
+            color: var(--color-principal-morado);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .quiz-opciones button {
+            margin: 0.7rem;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 9999px;
+            font-size: 1rem;
+            background-color: var(--color-secundario-morado);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .quiz-opciones button:hover {
+            transform: scale(1.05);
+            background-color: var(--color-principal-morado);
+        }
+        .matematica-ejercicio {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: var(--color-fondo-oscuro);
+        }
+
+        .matematica-input {
+            width: 100px;
+            padding: 0.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+            border: 2px solid var(--color-secundario-morado);
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .matematica-check {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 9999px;
+            background-color: var(--color-principal-morado);
+            color: var(--color-texto-claro);
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 1rem;
+        }
+        .matematica-check:hover {
+            background-color: var(--color-fondo-oscuro);
+            transform: translateY(-2px);
+        }
+
+        .respuesta {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .mensaje-final {
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-principal-morado);
+        }
+
+        .juego-ordenar {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #f0f0f0;
+            border-radius: 1.5rem;
+            border: 2px dashed var(--color-secundario-morado);
+        }
+
+        .juego-ordenar h3 {
+            color: var(--color-principal-morado);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contenedor-pasos {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            min-height: 60px;
+        }
+
+        .paso-arrastrable {
+            background-color: var(--color-secundario-morado);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            cursor: grab;
+            transition: transform 0.2s, opacity 0.2s;
+            font-weight: bold;
+        }
+
+        .paso-arrastrable:hover {
+            transform: translateY(-5px);
+        }
+
+        .paso-arrastrable.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+
+        .contenedor-destinos {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .destino {
+            width: 150px;
+            height: 80px;
+            border: 2px dashed var(--color-principal-morado);
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            background-color: #e9e9e9;
+            padding: 0.5rem;
+        }
+
+        .destino p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .destino.hovered {
+            background-color: #ce93d8;
+        }
+
+        .destino.correcta {
+            background-color: var(--color-acierto);
+            color: white;
+            border-style: solid;
+        }
+
+        .footer {
+            background-color: var(--color-fondo-oscuro);
+            color: var(--color-texto-claro);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<section class="leccion-sociales">
+    <h2 class="titulo-leccion">🧮 Math Academy 📝</h2>
+
+    <div class="header-content">
+        <div class="header-content-inner">
+            <div class="mascot-container">
+                <img src="img/ChatGPT Image 19 ago 2025, 23_55_17.png" alt="Science Mascot" />
+            </div>
+            <div class="intro-text">
+                <p class="descripcion-leccion">Hello, little genius! Get ready for a number adventure and to solve fun addition and subtraction exercises. The world of mathematics awaits you!</p>
+            </div>
+        </div>
+    </div>
+
+    <img src="img/mate.webp" alt="Math Illustration" class="map-svg" />
+
+    <div class="cultura-paises">
+        <div class="pais" data-titulo="➕ Addition" data-desc="Addition is like adding things! When you add, numbers get bigger. It's like putting your toys together with your friend's.">
+            <img src="img/suma.jpg" alt="Addition Icon" class="icono-pais" />
+            <h3>Add</h3>
+            <p>Add numbers!</p>
+        </div>
+        <div class="pais" data-titulo="➖ Subtraction" data-desc="Subtraction is like taking things away! When you subtract, numbers get smaller. It's like when you give a cookie to your mom.">
+            <img src="img/resta.webp" alt="Subtraction Icon" class="icono-pais" />
+            <h3>Subtract</h3>
+            <p>Take away numbers!</p>
+        </div>
+        <div class="pais" data-titulo="🧠 Problems" data-desc="Math problems are like riddles. Use your mind to find the correct answer! With practice, you'll become an expert! 🚀">
+            <img src="img/problemas-m.jpg" alt="Thinking Icon" class="icono-pais" />
+            <h3>Problems</h3>
+            <p>Think and solve!</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal">
+            <h3 id="modal-titulo"></h3>
+            <p id="modal-descripcion"></p>
+            <button id="modal-cerrar">Close</button>
+        </div>
+    </div>
+
+    <div class="seccion-adicional juego-ordenar">
+        <h2>🎮 Interactive Game: Order the Operation</h2>
+        <p>Drag each number to the correct space to solve the operation. Show that you know how to order!</p>
+        <div class="contenedor-pasos" id="pasos-arrastrables">
+            <div class="paso-arrastrable" draggable="true" data-paso="3">3</div>
+            <div class="paso-arrastrable" draggable="true" data-paso="7">7</div>
+            <div class="paso-arrastrable" draggable="true" data-paso="4">4</div>
+        </div>
+        <div class="contenedor-destinos" id="contenedor-destinos">
+            <div class="destino" data-paso-correcto="3">
+                <p>First Number</p>
+            </div>
+            <div class="destino" data-paso-correcto="4">
+                <p>Second Number</p>
+            </div>
+            <div class="destino" data-paso-correcto="7">
+                <p>Result</p>
+            </div>
+        </div>
+        <div style="margin-top: 1rem; font-size: 2rem; font-weight: bold;">
+            <span id="operacion-texto">3 + 4 = 7</span>
+        </div>
+    </div>
+
+    <div class="seccion-adicional">
+        <div class="quiz-section" id="quiz">
+            <h3 id="ejercicio-titulo">📝 Exercise 1</h3>
+            <div class="matematica-ejercicio" id="ejercicio-texto"></div>
+            <input type="number" class="matematica-input" id="respuesta-input" placeholder="Your answer" />
+            <button class="matematica-check" id="verificar-btn">Check</button>
+            <div class="respuesta" id="respuesta"></div>
+            <div id="mensaje-final" class="mensaje-final" style="display:none;"></div>
+        </div>
+    </div>
+</section>
+ <footer class="footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-brand">
+            <h3 class="footer-logo">LearnSphere</h3>
+            <p class="footer-tagline">Your path to knowledge.</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="img/whassap.jpg"></a>
+                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+        <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const ejercicios = [
+        {
+            ejercicio: "5 + 3 =",
+            respuesta: 8
+        },
+        {
+            ejercicio: "10 - 4 =",
+            respuesta: 6
+        },
+        {
+            ejercicio: "7 + 2 =",
+            respuesta: 9
+        },
+        {
+            ejercicio: "9 - 5 =",
+            respuesta: 4
+        },
+        {
+            ejercicio: "6 + 4 =",
+            respuesta: 10
+        },
+    ];
+
+    let ejercicioActual = 0;
+    let aciertos = 0;
+
+    function cargarEjercicio() {
+        if (ejercicioActual >= ejercicios.length) {
+            mostrarMensajeFinal();
+            return;
+        }
+
+        const ejercicio = ejercicios[ejercicioActual];
+        const tituloElem = document.getElementById('ejercicio-titulo');
+        const textoElem = document.getElementById('ejercicio-texto');
+        const inputElem = document.getElementById('respuesta-input');
+        const respuestaElem = document.getElementById('respuesta');
+
+        tituloElem.textContent = `📝 Exercise ${ejercicioActual + 1}`;
+        textoElem.textContent = ejercicio.ejercicio;
+        inputElem.value = "";
+        respuestaElem.textContent = "";
+        inputElem.disabled = false;
+        document.getElementById('verificar-btn').disabled = false;
+    }
+
+    function verificar() {
+        const inputElem = document.getElementById('respuesta-input');
+        const respuestaUsuario = parseInt(inputElem.value, 10);
+        const respuestaCorrecta = ejercicios[ejercicioActual].respuesta;
+        const respuestaElem = document.getElementById('respuesta');
+
+        inputElem.disabled = true;
+        document.getElementById('verificar-btn').disabled = true;
+
+        if (respuestaUsuario === respuestaCorrecta) {
+            respuestaElem.textContent = "🎉 Correct!";
+            respuestaElem.style.color = "var(--color-acierto)";
+            aciertos++;
+        } else {
+            respuestaElem.textContent = `❌ Oops! The answer is ${respuestaCorrecta}.`;
+            respuestaElem.style.color = "var(--color-error)";
+        }
+
+        setTimeout(() => {
+            ejercicioActual++;
+            cargarEjercicio();
+        }, 2000);
+    }
+
+    function mostrarMensajeFinal() {
+        const quiz = document.getElementById('quiz');
+        const mensajeFinal = document.getElementById('mensaje-final');
+        const tituloElem = document.getElementById('ejercicio-titulo');
+        const textoElem = document.getElementById('ejercicio-texto');
+        const inputElem = document.getElementById('respuesta-input');
+        const btnElem = document.getElementById('verificar-btn');
+        const respuestaElem = document.getElementById('respuesta');
+
+        tituloElem.textContent = "🌈 Exercises Finished!";
+        textoElem.textContent = "";
+        inputElem.style.display = 'none';
+        btnElem.style.display = 'none';
+        respuestaElem.textContent = "";
+        mensajeFinal.style.display = 'block';
+        mensajeFinal.innerHTML = `You got **${aciertos} out of ${ejercicios.length}** exercises correct! You're a great mathematician! 🔢👏`;
+    }
+
+    // Modal
+    const paises = document.querySelectorAll('.pais');
+    const overlay = document.getElementById('modal-overlay');
+    const modalTitulo = document.getElementById('modal-titulo');
+    const modalDesc = document.getElementById('modal-descripcion');
+    const btnCerrar = document.getElementById('modal-cerrar');
+
+    paises.forEach(pais => {
+        pais.addEventListener('click', () => {
+            modalTitulo.textContent = pais.dataset.titulo;
+            modalDesc.textContent = pais.dataset.desc;
+            overlay.style.display = 'flex';
+        });
+    });
+
+    btnCerrar.addEventListener('click', () => {
+        overlay.style.display = 'none';
+    });
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.style.display = 'none';
+        }
+    });
+
+    // Drag and drop game
+    const arrastrables = document.querySelectorAll('.paso-arrastrable');
+    const destinos = document.querySelectorAll('.destino');
+    const operacionTexto = document.getElementById('operacion-texto');
+
+    arrastrables.forEach(arrastrable => {
+        arrastrable.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', arrastrable.dataset.paso);
+            setTimeout(() => {
+                arrastrable.classList.add('dragging');
+            }, 0);
+        });
+
+        arrastrable.addEventListener('dragend', () => {
+            arrastrable.classList.remove('dragging');
+        });
+    });
+
+    destinos.forEach(destino => {
+        destino.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const arrastrando = document.querySelector('.paso-arrastrable.dragging');
+            if (arrastrando) {
+                destino.classList.add('hovered');
+            }
+        });
+
+        destino.addEventListener('dragleave', () => {
+            destino.classList.remove('hovered');
+        });
+
+        destino.addEventListener('drop', (e) => {
+            e.preventDefault();
+            destino.classList.remove('hovered');
+            const pasoArrastrado = e.dataTransfer.getData('text/plain');
+            const pasoCorrecto = destino.dataset.pasoCorrecto;
+
+            if (pasoArrastrado === pasoCorrecto) {
+                const elementoArrastrado = document.querySelector(`[data-paso="${pasoArrastrado}"]`);
+                destino.appendChild(elementoArrastrado);
+                destino.classList.add('correcta');
+                elementoArrastrado.style.cursor = 'default';
+                elementoArrastrado.draggable = false;
+            } else {
+                alert("Oops! That's not the right place. Try again!");
+            }
+        });
+    });
+
+    document.getElementById('verificar-btn').addEventListener('click', verificar);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        cargarEjercicio();
+    });
+</script>
+
+</body>
+</html>

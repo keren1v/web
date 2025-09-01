@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+<link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style2.css" />
+</head>
+<body> <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+  <video width="100%" height="50%"  autoplay muted loop>
+  <source src="img/English Adults.mp4" type="video/mp4">
+ 
+</video>
+
+      <div id="modal-pago" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <!-- Using a placeholder for the logo -->
+            <img src="img/logo_expo.png" class="modal-logo" style="margin-left: 10px;">
+            <h3>Unlock This Lesson</h3>
+            <p>This lesson is part of our premium content. Unlock all courses and special features by choosing a plan that fits you best!</p>
+            <a href="planfinanciero.html">
+                <button class="btn-planes">View Plans</button>
+            </a>
+        </div>
+    </div>
+  
+
+  <!-- Temas -->
+  <main class="ingles-temas">
+    <h2 class="ingles-titulo">Course Topics</h2>
+
+    <div class="ingles-grid">
+      <div class="ingles-box">
+        <img src="https://www.thoughtco.com/thmb/iDu_J_-qUcbZ54AmNEamf7qo0XI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-172586163-1--57220a043df78c5640d10a43.jpg" alt="">
+        <h3>Greetings and Introductions</h3>
+        <p>Learn to introduce yourself, greet others, ask basic questions, and talk about yourself.</p>
+        <a href="lecionesingles.html" class="btn-explorar">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="img/adults2.png" alt="">
+        <h3>Essential Vocabulary</h3>
+        <p>Key words and phrases for communicating in everyday situations.</p>
+        <a onclick="openpap()" class="btn-explorar">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="https://bridge.edu/tefl/blog/wp-content/uploads/2025/03/Trends-in-Business-English-and-Corporate-Language-Training-featured-image-1.jpg" alt="">
+        <h3>English for Work</h3>
+        <p>Common phrases in meetings, interviews, emails, and customer service.</p>
+        <a onclick="openpap()" class="btn-explorar">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="img/aduls.png" alt="">
+        <h3>Basic Grammar</h3>
+        <p>Learn basic structures to form sentences clearly and correctly.</p>
+        <a onclick="openpap()" class="btn-explorar">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="https://pronounce.com/app/uploads/2022/07/woman-using-pronounce-headset.jpg" alt="">
+        <h3>Listening and Pronunciation</h3>
+        <p>Improve your listening comprehension and learn to pronounce with confidence.</p>
+        <a onclick="openpap()" class="btn-explorar">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="https://www.shutterstock.com/image-photo/side-view-cheerful-excited-young-260nw-1806801244.jpg" alt="">
+        <h3>Basic conversation</h3>
+        <p>Practice simple dialogues to communicate confidently in common situations.</p>
+        <a onclick="openpap()" class="btn-explorar">Explore more</a>
+      </div>
+    </div>
+
+    <!-- Enlace al final -->
+    <div class="volver-adultos">
+      <a href="bienvenida.html" class="link-volver">←Return to the previous section</a>
+    </div>
+
+  </main>
+ <footer class="footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-brand">
+            <h3 class="footer-logo">LearnSphere</h3>
+            <p class="footer-tagline">Your path to knowledge.</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="img/whassap.jpg"></a>
+                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+        <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+<script>
+      // Function to show the payment modal
+        function openpap() {
+            const modal = document.getElementById('modal-pago');
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('activo');
+            }, 10);
+        }
+   const closeModalBtn = document.querySelector('.cerrar-modal');
+    const modal = document.getElementById('modal-pago');
+    closeModalBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modal.classList.remove('activo');
+    });
+;
+</script>
+</body>
+</html>

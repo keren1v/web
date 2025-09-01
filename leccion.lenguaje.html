@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" />
+    <style>
+        /* Variables de color y tipografía */
+        :root {
+            --color-principal-morado: #6A1B9A;
+            --color-secundario-morado: #9C27B0;
+            --color-fondo-oscuro: #4A148C;
+            --color-fondo-claro: #FFFFFF;
+            --color-texto-claro: #FFF;
+            --color-texto-oscuro: #333;
+            --color-acierto: #4CAF50;
+            --color-error: #F44336;
+        }
+
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, var(--color-fondo-claro), #f0f0f0);
+            color: var(--color-texto-oscuro);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Contenedor principal de la lección */
+        .leccion-lenguaje {
+            text-align: center;
+            padding: 3rem 1rem;
+            flex-grow: 1;
+        }
+
+        /* Título principal con animación de pulso */
+        .titulo-leccion {
+            font-size: clamp(2rem, 8vw, 3.5rem); /* Título responsivo */
+            color: var(--color-fondo-oscuro);
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* Descripción introductoria */
+        .descripcion-leccion {
+            font-size: clamp(1rem, 4vw, 1.4rem);
+            margin-bottom: 2rem;
+            color: var(--color-texto-oscuro);
+        }
+
+        /* Contenido del encabezado (mascota y texto) */
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+
+        .header-content-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .header-content-inner {
+                flex-direction: row;
+            }
+        }
+
+        /* Contenedor de la mascota con animación */
+        .mascot-container {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+            order: 1;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .mascot-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Estilos para los géneros de cuentos */
+        .storybook-genres {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .genre {
+            background: linear-gradient(145deg, #f8f8f8, #e0e0e0);
+            border: 2px solid var(--color-secundario-morado);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .genre:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .genre-icon {
+            width: 100%;
+            height: 110px;
+            margin-bottom: 1rem;
+            border-radius: 25px;
+            transition: transform 0.5s ease-in-out;
+            border: 3px solid var(--color-principal-morado);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .genre:hover .genre-icon {
+            transform: scale(1.1);
+        }
+
+        .genre h3 {
+            color: var(--color-fondo-oscuro);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Estilos para el modal y la caja de mensajes */
+        .modal-overlay, .message-box-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal, .message-box {
+            background: var(--color-fondo-claro);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transform: scale(0.95);
+            animation: pop-up 0.3s forwards;
+        }
+        
+        .message-box {
+            background: linear-gradient(to bottom, #fff, #f0f0f0);
+            border: 2px solid var(--color-secundario-morado);
+        }
+
+        @keyframes pop-up {
+            to { transform: scale(1); }
+        }
+
+        .modal h3, .message-box h3 {
+            margin-bottom: 1rem;
+            color: var(--color-principal-morado);
+            font-size: 2rem;
+        }
+
+        .modal p, .message-box p {
+            margin-bottom: 1.5rem;
+            color: var(--color-texto-oscuro);
+            font-size: 1.1rem;
+        }
+
+        .modal button, .message-box button {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 9999px;
+            background-color: var(--color-principal-morado);
+            color: var(--color-texto-claro);
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .modal button:hover, .message-box button:hover {
+            background-color: var(--color-fondo-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* Estilos de las secciones de contenido */
+        .seccion-adicional {
+            margin-top: 4rem;
+            background-color: #f8f8f8;
+            padding: 3rem;
+            border-radius: 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 2px dashed var(--color-secundario-morado);
+        }
+
+        .comprension-lectora-section {
+            padding: 2rem;
+            border-radius: 1.5rem;
+            background-color: #f0f0f0;
+            border: 2px solid var(--color-secundario-morado);
+        }
+
+        .comprension-lectora-section h3 {
+            color: var(--color-principal-morado);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .texto-lectura {
+            text-align: left;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--color-fondo-claro);
+            border-radius: 1rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .pregunta-comprension {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .pregunta-comprension p {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: var(--color-fondo-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        /* Botones de opciones con animaciones */
+        .opciones button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.8rem 1.5rem;
+            margin-bottom: 0.8rem;
+            border: 2px solid var(--color-secundario-morado);
+            border-radius: 9999px;
+            background-color: var(--color-fondo-claro);
+            color: var(--color-texto-oscuro);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .opciones button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .opciones button.correcta {
+            background-color: var(--color-acierto);
+            color: var(--color-texto-claro);
+            border-color: var(--color-acierto);
+            animation: pop-in 0.3s forwards;
+            box-shadow: 0 4px 10px var(--color-acierto);
+        }
+
+        .opciones button.incorrecta {
+            background-color: var(--color-error);
+            color: var(--color-texto-claro);
+            border-color: var(--color-error);
+            animation: shake 0.5s;
+            box-shadow: 0 4px 10px var(--color-error);
+        }
+        
+        @keyframes pop-in {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+        /* Contenedor del juego de arrastrar y soltar */
+        .juego-ordenar {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(160deg, #f0f0f0, #e9e9e9);
+            border-radius: 1.5rem;
+            border: 2px dashed var(--color-secundario-morado);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .contenedor-pasos {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            min-height: 60px;
+        }
+        
+        .paso-arrastrable {
+            background-color: var(--color-secundario-morado);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 1.5rem;
+            cursor: grab;
+            transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .paso-arrastrable:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+        }
+        
+        .paso-arrastrable.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+        
+        .contenedor-destinos {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .destino {
+            width: 150px;
+            height: 80px;
+            border: 2px dashed var(--color-principal-morado);
+            border-radius: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            background-color: #e9e9e9;
+            padding: 0.5rem;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        
+        .destino p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .destino.hovered {
+            background-color: #ce93d8;
+            border-color: var(--color-secundario-morado);
+            transform: scale(1.05);
+        }
+        
+        .destino.correcta {
+            background-color: var(--color-acierto);
+            color: white;
+            border-style: solid;
+            animation: bounce 0.5s;
+        }
+        
+        .footer {
+            background-color: var(--color-fondo-oscuro);
+            color: var(--color-texto-claro);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<section class="leccion-lenguaje">
+    <h2 class="titulo-leccion">📚 Language Academy 📖</h2>
+
+    <div class="header-content">
+        <div class="header-content-inner">
+            <div class="mascot-container">
+                <img src="img/ChatGPT Image 17 ago 2025, 11_25_43.png" alt="Language Mascot" />
+            </div>
+            <div class="intro-text">
+                <p class="descripcion-leccion">¡Hola! Sumérgete en el maravilloso mundo de las palabras y las historias. Hoy practicaremos la comprensión lectora para que te conviertas en un experto. ¡A leer! 🚀</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="storybook-genres">
+        <div class="genre" data-title="✨ Fantasía" data-desc="Las historias de fantasía te llevan a mundos mágicos con valientes caballeros, sabios magos y dragones voladores.">
+            <img src="img/Fantasy.jpg" alt="Fantasy Icon" class="genre-icon" />
+            <h3>Fantasía</h3>
+            <p>¡Magia y aventuras!</p>
+        </div>
+        <div class="genre" data-title="🕵️‍♂️ Misterio" data-desc="¡Los libros de misterio son como acertijos! Tienes que buscar pistas para resolver un secreto o descubrir quién lo hizo.">
+            <img src="img/misterio.jpg" alt="Mystery Icon" class="genre-icon" />
+            <h3>Misterio</h3>
+            <p>¡Resuelve el acertijo!</p>
+        </div>
+        <div class="genre" data-title="😂 Comedia" data-desc="¡La comedia es para divertirse! Estos libros están llenos de personajes graciosos y situaciones tontas que te harán reír.">
+            <img src="img/Comedy.jpg" alt="Comedy Icon" class="genre-icon" />
+            <h3>Comedia</h3>
+            <p>¡Ríe y lee!</p>
+        </div>
+    </div>
+
+    <!-- Modal para información del género -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal">
+            <h3 id="modal-titulo"></h3>
+            <p id="modal-descripcion"></p>
+            <button id="modal-cerrar">Cerrar</button>
+        </div>
+    </div>
+    
+    <!-- Caja de mensajes personalizada -->
+    <div class="message-box-overlay" id="message-box-overlay">
+        <div class="message-box" id="message-box">
+            <h3 id="message-box-title"></h3>
+            <p id="message-box-text"></p>
+            <button id="message-box-button">OK</button>
+        </div>
+    </div>
+
+    <div class="seccion-adicional">
+        <div class="comprension-lectora-section">
+            <h3 id="titulo-lectura">Cuento del Día: El Mago del Bosque 🌳</h3>
+            <div class="texto-lectura">
+                <p>En lo profundo de un bosque encantado vivía un viejo mago llamado Elio. Elio no usaba varitas mágicas; él creaba su magia con palabras. Cada mañana, escribía en un libro gigante que brillaba con luz propia. Las palabras que escribía se convertían en criaturas del bosque: si escribía "mariposa", una mariposa de colores brillantes salía volando de la página. Si escribía "río", un pequeño arroyo comenzaba a fluir entre los árboles. Los animales del bosque lo querían mucho, porque Elio siempre escribía palabras de amabilidad y alegría, haciendo del bosque un lugar feliz para todos.</p>
+            </div>
+            
+            <div id="ejercicios-container">
+            </div>
+            
+            <div class="respuesta-feedback" id="feedback"></div>
+        </div>
+    </div>
+
+    <div class="seccion-adicional juego-ordenar">
+        <h2>🎮 Juego Interactivo: Ordena la Historia</h2>
+        <p>¡Arrastra y suelta los eventos en el orden correcto en que sucedieron en el cuento!</p>
+        <div class="contenedor-pasos" id="pasos-arrastrables">
+            <div class="paso-arrastrable" draggable="true" data-paso="2">Los animales querían a Elio.</div>
+            <div class="paso-arrastrable" draggable="true" data-paso="1">Elio escribía en su libro.</div>
+            <div class="paso-arrastrable" draggable="true" data-paso="3">Escribía palabras de alegría y amabilidad.</div>
+        </div>
+        <div class="contenedor-destinos" id="contenedor-destinos">
+            <div class="destino" data-paso-correcto="1">
+                <p>Primer Evento</p>
+            </div>
+            <div class="destino" data-paso-correcto="2">
+                <p>Segundo Evento</p>
+            </div>
+            <div class="destino" data-paso-correcto="3">
+                <p>Tercer Evento</p>
+            </div>
+        </div>
+    </div>
+</section>
+ <footer class="footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-brand">
+            <h3 class="footer-logo">LearnSphere</h3>
+            <p class="footer-tagline">Your path to knowledge.</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="img/whassap.jpg"></a>
+                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+        <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+<script>
+    // Función para mostrar la caja de mensajes personalizada
+    function showMessageBox(title, message, isSuccess = true) {
+        const messageBoxOverlay = document.getElementById('message-box-overlay');
+        const messageBoxTitle = document.getElementById('message-box-title');
+        const messageBoxText = document.getElementById('message-box-text');
+
+        messageBoxTitle.textContent = title;
+        messageBoxText.textContent = message;
+
+        // Cambia el color del título según el resultado (éxito o error)
+        messageBoxTitle.style.color = isSuccess ? 'var(--color-acierto)' : 'var(--color-error)';
+
+        messageBoxOverlay.style.display = 'flex';
+    }
+
+    // Event listener para el botón de la caja de mensajes
+    document.getElementById('message-box-button').addEventListener('click', () => {
+        document.getElementById('message-box-overlay').style.display = 'none';
+    });
+    
+    // Datos de los ejercicios de comprensión lectora
+    const ejercicios = [
+        {
+            pregunta: "¿Cómo hacía magia el mago Elio?",
+            opciones: [
+                { texto: "Con una varita mágica.", correcta: false },
+                { texto: "Con palabras que escribía en un libro.", correcta: true },
+                { texto: "Cantando canciones.", correcta: false },
+                { texto: "Usando polvo de hadas.", correcta: false }
+            ]
+        },
+        {
+            pregunta: "¿Qué pasaba cuando Elio escribía la palabra 'mariposa'?",
+            opciones: [
+                { texto: "El libro se cerraba.", correcta: false },
+                { texto: "Crecía un árbol.", correcta: false },
+                { texto: "Una mariposa de colores brillantes salía volando de la página.", correcta: true },
+                { texto: "Empezaba a llover.", correcta: false }
+            ]
+        },
+        {
+            pregunta: "¿Por qué los animales del bosque querían tanto a Elio?",
+            opciones: [
+                { texto: "Porque les daba comida.", correcta: false },
+                { texto: "Porque les construía casas.", correcta: false },
+                { texto: "Porque siempre escribía palabras de amabilidad y alegría.", correcta: true },
+                { texto: "Porque les contaba chistes.", correcta: false }
+            ]
+        }
+    ];
+
+    let ejercicioActual = 0;
+    let aciertos = 0;
+    const ejerciciosContainer = document.getElementById('ejercicios-container');
+    const feedbackDiv = document.getElementById('feedback');
+
+    // Crea un ejercicio en el DOM
+    function crearEjercicio(ejercicio) {
+        const divPregunta = document.createElement('div');
+        divPregunta.classList.add('pregunta-comprension');
+        divPregunta.innerHTML = `<p>${ejercicio.pregunta}</p>`;
+        
+        const divOpciones = document.createElement('div');
+        divOpciones.classList.add('opciones');
+
+        ejercicio.opciones.forEach(opcion => {
+            const boton = document.createElement('button');
+            boton.textContent = opcion.texto;
+            boton.dataset.correcta = opcion.correcta;
+            boton.addEventListener('click', () => verificarRespuesta(boton, opcion.correcta));
+            divOpciones.appendChild(boton);
+        });
+
+        divPregunta.appendChild(divOpciones);
+        ejerciciosContainer.appendChild(divPregunta);
+    }
+
+    // Verifica si la respuesta es correcta y actualiza la UI
+    function verificarRespuesta(botonClicado, esCorrecta) {
+        const botones = botonClicado.parentElement.querySelectorAll('button');
+        botones.forEach(btn => {
+            btn.disabled = true;
+            if (btn === botonClicado) {
+                if (esCorrecta) {
+                    btn.classList.add('correcta');
+                } else {
+                    btn.classList.add('incorrecta');
+                }
+            } else if (btn.dataset.correcta === 'true') {
+                btn.classList.add('correcta');
+            }
+        });
+
+        if (esCorrecta) {
+            aciertos++;
+        }
+
+        setTimeout(() => {
+            const allQuestionsAnswered = ejercicios.every((_, index) => {
+                const container = ejerciciosContainer.children[index];
+                return container.querySelector('.opciones button.correcta, .opciones button.incorrecta');
+            });
+
+            if (allQuestionsAnswered) {
+                mostrarMensajeFinal();
+            }
+        }, 1000);
+    }
+
+    // Muestra el mensaje final del quiz
+    function mostrarMensajeFinal() {
+        const totalEjercicios = ejercicios.length;
+        const mensaje = `¡Obtuviste ${aciertos} de ${totalEjercicios} respuestas correctas!`;
+        const titulo = aciertos === totalEjercicios ? "🎉 ¡Puntuación Perfecta! 🎉" : "✨ ¡Ejercicios Terminados! ✨";
+        const isSuccess = aciertos === totalEjercicios;
+        showMessageBox(titulo, mensaje, isSuccess);
+        
+        feedbackDiv.innerHTML = `🎉 ¡Ejercicios Terminados! Obtuviste **${aciertos} de ${ejercicios.length}** respuestas correctas. ¡Eres un gran lector! 👏`;
+        feedbackDiv.style.color = isSuccess ? "var(--color-acierto)" : "var(--color-fondo-oscuro)";
+    }
+
+    // Lógica para el modal de información de géneros
+    const genres = document.querySelectorAll('.genre');
+    const overlay = document.getElementById('modal-overlay');
+    const modalTitulo = document.getElementById('modal-titulo');
+    const modalDesc = document.getElementById('modal-descripcion');
+    const btnCerrar = document.getElementById('modal-cerrar');
+
+    genres.forEach(genre => {
+        genre.addEventListener('click', () => {
+            modalTitulo.textContent = genre.dataset.title;
+            modalDesc.textContent = genre.dataset.desc;
+            overlay.style.display = 'flex';
+        });
+    });
+
+    btnCerrar.addEventListener('click', () => {
+        overlay.style.display = 'none';
+    });
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.style.display = 'none';
+        }
+    });
+
+    // Lógica del juego de arrastrar y soltar
+    const arrastrables = document.querySelectorAll('.paso-arrastrable');
+    const destinos = document.querySelectorAll('.destino');
+
+    arrastrables.forEach(arrastrable => {
+        arrastrable.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', arrastrable.dataset.paso);
+            setTimeout(() => {
+                arrastrable.classList.add('dragging');
+            }, 0);
+        });
+
+        arrastrable.addEventListener('dragend', () => {
+            arrastrable.classList.remove('dragging');
+            const allPlacedCorrectly = Array.from(destinos).every(dest => dest.querySelector('.paso-arrastrable') && dest.classList.contains('correcta'));
+            if (allPlacedCorrectly) {
+                showMessageBox("🎉 ¡Excelente Trabajo!", "¡Ordenaste la historia correctamente!");
+            }
+        });
+    });
+
+    destinos.forEach(destino => {
+        destino.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const arrastrando = document.querySelector('.paso-arrastrable.dragging');
+            if (arrastrando && destino.childElementCount === 1) {
+                destino.classList.add('hovered');
+            }
+        });
+
+        destino.addEventListener('dragleave', () => {
+            destino.classList.remove('hovered');
+        });
+
+        destino.addEventListener('drop', (e) => {
+            e.preventDefault();
+            destino.classList.remove('hovered');
+            const pasoArrastrado = e.dataTransfer.getData('text/plain');
+            const pasoCorrecto = destino.dataset.pasoCorrecto;
+            
+            const elementoArrastrado = document.querySelector(`.paso-arrastrable[data-paso="${pasoArrastrado}"]`);
+
+            if (pasoArrastrado === pasoCorrecto) {
+                destino.innerHTML = '';
+                destino.appendChild(elementoArrastrado);
+                destino.classList.add('correcta');
+                elementoArrastrado.style.cursor = 'default';
+                elementoArrastrado.draggable = false;
+            } else {
+                showMessageBox("❌ ¡Oh, no!", "Ese no es el lugar correcto. ¡Intenta de nuevo!", false);
+            }
+        });
+    });
+
+    // Inicializa los ejercicios al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+        ejercicios.forEach(ej => crearEjercicio(ej));
+    });
+</script>
+
+</body>
+</html>

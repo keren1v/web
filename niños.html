@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/Niños.css">
+</head>
+<body>
+ <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+  <li class="login-card" id="login-card">
+    <a href="#" id="login-btn">
+        <span id="login-initials"></span>
+        <span id="login-full-name">Login/Sign Up</span>
+    </a>
+</li>
+<div id="login-popup" class="popup-container">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2 class="popup-title">Welcome to LearnSphere</h2>
+        
+        <div class="form-tabs">
+            <button class="tab-link active" onclick="openTab(event, 'login')">Login</button>
+            <button class="tab-link" onclick="openTab(event, 'signup')">Sign Up</button>
+        </div>
+
+        <div id="login" class="tab-content active">
+            <form id="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <a href="niños.html"><button type="submit" class="left">Log In</button></a>
+            </form>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+
+        <div id="signup" class="tab-content">
+            <form id="signup-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit" class="left">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+    <main class="contenido-principal">
+        <div class="seccion-texto-principal">
+            <h1 class="titulo-principal">
+                Where <span class="texto-morado-principal">Learning</span> Becomes an <span class="texto-morado-principal">Adventure</span>
+            </h1>
+            <p class="subtitulo-principal">
+                Loved by millions of children and families. Fun and free education for everyone!
+            </p>
+        </div>
+
+        <div class="seccion-qr">
+            <p class="titulo-qr">
+                Start with Our Educational web!
+            </p>
+            <div class="contenedor-imagen-qr">
+                <img src="img/ChatGPT Image 21 jul 2025, 06_11_59.png" alt="QR code to download the application" class="imagen-qr">
+            </div>
+            
+        </div>
+    </main>
+
+    <section class="seccion-galeria">
+        <div class="envoltorio-contenido-galeria">
+            <div class="contenido-texto-galeria">
+                <h2 class="titulo-principal-galeria">
+                    Keep <span class="texto-morado-principal">teachers</span>, <br> families and <br> <span class="texto-morado-principal">children</span> connected
+                </h2>
+                <p class="subtitulo-galeria">
+                    Create an educational community where everyone participates and grows together.
+                </p>
+            </div>
+
+            <div class="envoltorio-imagen-galeria img-superior-izquierda">
+                <img src="img/expo3.jpg" alt="Child reading a book" class="imagen-galeria">
+            </div>
+            <div class="envoltorio-imagen-galeria img-superior-derecha">
+                <img src="img/maestra.jfif" alt="Teacher teaching children" class="imagen-galeria">
+            </div>
+            <div class="envoltorio-imagen-galeria img-media-izquierda">
+                <img src="img/pexels-emily-ranquist-493228-1205651.jpg" alt="Parent and child learning" class="imagen-galeria">
+            </div>
+            <div class="envoltorio-imagen-galeria img-media-derecha">
+                <img src="img/pexels-lina-1741230.jpg" alt="Children playing outdoors" class="imagen-galeria">
+            </div>
+        </div>
+    </section>
+
+     <a href="matematica.html" style="color: white;"><div class="cards">
+        <div class="card">
+            <img src="https://img.icons8.com/color/96/000000/calculator.png" alt="Math">
+            <h4 ">Math</h4>
+            <p ">Explore numbers and solve fun challenges.</p>
+        </div></a>
+        <a href="lenguaje.html" style="color: white;"><div class="card">
+            <img src="https://img.icons8.com/color/96/000000/book.png" alt="Language">
+            <h4>Language</h4>
+            <p>Read stories and improve your writing with interactive activities.</p>
+        </div></a>
+        <a href="sociales.html" style="color: white;"><div class="card">
+            <img src="https://img.icons8.com/color/96/000000/globe.png" alt="Social Studies">
+            <h4>Social Studies</h4>
+            <p>Learn about the world around you and how to be a good citizen.</p>
+        </div></a>
+        <a href="ciencia.html" style="color: white;"><div class="card">
+            <img src="https://img.icons8.com/color/96/000000/microscope.png" alt="Science">
+            <h4>Science</h4>
+            <p>Experiment and discover the secrets of nature.</p>
+        </div></a>
+        <a href="materias.html" style="color: white;"><div class="card">
+            <img src="https://img.icons8.com/color/96/000000/usa.png" alt="English">
+            <h4>English</h4>
+            <p>Learn English by playing and chatting with fun characters.</p>
+        </div></a>
+    </div>
+</section>
+<section class="seccion-animada-scroll">
+        <h2 class="titulo-seccion-animada">
+            Our Learning Journey
+        </h2>
+        <div class="contenedor-bloques-animados">
+          
+            <div class="bloque-animado izquierda">
+                <div class="contenido-texto">
+                    <h3 class="titulo-bloque-animado">Discover New Worlds!</h3>
+                    <p class="parrafo-bloque-animado">
+                        Every day is an adventure. Explore fascinating facts about animals, plants, and the universe. Learning is endless!
+                    </p>
+                    <a href="ciencia.html" class="boton-explorar">Explore Sciences</a>
+                </div>
+                <img src="img/pexels-mikhail-nilov-8923566.jpg" alt="Kids exploring the world" class="imagen-bloque">
+            </div>
+
+            
+            <div class="bloque-animado derecha">
+                <div class="contenido-texto">
+                    <h3 class="titulo-bloque-animado">Solve Fun Puzzles!</h3>
+                    <p class="parrafo-bloque-animado">
+                        Numbers are our friends! Play exciting games that make math easy and fun. Challenge your mind!
+                    </p>
+                    <a href="matematica.html" class="boton-explorar">Play Math Games</a>
+                </div>
+                 <img src="img/pexels-mikhail-nilov-8923956.jpg" alt="Child solving math puzzles" class="imagen-bloque">
+            </div>
+
+            <div class="bloque-animado derecha">
+                <img src="img/pexels-vika-glitter-392079-9334546.jpg" alt="Child solving math puzzles" class="imagen-bloque">
+                <div class="contenido-texto">
+                    <h3 class="titulo-bloque-animado">Solve Fun Puzzles!</h3>
+                    <p class="parrafo-bloque-animado">
+                        Numbers are our friends! Play exciting games that make math easy and fun. Challenge your mind!
+                    </p>
+                    <a href="matematica.html" class="boton-explorar">Play Math Games</a>
+                </div>
+            </div>
+
+            
+            <div class="bloque-animado izquierda">
+                  <img src="img/pexels-ann-h-45017-32392305.jpg" alt="Child writing a story" class="imagen-bloque">
+                <div class="contenido-texto">
+                    <h3 class="titulo-bloque-animado">Create Amazing Stories!</h3>
+                    <p class="parrafo-bloque-animado">
+                        Unleash your imagination! Learn to read, write, and tell incredible stories. Every word is a magic spell.
+                    </p>
+                    <a href="lenguaje.html" class="boton-explorar">Write Stories</a>
+                </div>
+            </div>
+
+          
+            <div class="bloque-animado derecha">
+                <img src="img/pexels-artempodrez-6990460.jpg" alt="Diverse kids learning languages" class="imagen-bloque">
+                <div class="contenido-texto">
+                    <h3 class="titulo-bloque-animado">Become a Language Master!</h3>
+                    <p class="parrafo-bloque-animado">
+                        Say hello to new languages! Learn English with fun songs, games, and activities. The world is waiting!
+                    </p>
+                    <a href="materias.html" class="boton-explorar">Learn English</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-chat">
+        <div class="contenedor-chat-simulado">
+            <div class="burbuja-chat" style="margin-top: 20px;">
+                <img src="https://placehold.co/40x40/FFDDC1/5A32A3?text=M" alt="Avatar Marta" class="avatar-chat" style="top: -10px; left: -10px;">
+                <p class="nombre-usuario">Marta - Parent of Alberto</p>
+                <p class="mensaje-chat">Alberto is about to lose a tooth. It's likely to fall out in class!</p>
+                <p class="info-chat">Translation from Spanish</p>
+            </div>
+
+            <div class="burbuja-chat" style="margin-top: 20px;">
+                <img src="https://placehold.co/40x40/C1E1FF/5A32A3?text=T" alt="Avatar Teacher" class="avatar-chat" style="top: -10px; left: -10px;">
+                <p class="nombre-usuario">Teacher</p>
+                <p class="mensaje-chat">¡Gema has embroidered her presentation today!</p>
+                <p class="info-chat">Read 10/20</p>
+            </div>
+
+            <div class="burbuja-chat derecha" style="margin-top: 20px;">
+                <img src="https://placehold.co/40x40/C1FFC1/5A32A3?text=L" alt="Avatar Linda" class="avatar-chat" style="top: -10px; right: -10px;">
+                <p class="nombre-usuario">Linda - Mother of Gema</p>
+                <p class="mensaje-chat">We are very proud! She has been practicing a lot.</p>
+            </div>
+        </div>
+
+        <div class="contenedor-texto-chat">
+            <div class="icono-chat-principal">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 4rem; height: 4rem;">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2z"></path>
+                </svg>
+            </div>
+            <h2 class="titulo-chat">
+                Stay connected instantly
+            </h2>
+            <p class="parrafo-chat">
+                Messages make communication with teachers and families easy from anywhere, and they are automatically translated into more than 30 languages.
+            </p>
+        </div>
+    </section>
+ <footer class="footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-brand">
+            <h3 class="footer-logo">LearnSphere</h3>
+            <p class="footer-tagline">Your path to knowledge.</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="img/whassap.jpg"></a>
+                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+        <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // 2. Scroll Animations
+    const elementsToAnimate = document.querySelectorAll('.animate-up, .animate-left, .animate-right, .animated-block');
+
+    const animateOnScroll = () => {
+        const windowHeight = window.innerHeight;
+
+        elementsToAnimate.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 150) {
+                el.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll();
+
+    // 3. Funcionalidad de la barra de búsqueda
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+    const searchResultsContainer = document.getElementById('search-results');
+
+    // Mapeo de búsquedas a resultados
+    const searchMap = {
+        'kids': 'niños.html',
+        'teenagers': 'jovenes.html',
+        'adults': 'adultsbienvenida.html',
+        'about us': 'aboutus.html',
+        'home': 'Index.html',
+        'ingles': 'ingles.html',
+        'finance': 'finanzas.html',
+        'finanzas': 'finanzas.html',
+        'guidance': 'guidance.html',
+        'habitos': 'habitos.html',
+        'technology': 'technology.html',
+        'tecnologia': 'technology.html',
+        'leccion 1': 'leccion1.html',
+        'leccion de finanzas': 'leccionesfinance.html',
+        'leccion de guidance': 'leccionesguidance.html',
+        'leccion de tecnologia': 'leccionestechno.html',
+        'lecciones de ingles': 'leccionesingles.html',
+        'materias': 'materias.html',
+        'plan financiero': 'planfinanciero.html'
+    };
+
+    const performSearch = () => {
+        const query = searchInput.value.toLowerCase().trim();
+        searchResultsContainer.innerHTML = '';
+        searchResultsContainer.style.display = 'none';
+
+        if (searchMap[query]) {
+            window.location.href = searchMap[query];
+            return; // Detener la ejecución para evitar mostrar otros resultados
+        }
+
+        const results = Object.keys(searchMap).filter(key => key.includes(query));
+
+        if (results.length > 0) {
+            results.forEach(resultKey => {
+                const link = document.createElement('a');
+                link.href = searchMap[resultKey];
+                link.classList.add('search-result-item');
+                link.textContent = resultKey.charAt(0).toUpperCase() + resultKey.slice(1);
+                searchResultsContainer.appendChild(link);
+            });
+            searchResultsContainer.style.display = 'flex';
+        }
+    };
+
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
+
+    if (searchButton) {
+        searchButton.addEventListener('click', performSearch);
+    }
+
+    document.addEventListener('click', (event) => {
+        if (searchResultsContainer && searchInput) {
+            if (!searchResultsContainer.contains(event.target) && event.target !== searchInput && event.target !== searchButton) {
+                searchResultsContainer.style.display = 'none';
+            }
+        }
+    });
+});
+     document.addEventListener('DOMContentLoaded', function() {
+            const bloquesAnimados = document.querySelectorAll('.bloque-animado');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('activo');
+                    } else {
+                     
+                    }
+                });
+            }, observerOptions);
+
+            bloquesAnimados.forEach(bloque => {
+                observer.observe(bloque);
+            });
+        });
+
+         document.addEventListener('DOMContentLoaded', () => {
+        const loginBtn = document.getElementById('login-btn');
+        const popup = document.getElementById('login-popup');
+        const closeBtn = document.querySelector('.close-btn');
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        // Function to show the pop-up
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            popup.classList.add('show');
+        });
+
+        // Function to close the pop-up
+        closeBtn.addEventListener('click', () => {
+            popup.classList.remove('show');
+        });
+
+        // Close pop-up when clicking outside the content
+        window.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.classList.remove('show');
+            }
+        });
+
+        // Function to switch between tabs
+        window.openTab = function(evt, tabName) {
+            // Hide all tab contents
+            tabContents.forEach(tab => tab.classList.remove('active'));
+
+            // Remove 'active' class from all tab links
+            tabLinks.forEach(link => link.classList.remove('active'));
+
+            // Show the current tab content and add 'active' class to the clicked link
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Example form submission handling (for demonstration)
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Login form submitted!');
+            popup.classList.remove('show');
+        });
+
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Sign Up form submitted!');
+            popup.classList.remove('show');
+        });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+    // Referencias a los elementos
+    const loginBtn = document.getElementById('login-btn');
+    const popup = document.getElementById('login-popup');
+    const closeBtn = document.querySelector('.close-btn');
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    // Nuevas referencias para la lógica de sesión
+    const loginInitials = document.getElementById('login-initials');
+    const loginFullName = document.getElementById('login-full-name');
+    const loginCard = document.getElementById('login-card');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+
+    let minimizationTimer = null;
+
+    // Función para mostrar el pop-up
+    loginBtn.addEventListener('click', (e) => {
+        if (!loginCard.classList.contains('logged-in')) {
+            e.preventDefault();
+            popup.classList.add('show');
+        } else {
+            // Lógica para expandir/minimizar si ya ha iniciado sesión
+            e.preventDefault();
+            toggleCardSize();
+        }
+    });
+
+    // Función para expandir/minimizar la tarjeta
+    function toggleCardSize() {
+        loginCard.classList.toggle('minimized');
+        if (!loginCard.classList.contains('minimized')) {
+            startMinimizationTimer();
+        }
+    }
+
+    // Iniciar temporizador para encoger la tarjeta
+    function startMinimizationTimer() {
+        clearTimeout(minimizationTimer);
+        minimizationTimer = setTimeout(() => {
+            loginCard.classList.add('minimized');
+        }, 3000);
+    }
+    
+    // Función para cerrar el pop-up
+    closeBtn.addEventListener('click', () => {
+        popup.classList.remove('show');
+    });
+
+    // Cierra el pop-up al hacer clic fuera del contenido
+    window.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.classList.remove('show');
+        }
+    });
+
+    // Función para cambiar de pestaña
+    window.openTab = function(evt, tabName) {
+        tabContents.forEach(tab => tab.classList.remove('active'));
+        tabLinks.forEach(link => link.classList.remove('active'));
+        document.getElementById(tabName).classList.add('active');
+        evt.currentTarget.classList.add('active');
+    }
+
+    // Lógica para manejar el inicio de sesión
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = loginForm.querySelector('input[type="email"]').value;
+        localStorage.setItem('userEmail', email);
+        updateLoginStatus();
+        alert('¡Inicio de sesión exitoso!');
+        popup.classList.remove('show');
+    });
+
+    // Lógica para manejar el registro
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = signupForm.querySelector('input[type="email"]').value;
+        localStorage.setItem('userEmail', email);
+        updateLoginStatus();
+        alert('¡Registro exitoso!');
+        popup.classList.remove('show');
+    });
+
+    // --- Lógica principal para verificar el estado de la sesión ---
+    function updateLoginStatus() {
+        const userEmail = localStorage.getItem('userEmail');
+        if (userEmail) {
+            const username = userEmail.split('@')[0];
+            const nameParts = username.split(/[\s.-]+/); // Divide por espacios, puntos o guiones
+            let initials = '';
+            if (nameParts.length > 1) {
+                initials = `${nameParts[0].charAt(0)}${nameParts[1].charAt(0)}`;
+            } else {
+                initials = nameParts[0].substring(0, 2);
+            }
+            initials = initials.toUpperCase();
+
+            loginFullName.textContent = `Welcome, ${username}!`;
+            loginInitials.textContent = initials;
+            
+            loginCard.classList.add('logged-in');
+            loginCard.classList.remove('minimized');
+            startMinimizationTimer();
+        } else {
+            loginFullName.textContent = 'Login/Sign Up';
+            loginInitials.textContent = '';
+            loginCard.classList.remove('logged-in');
+            loginCard.classList.remove('minimized');
+        }
+    }
+
+    // Llama a esta función al cargar la página para verificar el estado
+    updateLoginStatus();
+});
+</script>
+</body>
+</html>

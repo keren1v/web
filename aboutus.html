@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/aboutus.css">
+  <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+</head>
+<body>
+ <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+<section class="about-intro">
+  <div class="container">
+    <h2>About Us</h2>
+    <p>We are committed to making high-quality education accessible and inspiring for everyone.</p>
+  </div>
+</section>
+
+<section class="mission-vision">
+    <div class="container split">
+      <div class="block blue-bg">
+        <h3>Our Mission</h3>
+        <p>
+         Empower students, professionals, and lifelong learners through a dynamic and accessible platform that offers high-quality online education and skill development. We deliver certified content that supports personal and professional growth — anytime, anywhere.
+        </p>
+      </div>
+      <div class="block light-bg">
+        <h3>Our Vision</h3>
+        <p>
+          Become a leading global education platform recognized for innovation, inclusivity, and a strong commitment to lifelong learning. We strive to build a worldwide community where everyone can reach their full potential — regardless of language, location, or stage.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-text">
+          <h3>Why We Do It</h3>
+          <p>
+            LearnSphere exists to break down educational barriers. We believe that learning should be accessible, engaging, and tailored to help individuals reach their full potential.
+          </p>
+        </div>
+        <div class="why-image">
+          <img src="img/logo_expo.png" alt="Why LearnSphere">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="core-values">
+    <div class="container">
+      <h3>Our Core Values</h3>
+      <div class="values-grid">
+        <div class="value-card">
+          <img src="img/5.png" alt="Excellence Icon">
+          <h4>Excellence</h4>
+        </div>
+        <div class="value-card">
+          <img src="img/4.png" alt="Quality Icon">
+          <h4>Quality</h4>
+        </div>
+        <div class="value-card">
+          <img src="img/3.png" alt="Empathy Icon">
+          <h4>Empathy</h4>
+        </div>
+        <div class="value-card">
+          <img src="img/2.png" alt="Transparency Icon">
+          <h4>Transparency</h4>
+        </div>
+        <div class="value-card">
+          <img src="img/1.png" alt="Professionalism Icon">
+          <h4>Professionalism</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-brand">
+            <h3 class="footer-logo">LearnSphere</h3>
+            <p class="footer-tagline">Your path to knowledge.</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="img/whassap.jpg"></a>
+                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+        <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // 2. Scroll Animations
+    const elementsToAnimate = document.querySelectorAll('.animate-up, .animate-left, .animate-right, .animated-block');
+
+    const animateOnScroll = () => {
+        const windowHeight = window.innerHeight;
+
+        elementsToAnimate.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 150) {
+                el.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll();
+
+    // 3. Funcionalidad de la barra de búsqueda
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+    const searchResultsContainer = document.getElementById('search-results');
+
+    // Mapeo de búsquedas a resultados
+    const searchMap = {
+        'kids': 'niños.html',
+        'teenagers': 'jovenes.html',
+        'adults': 'adultsbienvenida.html',
+        'about us': 'aboutus.html',
+        'home': 'Index.html',
+        'ingles': 'ingles.html',
+        'finance': 'finanzas.html',
+        'finanzas': 'finanzas.html',
+        'guidance': 'guidance.html',
+        'habitos': 'habitos.html',
+        'technology': 'technology.html',
+        'tecnologia': 'technology.html',
+        'leccion 1': 'leccion1.html',
+        'leccion de finanzas': 'leccionesfinance.html',
+        'leccion de guidance': 'leccionesguidance.html',
+        'leccion de tecnologia': 'leccionestechno.html',
+        'lecciones de ingles': 'leccionesingles.html',
+        'materias': 'materias.html',
+        'plan financiero': 'planfinanciero.html'
+    };
+
+    const performSearch = () => {
+        const query = searchInput.value.toLowerCase().trim();
+        searchResultsContainer.innerHTML = '';
+        searchResultsContainer.style.display = 'none';
+
+        if (searchMap[query]) {
+            window.location.href = searchMap[query];
+            return; // Detener la ejecución para evitar mostrar otros resultados
+        }
+
+        const results = Object.keys(searchMap).filter(key => key.includes(query));
+
+        if (results.length > 0) {
+            results.forEach(resultKey => {
+                const link = document.createElement('a');
+                link.href = searchMap[resultKey];
+                link.classList.add('search-result-item');
+                link.textContent = resultKey.charAt(0).toUpperCase() + resultKey.slice(1);
+                searchResultsContainer.appendChild(link);
+            });
+            searchResultsContainer.style.display = 'flex';
+        }
+    };
+
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
+
+    if (searchButton) {
+        searchButton.addEventListener('click', performSearch);
+    }
+
+    document.addEventListener('click', (event) => {
+        if (searchResultsContainer && searchInput) {
+            if (!searchResultsContainer.contains(event.target) && event.target !== searchInput && event.target !== searchButton) {
+                searchResultsContainer.style.display = 'none';
+            }
+        }
+    });
+});
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <link rel="stylesheet" href="css/adolecentes.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+</head>
+<body>
+ <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+      <div id="modal-pago" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <!-- Using a placeholder for the logo -->
+            <img src="img/logo_expo.png" class="modal-logo" style="margin-left: 100px;">
+            <h3>Unlock This Lesson</h3>
+            <p>This lesson is part of our premium content. Unlock all courses and special features by choosing a plan that fits you best!</p>
+            <a href="planfinanciero.html">
+                <button class="btn-planes">View Plans</button>
+            </a>
+        </div>
+    </div>
+  
+  <video width="100%" height="50%" autoplay muted loop>
+    <source src="img/jovenes (4).mp4" type="video/mp4">
+  </video>
+
+  <main class="ingles-temas">
+    <h2 class="ingles-titulo">Course Topics</h2>
+
+    <div class="ingles-grid">
+      <div class="ingles-box">
+        <img src="img/fi2.png" alt="">
+        <h3>What is Money?</h3>
+        <p>Understand the origin, purpose, and role of money in our lives.</p>
+        <a href="leccionfinanzas.html" class="btn-explorar">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="img/fi3.jpg" alt="">
+        <h3>Saving and Budgeting</h3>
+        <p>Learn how to set savings goals and manage a personal budget.</p>
+        <a  class="btn-explorar" onclick="openpap()"">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="img/fi4.png" alt="">
+        <h3>Spending Wisely</h3>
+        <p>Make smart spending decisions and recognize needs vs. wants.</p>
+        <a class="btn-explorar" onclick="openpap()">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="img/empresario.jpg" alt="">
+        <h3>Understanding Debt</h3>
+        <p>What is credit? How does debt work? Learn how to borrow responsibly.</p>
+        <a href="debt.html" class="btn-explorar" onclick="openpap()">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="img/f1.webp" alt="">
+        <h3>Banking Basics</h3>
+        <p>Learn how to use a bank, open an account, and use a debit card safely.</p>
+        <a href="banking.html" class="btn-explorar" onclick="openpap()">Explore more</a>
+      </div>
+
+      <div class="ingles-box">
+        <img src="img/fi5.avif" alt="">
+        <h3>Investing for Beginners</h3>
+        <p>Discover how investments work and why starting early matters.</p>
+        <a href="investing.html" class="btn-explorar" onclick="openpap()">Explore more</a>
+      </div>
+    </div>
+  </main>
+
+  <section class="section-logos">
+    <div class="logos-grid">
+      <img src="img/v4.avif" alt="Global financial education" />
+    </div>
+    <div class="text-content">
+      <h2>Global Financial Literacy Content</h2>
+      <h3>Learn from leading financial experts worldwide</h3>
+      <p>
+        Access trusted, high-quality education and resources from top universities and financial institutions.
+      </p>
+      <ul>
+        <li>Learn from more than 20 leading business schools and financial advisors</li>
+        <li>Explore programs focused on personal finance and money management</li>
+        <li>Balance budgeting, saving, and investing skills</li>
+        <li>Earn certificates to showcase your financial knowledge</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-talent">
+    <div class="text-block">
+      <h2>Turn Your Financial Skills Into a Competitive Advantage</h2>
+      <p>Develop money management skills to build wealth, avoid debt, and plan for your future.</p>
+      <ul>
+        <li>Train with financial experts and successful entrepreneurs</li>
+        <li>Personalized learning paths powered by AI</li>
+        <li>Globally recognized financial certifications</li>
+        <li>Scalable and efficient learning solutions</li>
+      </ul>
+    </div>
+    <div class="image-block">
+      <img src="img/v3.png" alt="Financial education awareness" />
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="video-wrapper" id="videoContainer">
+      <img src="img/v1.webp" alt="Video tips on financial habits" id="videoPreview">
+      <div class="play-button" id="playButton">▶️</div>
+    </div>
+    <div class="video-text">
+      <h2>Why Financial Education Matters</h2>
+      <p>Teens across many countries share how financial literacy has helped them manage money, avoid debt, and plan their future with confidence.</p>
+      <p>Start your financial journey today with small habits that lead to big savings!</p>
+      <a href="#" class="btn">Learn more about financial literacy →</a>
+    </div>
+  </section>
+ <footer class="footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-brand">
+            <h3 class="footer-logo">LearnSphere</h3>
+            <p class="footer-tagline">Your path to knowledge.</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="img/whassap.jpg"></a>
+                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+        <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+  <script>
+     // Function to show the payment modal
+        function openpap() {
+            const modal = document.getElementById('modal-pago');
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('activo');
+            }, 10);
+        }
+   const closeModalBtn = document.querySelector('.cerrar-modal');
+    const modal = document.getElementById('modal-pago');
+    closeModalBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modal.classList.remove('activo');
+    });
+;
+
+  
+    document.getElementById("playButton").addEventListener("click", function () {
+      const container = document.getElementById("videoContainer");
+      container.innerHTML = `<iframe width="100%" height="315" src="https://www.youtube.com/embed/06LoQ2Zg8Y8"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>`;
+    });
+  
+   
+    document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+});
+
+  </script>
+
+<footer class="footer">
+  <div class="footer-content-wrapper">
+    <!-- Sección de Marca/Logo -->
+    <div class="footer-brand">
+      <div class="footer-logo">LearnSphere</div>
+      <div class="footer-tagline">Empowering your journey through learning.</div>
+      <div class="social-icons">
+        <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+      </div>
+    </div>
+
+    <!-- Sección de enlaces -->
+    <div class="footer-links-group">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Sección de contacto -->
+    <div class="footer-contact-info">
+      <h3>Contact Us</h3>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Learning St, City, Country</p>
+      <p><i class="fas fa-phone-alt"></i> +123 456 7890</p>
+      <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    &copy; 2025 LearnSphere. All Rights Reserved.
+    <div class="footer-legal-links">
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

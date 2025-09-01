@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+ <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+  <link rel="stylesheet" href="index.css" />
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+   <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li style="margin-left: 80px;"><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li ><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+   <li class="login-card" id="login-card">
+    <a href="#" id="login-btn">
+        <span id="login-initials"></span>
+        <span id="login-full-name">Login/Sign Up</span>
+    </a>
+</li>
+<div id="login-popup" class="popup-container">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2 class="popup-title">Welcome to LearnSphere</h2>
+        
+        <div class="form-tabs">
+            <button class="tab-link active" onclick="openTab(event, 'login')">Login</button>
+            <button class="tab-link" onclick="openTab(event, 'signup')" id="signup-tab-link">Sign Up</button>
+        </div>
+
+        <div id="login" class="tab-content active">
+            <form id="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <a href="niños.html"><button type="submit" class="left">Log In</button></a>
+            </form>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+
+        <div id="signup" class="tab-content">
+            <form id="signup-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit" class="left2">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+  <main class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to <span>LearnSphere</span></h1>
+      <p>A website specialized in learning, where people of all ages can access!</p>
+    </div>
+    <div class="hero-image">
+      <img src="img/ChatGPT Image 11 may 2025, 11_45_45.png" alt="LearnSphere Logo" />
+    </div>
+  </main>
+
+  <section class="description-section animate-up">
+    <div class="container">
+      <h2>What is LearnSphere?</h2>
+      <p>LearnSphere is an educational platform that offers accessible and modern online courses to help you acquire new skills or reinforce your academic or professional training, all from anywhere and at your own pace.</p>
+    </div>
+  </section>
+
+  <section class="offerings-section animate-left">
+    <div class="container">
+      <h2>What we offer</h2>
+      <div class="cards">
+        <div class="offer-card">
+          <i class="bi bi-journal-bookmark-fill icon"></i>
+          <h3>Wide catalog</h3>
+          <p>Technology, language, design, entrepreneurship, personal development courses and more.</p>
+        </div>
+        <div class="offer-card">
+          <i class="bi bi-laptop-fill icon"></i>
+          <h3>Learn from home</h3>
+          <p>Online classes, anytime and anywhere, from your cell phone or computer.</p>
+        </div>
+        <div class="offer-card">
+          <i class="bi bi-award-fill icon"></i>
+          <h3>Certifications</h3>
+          <p>Obtain certificates that validate your knowledge and strengthen your resume.</p>
+        </div>
+        <div class="offer-card">
+          <i class="bi bi-person-lines-fill icon"></i>
+          <h3>Personalized follow-up</h3>
+          <p>Plan your goals with the support of tutors and experts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-choose-section animate-right">
+    <div class="container">
+      <h2>Why choose LearnSphere?</h2>
+      <p>Because we offer you an educational experience tailored to your pace, with updated content and innovative tools. Our platform is designed to motivate you to keep learning, with constant support and an active community.</p>
+    </div>
+  </section>
+
+  <section class="impact-section">
+    <div class="container">
+      <h2>Growing Impact</h2>
+      <p>LearnSphere continues to grow with a diverse community of people passionate about learning and teaching. Here are the pillars that make all this possible:</p>
+      <div class="impact-icons">
+        <div class="impact-item">
+          <i class="fas fa-user-graduate"></i>
+          <h3>Students</h3>
+          <p>More than 10,000 students developing useful and applicable skills.</p>
+        </div>
+        <div class="impact-item">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <h3>Tutors</h3>
+          <p>Teachers and experts sharing knowledge in dynamic environments.</p>
+        </div>
+        <div class="impact-item">
+          <i class="fas fa-globe"></i>
+          <h3>Global Access</h3>
+          <p>Platform accessible from anywhere in the world, without barriers.</p>
+        </div>
+        <div class="impact-item">
+          <i class="fas fa-award"></i>
+          <h3>Certifications</h3>
+          <p>Recognition of progress and achievements with verifiable certificates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="explore-images-section animate-up">
+    <div class="container">
+      <h2>Discover a new way to learn</h2>
+      <div class="explore-cards">
+        <div class="explore-card">
+          <img src="img/aprendizajeyes.jpg" alt="Interactive learning">
+          <h3>Interactive Learning</h3>
+        </div>
+        <div class="explore-card">
+          <img src="img/2imagen.jpg" alt="Track progress">
+          <h3>Track Your Progress</h3>
+        </div>
+        <div class="explore-card">
+          <img src="https://www.harrowhongkong.hk/his/wp-content/uploads/2022/07/image1-1024x682.jpg" alt="Any device">
+          <h3>Use It Anywhere</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="learning-process-section">
+    <div class="process-intro">
+      <h2>Your Path to Knowledge</h2>
+      <p>At LearnSphere, we simplify your learning experience. Discover how to start your educational adventure.</p>
+    </div>
+
+    <div class="process-steps-container">
+
+      <div class="process-step step-children">
+        <div class="step-icon-wrapper">
+          <span class="step-number">01</span>
+          <i class="fas fa-child"></i>
+        </div>
+        <h3>Explore for Kids</h3>
+        <p>Dive into a world of games and discoveries designed for the youngest minds.</p>
+        <a href="niños.html" class="btn-process-explore">View Courses</a>
+      </div>
+
+      <div class="process-connector"></div> <div class="process-step step-youth">
+        <div class="step-icon-wrapper">
+          <span class="step-number">02</span>
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <h3>Options for Teenagers</h3>
+        <p>Develop key skills for the future and prepare for university or your first job.</p>
+        <a href="jovenes.html" class="btn-process-explore" style="background-color: #4caf50;">View Courses</a>
+      </div>
+
+      <div class="process-connector"></div> <div class="process-step step-adult">
+        <div class="step-icon-wrapper">
+          <span class="step-number">03</span>
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <h3>Programs for Adults</h3>
+        <p>Update your knowledge, boost your career, and achieve your professional goals.</p>
+        <a href="adultsbienvenida.html" class="btn-process-explore" style="background-color: #243b55;">View Courses</a>
+      </div>
+
+      <div class="process-connector final-connector"></div> <div class="process-step step-final-cta">
+        <div class="step-icon-wrapper">
+          <span class="step-number">04</span>
+          <i class="fas fa-star"></i>
+        </div>
+        
+      </div>
+
+    </div>
+  </section>
+
+  <section class="full-screen-vertical-snap-section">
+
+    <div class="vertical-slide slide-1" data-index="0">
+      <div class="slide-content-wrapper">
+        <div class="text-content">
+          <h1>The place where families team up</h1>
+          <div class="vertical-lines-text">
+            <span>| Easily connect with all families</span>
+            <span>| Smooth and mobile-adapted two-way messaging service</span>
+            <span>| with teacher controls so you can communicate with</span>
+            <span>| all families.</span>
+          </div>
+          <div class="slide-buttons">
+          
+           <a href="#" class="btn-secondary" onclick="openSignupPopup(event)">Create account</a>
+          </div>
+        </div>
+        <div class="image-mockup-container">
+          <img src="img/niñosc.jpg" alt="App Screenshot - Team" class="actual-app-screenshot wide-mockup">
+        </div>
+      </div>
+    </div>
+
+    <div class="vertical-slide slide-2" data-index="1">
+      <div class="slide-content-wrapper reverse-layout">
+        <div class="text-content">
+          <h2>COMMUNICATION IS EVERYTHING</h2>
+          <div class="vertical-lines-text">
+            <span>| Share the most important moments of their day</span>
+            <span>| Share photos, videos and announcements so families</span>
+            <span>| feel part of their children's experience.</span>
+          </div>
+          <div class="slide-buttons">
+            
+          <a href="#" class="btn-secondary" onclick="openSignupPopup(event)">Create account</a>
+          </div>
+        </div>
+         <div class="image-mockup-container"  style="background-color: #ffff; border-radius: 20px;">
+          <img src="img/ChatGPT Image 21 jul 2025, 06_11_59.png" alt="Communication App Screenshot" class="actual-app-screenshot">
+        </div>
+      </div>
+    </div>
+
+    <div class="vertical-slide slide-3" data-index="2">
+      <div class="slide-content-wrapper">
+        <div class="text-content">
+          <h2>SIMPLE AND CENTRALIZED MESSAGING SERVICE.</h2>
+          <div class="vertical-lines-text">
+            <span>| Easily connect with all families</span>
+            <span>| Smooth and mobile-adapted two-way messaging service</span>
+            <span>| with teacher controls so you can communicate with</span>
+            <span>| all families.</span>
+          </div>
+          <div class="slide-buttons">
+            
+           <a href="#" class="btn-secondary" onclick="openSignupPopup(event)">Create account</a>
+          </div>
+        </div>
+        <div class="image-mockup-container">
+          <img src="img/books-5211309_1280.jpg" alt="Messaging App Screenshot" class="actual-app-screenshot">
+        </div>
+      </div>
+    </div>
+
+    <div class="vertical-slide slide-4" data-index="3">
+      <div class="slide-content-wrapper reverse-layout" >
+       
+        <div class="text-content">
+          <h2>Foster Excitement and Engagement</h2>
+          <div class="vertical-lines-text">
+            <span>| Keep families and little ones excited and engaged</span>
+            <span>| with instant event reminders. We all need a little</span>
+            <span>| push from time to time.</span>
+          </div>
+          <div class="slide-buttons">
+      
+         <a href="#" class="btn-secondary" onclick="openSignupPopup(event)">Create account</a>
+          </div>
+        </div>
+         <div class="image-mockup-container" style="background-color: #ffff;">
+          <img src="img/pexels-artempodrez-6990460.jpg" alt="Calendar App Screenshot" class="actual-app-screenshot">
+        </div>
+      </div>
+    </div>
+
+    <div class="vertical-snap-navigation-dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+    </div>
+
+  </section>
+
+  <section class="cta-section animate-right">
+    <div class="container">
+      <h2>Start learning today</h2>
+      <p>Join LearnSphere and start your personalized learning journey. We are here to empower you!</p>
+
+    </div>
+  </section>
+ <footer class="footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-brand">
+            <h3 class="footer-logo">LearnSphere</h3>
+            <p class="footer-tagline">Your path to knowledge.</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="img/whassap.jpg"></a>
+                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+        <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // 2. Scroll Animations
+    const animateElements = document.querySelectorAll('.animate-up, .animate-left, .animate-right');
+    function animateOnScroll() {
+        const windowBottom = window.innerHeight;
+        animateElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowBottom - 100) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
+    // 3. Vertical Full-Screen Snap Section JavaScript
+    const verticalSnapSection = document.querySelector('.full-screen-vertical-snap-section');
+    if (verticalSnapSection) {
+        const verticalSlides = document.querySelectorAll('.full-screen-vertical-snap-section .vertical-slide');
+        const verticalNavDots = document.querySelectorAll('.vertical-snap-navigation-dots .dot');
+
+        function updateVerticalNavDots(activeIndex) {
+            verticalNavDots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === activeIndex) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        const verticalObserverOptions = {
+            root: verticalSnapSection,
+            rootMargin: '0px',
+            threshold: 0.7
+        };
+
+        const verticalObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeIndex = parseInt(entry.target.dataset.index);
+                    updateVerticalNavDots(activeIndex);
+                }
+            });
+        }, verticalObserverOptions);
+
+        verticalSlides.forEach(slide => {
+            verticalObserver.observe(slide);
+        });
+
+        verticalNavDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.dataset.index);
+                if (verticalSlides[slideIndex]) {
+                    verticalSlides[slideIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            let initialActiveSlideIndex = 0;
+            updateVerticalNavDots(initialActiveSlideIndex);
+        });
+    }
+
+    // 4. Lógica del Login y Tarjeta Animada
+    const loginBtn = document.getElementById('login-btn');
+    const popup = document.getElementById('login-popup');
+    const closeBtn = document.querySelector('.close-btn');
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    const loginInitials = document.getElementById('login-initials');
+    const loginFullName = document.getElementById('login-full-name');
+    const loginCard = document.getElementById('login-card');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+
+    let minimizationTimer = null;
+
+    loginBtn.addEventListener('click', (e) => {
+        if (!loginCard.classList.contains('logged-in')) {
+            e.preventDefault();
+            popup.classList.add('show');
+        } else {
+            e.preventDefault();
+            toggleCardSize();
+        }
+    });
+
+    // Nueva función para abrir el popup de registro
+    window.openSignupPopup = function(event) {
+        event.preventDefault();
+        document.getElementById('login-popup').classList.add('show');
+        
+        const signupTabLink = document.getElementById('signup-tab-link');
+        if (signupTabLink) {
+            signupTabLink.click();
+        }
+    };
+
+    function toggleCardSize() {
+        loginCard.classList.toggle('minimized');
+        if (!loginCard.classList.contains('minimized')) {
+            startMinimizationTimer();
+        }
+    }
+
+    function startMinimizationTimer() {
+        clearTimeout(minimizationTimer);
+        minimizationTimer = setTimeout(() => {
+            loginCard.classList.add('minimized');
+        }, 3000);
+    }
+    
+    closeBtn.addEventListener('click', () => {
+        popup.classList.remove('show');
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.classList.remove('show');
+        }
+    });
+
+    window.openTab = function(evt, tabName) {
+        tabContents.forEach(tab => tab.classList.remove('active'));
+        tabLinks.forEach(link => link.classList.remove('active'));
+        document.getElementById(tabName).classList.add('active');
+        evt.currentTarget.classList.add('active');
+    }
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = loginForm.querySelector('input[type="email"]').value;
+        localStorage.setItem('userEmail', email);
+        updateLoginStatus();
+        alert('¡Inicio de sesión exitoso!');
+        popup.classList.remove('show');
+    });
+
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = signupForm.querySelector('input[type="email"]').value;
+        localStorage.setItem('userEmail', email);
+        updateLoginStatus();
+        alert('¡Registro exitoso!');
+        popup.classList.remove('show');
+    });
+
+    function updateLoginStatus() {
+        const userEmail = localStorage.getItem('userEmail');
+        if (userEmail) {
+            const username = userEmail.split('@')[0];
+            const nameParts = username.split(/[\s.-]+/);
+            let initials = '';
+            if (nameParts.length > 1) {
+                initials = `${nameParts[0].charAt(0)}${nameParts[1].charAt(0)}`;
+            } else {
+                initials = nameParts[0].substring(0, 2);
+            }
+            initials = initials.toUpperCase();
+
+            loginFullName.textContent = `Welcome, ${username}!`;
+            loginInitials.textContent = initials;
+              loginCard.classList.remove('minimized');
+            startMinimizationTimer();
+        } else {
+            loginFullName.textContent = 'Login/Sign Up';
+            loginInitials.textContent = '';
+            loginCard.classList.remove('logged-in');
+            loginCard.classList.remove('minimized');
+        }
+    }
+
+    updateLoginStatus();
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // 2. Scroll Animations
+    const elementsToAnimate = document.querySelectorAll('.animate-up, .animate-left, .animate-right, .animated-block');
+
+    const animateOnScroll = () => {
+        const windowHeight = window.innerHeight;
+
+        elementsToAnimate.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 150) {
+                el.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll();
+
+    // 3. Funcionalidad de la barra de búsqueda
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+    const searchResultsContainer = document.getElementById('search-results');
+
+    // Mapeo de búsquedas a resultados
+    const searchMap = {
+        'kids': 'niños.html',
+        'teenagers': 'jovenes.html',
+        'adults': 'adultsbienvenida.html',
+        'about us': 'aboutus.html',
+        'home': 'Index.html',
+        'ingles': 'ingles.html',
+        'finance': 'finanzas.html',
+        'finanzas': 'finanzas.html',
+        'guidance': 'guidance.html',
+        'habitos': 'habitos.html',
+        'technology': 'technology.html',
+        'tecnologia': 'technology.html',
+        'leccion 1': 'leccion1.html',
+        'leccion de finanzas': 'leccionesfinance.html',
+        'leccion de guidance': 'leccionesguidance.html',
+        'leccion de tecnologia': 'leccionestechno.html',
+        'lecciones de ingles': 'leccionesingles.html',
+        'materias': 'materias.html',
+        'plan financiero': 'planfinanciero.html'
+    };
+
+    const performSearch = () => {
+        const query = searchInput.value.toLowerCase().trim();
+        searchResultsContainer.innerHTML = '';
+        searchResultsContainer.style.display = 'none';
+
+        if (searchMap[query]) {
+            window.location.href = searchMap[query];
+            return; // Detener la ejecución para evitar mostrar otros resultados
+        }
+
+        const results = Object.keys(searchMap).filter(key => key.includes(query));
+
+        if (results.length > 0) {
+            results.forEach(resultKey => {
+                const link = document.createElement('a');
+                link.href = searchMap[resultKey];
+                link.classList.add('search-result-item');
+                link.textContent = resultKey.charAt(0).toUpperCase() + resultKey.slice(1);
+                searchResultsContainer.appendChild(link);
+            });
+            searchResultsContainer.style.display = 'flex';
+        }
+    };
+
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
+
+    if (searchButton) {
+        searchButton.addEventListener('click', performSearch);
+    }
+
+    document.addEventListener('click', (event) => {
+        if (searchResultsContainer && searchInput) {
+            if (!searchResultsContainer.contains(event.target) && event.target !== searchInput && event.target !== searchButton) {
+                searchResultsContainer.style.display = 'none';
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>

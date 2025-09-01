@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+    <!-- Use Tailwind CSS for a modern, responsive layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add custom styles to enhance the design -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            padding: 2rem;
+        }
+
+        .heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #111827;
+            margin: 1.5rem 0;
+        }
+        
+        .price span {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            font-size: 1rem;
+            color: #374151;
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            color: #22c55e;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #2563eb;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+            margin-top: auto;
+        }
+
+        .button:hover {
+            background-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* Adjustments for the Family Plan to center the list items vertically */
+        .family-card .features-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%; /* Take full height of the parent flex container */
+        }
+        header {
+  background: linear-gradient(to right, #141e30, #243b55);
+  padding: 6px 12px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(to right, #0a192f, #1c3b68);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 40px;
+  color: #fff;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00d9ff;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  padding: 8px 15px;
+  border-radius: 30px;
+  border: none;
+  background: white;
+  font-size: 14px;
+  color: #333;
+}
+
+.search-box i {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #555;
+}
+
+/* Responsive navbar */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #1c3b68;
+    padding: 20px;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    border-radius: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+    </style>
+</head>
+<body>
+ <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+    <h1 class="heading">Choose Your Subscription</h1>
+
+    <div class="container">
+
+        <!-- Kids Plan Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="title">Kids Plan</h2>
+                <p class="subtitle">Ages 4–12</p>
+            </div>
+            <p class="price">$40.00<span class="text-sm">/month</span></p>
+            <ul class="features-list">
+                <li>Unlock all levels</li>
+                <li>Interactive games</li>
+                <li>Personalized progress tracking</li>
+                <li>New content every month</li>
+            </ul>
+            <a href="formulariodepago.html" class="button">Choose</a>
+        </div>
+
+        <!-- Teens & Adults Plan Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="title">Teens & Adults Plan</h2>
+                <p class="subtitle">Ages 13+</p>
+            </div>
+            <p class="price">$30.00<span class="text-sm">/month</span></p>
+            <ul class="features-list">
+                <li>Grade-level courses</li>
+                <li>Key subjects</li>
+                <li>Practice and exercises</li>
+                <li>New content every month</li>
+            </ul>
+            <a href="formulariodepago.html" class="button">Choose</a>
+        </div>
+
+        <!-- Family Plan Card -->
+        <div class="card family-card">
+            <div class="card-header">
+                <h2 class="title">Family Plan</h2>
+                <p class="subtitle">Family Package</p>
+            </div>
+            <p class="price">$90.00<span class="text-sm">/month</span></p>
+            <ul class="features-list">
+                <li>Includes access to all educational levels</li>
+            </ul>
+            <a href="formulariodepago.html" class="button">Choose</a>
+        </div>
+
+    </div>
+ <footer class="footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-brand">
+            <h3 class="footer-logo">LearnSphere</h3>
+            <p class="footer-tagline">Your path to knowledge.</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="img/whassap.jpg"></a>
+                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+        <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

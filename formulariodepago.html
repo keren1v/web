@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
+  <title>LearnSphere</title>
+   
+    <!-- Asegúrate de tener un archivo 'formulariodepago.css' con los estilos que me diste -->
+    <link rel="stylesheet" href="css/formulariodepago.css">
+</head>
+<body>
+     <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="niños.html">Kids</a></li>
+            <li><a href="jovenes.html">Teenagers</a></li>
+            <li><a href="adultsbienvenida.html">Adults</a></li>
+                     <li><a href="aboutus.html">About us</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+    <div class="contenedorFormulario">
+        <form id="payment-form"> <!-- Añadí id para el formulario -->
+            <div class="row-for">
+                <div class="colum-for">
+                    <h3 class="title-for">
+                        Billing Address
+                    </h3>
+                    <div class="input-box">
+                        <span>Full Name</span>
+                        <input type="text" placeholder="👤 Gorge Alexander" required maxlength="50">
+                    </div>
+                    <div class="input-box">
+                        <span>Email</span>
+                        <input type="email" placeholder="✉️ LearnSphere@gmail.com">
+                    </div>
+                    <div class="input-box">
+                        <span>Phone</span>
+                        <input type="number" placeholder="📞 2334 6567" required >
+                    </div>
+                    <div class="input-box">
+                        <span>City</span>
+                        <input type="text" placeholder="🏙 Berlin" required>
+                    </div>
+                    <div class="flex-form">
+                        <div class="input-box">
+                            <span>State</span>
+                            <input type="text" placeholder="🗺 Germany" required >
+                        </div>
+                        <div class="input-box">
+                            <span>Zip Code</span>
+                            <input type="number" placeholder="🧷 765 342" required maxlength="12">
+                        </div>
+                    </div>
+                </div>
+                <div class="colum-for">
+                    <h3 class="title-for">
+                        Payment
+                    </h3>
+                    <div class="input-box">
+                        <span>Cards Accepted</span>
+                        <!-- Usando una URL de placeholder, ya que no tengo acceso a tu imagen -->
+                        <img src="https://placehold.co/200x36/8595ee/FFFFFF?text=Card+Icons" alt="Métodos de Pago">
+                    </div>
+                    <div class="input-box">
+                        <span>Name On Card</span>
+                        <input type="text" placeholder="🪪 Gorge" required>
+                    </div>
+                    <div class="input-box">
+                        <span>Credit Card Number</span>
+                        <input type="number" placeholder="💳 778 836 32" required >
+                    </div>
+                    <div class="input-box">
+                        <span>Month</span>
+                        <input type="text" placeholder="📆 August" required>
+                    </div>
+                    <div class="flex-form">
+                        <div class="input-box">
+                            <span>Exp. Year:</span>
+                            <input type="text" placeholder="🔖 2025" required >
+                        </div>
+                        <div class="input-box">
+                            <span>CVV</span>
+                            <input type="number" placeholder="📌 345" required >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="pagar">submit</button>
+        </form>
+    </div>
+ <footer class="footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-brand">
+            <h3 class="footer-logo">LearnSphere</h3>
+            <p class="footer-tagline">Your path to knowledge.</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                <a href="#"><img src="img/whassap.jpg"></a>
+                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+        <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+    <!-- El script que simula el pago y redirige -->
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que la página se recargue
+
+            // Simula un retraso de 2 segundos para el "pago"
+            setTimeout(() => {
+                // Guarda una bandera en el navegador para indicar que el pago fue exitoso
+                localStorage.setItem('hasPaid', 'true');
+                
+                // Redirige al usuario de vuelta a la página principal de lecciones
+                window.location.href = "leccionduplicada.html";
+
+            }, 2000); // 2000 milisegundos = 2 segundos
+        });
+    </script>
+</body>
+</html>

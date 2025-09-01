@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saving and Budgeting</title>
+  
+  <link rel="stylesheet" href="css/menu.css"/>
+</head>                    
+<body>
+
+  <nav class="navbar">
+    <div class="logo">LearnSphere</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="Index.html">Home</a></li>
+      <li><a href="niños.html">Kids</a></li>
+      <li><a href="jovenes.html">Teenagers</a></li>
+      <li><a href="adultsbienvenida.html">Adults</a></li>
+      <li><a href="aboutus.html">About us</a></li>
+    </ul>
+  
+    <div class="search-box">
+      <input type="text" placeholder="Search..." id="search-input" />
+      <div id="search-results"></div>
+    </div>
+  </nav>
+  
+
+  <main>
+    <!-- Section 1: Why Save Money -->
+    <section>
+      <h2>1. Why Saving Matters</h2>
+      <p>Saving money helps us prepare for the future and unexpected expenses. It allows us to reach goals without financial stress.</p>
+      <ul>
+        <li>Provides financial security</li>
+        <li>Helps reach short-term and long-term goals</li>
+        <li>Reduces stress and uncertainty</li>
+        <li>Encourages smart spending habits</li>
+      </ul>
+      <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/iAvwCU-dM2I" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+      <div class="card">
+        <h3>Reflection</h3>
+        <p>Think of one thing you could start saving for today. 💵</p>
+      </div>
+    </section>
+
+    <!-- Section 2: Budgeting Basics -->
+    <section>
+      <h2>2. Budgeting Basics</h2>
+      <p>Creating a budget helps you track income and expenses, so you can make informed financial choices.</p>
+      <ul>
+        <li>List all income sources 💰</li>
+        <li>Track all expenses 📝</li>
+        <li>Identify unnecessary spending</li>
+        <li>Allocate money for savings</li>
+      </ul>
+      <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/NEzqHbtGa9U" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+      <div class="card">
+        <h3>Try This</h3>
+        <p>Create a simple weekly budget for your expenses. 📊</p>
+      </div>
+    </section>
+
+    <!-- Section 3: Smart Saving Tips -->
+    <section>
+      <h2>3. Tips for Saving Money</h2>
+      <p>Simple habits make saving easier and more effective.</p>
+      <div class="card">
+        <h3>Tips</h3>
+        <ul>
+          <li>Save a fixed percentage of income</li>
+          <li>Set financial goals</li>
+          <li>Use savings accounts or digital wallets</li>
+          <li>Reduce unnecessary spending</li>
+        </ul>
+      </div>
+      <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/iDL-vbrrdWk" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <!-- Section 4: Quiz -->
+    <section>
+      <h2>4. Quiz: Saving and Budgeting</h2>
+
+      <form id="saving-quiz">
+        <div class="quiz-question">
+          <p><strong>1.</strong> Why is saving money important?</p>
+          <label><input type="radio" name="q1" value="To buy unnecessary things"/> To buy unnecessary things</label>
+          <label><input type="radio" name="q1" value="For future goals and security"/> For future goals and security</label>
+          <label><input type="radio" name="q1" value="To waste it"/> To waste it</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>2.</strong> What is budgeting?</p>
+          <label><input type="radio" name="q2" value="Tracking income and expenses"/> Tracking income and expenses</label>
+          <label><input type="radio" name="q2" value="Spending randomly"/> Spending randomly</label>
+          <label><input type="radio" name="q2" value="Ignoring money"/> Ignoring money</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>3.</strong> A good saving habit is:</p>
+          <label><input type="radio" name="q3" value="Save a fixed percentage of income"/> Save a fixed percentage of income</label>
+          <label><input type="radio" name="q3" value="Spend everything immediately"/> Spend everything immediately</label>
+          <label><input type="radio" name="q3" value="Ignore goals"/> Ignore goals</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>4.</strong> Which helps reduce unnecessary spending?</p>
+          <label><input type="radio" name="q4" value="Track expenses"/> Track expenses</label>
+          <label><input type="radio" name="q4" value="Impulse buy"/> Impulse buy</label>
+          <label><input type="radio" name="q4" value="Ignore bills"/> Ignore bills</label>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>5.</strong> Budgeting helps you:</p>
+          <label><input type="radio" name="q5" value="Plan finances wisely"/> Plan finances wisely</label>
+          <label><input type="radio" name="q5" value="Spend without limit"/> Spend without limit</label>
+          <label><input type="radio" name="q5" value="Avoid saving"/> Avoid saving</label>
+        </div>
+
+        <button type="button" onclick="checkSavingAnswers()">Submit Quiz</button>
+        <div id="result" class="result-box" style="display:none;"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    function checkSavingAnswers() {
+      let score = 0;
+      const answers = {
+        q1: "For future goals and security",
+        q2: "Tracking income and expenses",
+        q3: "Save a fixed percentage of income",
+        q4: "Track expenses",
+        q5: "Plan finances wisely"
+      };
+
+      Object.keys(answers).forEach(q => {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      });
+
+      const resultBox = document.getElementById("result");
+      resultBox.style.display = "block";
+      resultBox.innerHTML = `<strong>Your score:</strong> ${score}/5<br/>${score >= 4 ? "Excellent! 🌟 You're mastering saving and budgeting!" : "Keep practicing your financial skills 💪"}`;
+    }
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+      });
+  });
+});
+
+</script>
+
+<footer class="footer">
+  <div class="footer-content-wrapper">
+    <!-- Sección de Marca/Logo -->
+    <div class="footer-brand">
+      <div class="footer-logo">LearnSphere</div>
+      <div class="footer-tagline">Empowering your journey through learning.</div>
+      <div class="social-icons">
+        <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+      </div>
+    </div>
+
+    <!-- Sección de enlaces -->
+    <div class="footer-links-group">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Sección de contacto -->
+    <div class="footer-contact-info">
+      <h3>Contact Us</h3>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Learning St, City, Country</p>
+      <p><i class="fas fa-phone-alt"></i> +123 456 7890</p>
+      <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    &copy; 2025 LearnSphere. All Rights Reserved.
+    <div class="footer-legal-links">
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
