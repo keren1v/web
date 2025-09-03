@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
-  <title>LearnSphere</title>
+    <title>🧠 English Academy 📝</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" />
     <style>
         :root {
@@ -33,6 +32,7 @@
             text-align: center;
             padding: 3rem 1rem;
             flex-grow: 1;
+            box-sizing: border-box; /* Asegura que el padding no se desborde */
         }
 
         .titulo-leccion {
@@ -62,6 +62,7 @@
             justify-content: center;
             max-width: 900px;
             margin: 0 auto 2rem;
+            padding: 0 1rem;
         }
 
         .header-content-inner {
@@ -102,10 +103,12 @@
         }
 
         .brain-illustration {
-            max-width: 600px;
+            max-width: 90%; /* Ajuste para ser responsive */
+            height: auto;
             margin: 2rem auto;
             animation: float 6s ease-in-out infinite;
             border-radius: 30px;
+            display: block;
         }
 
         @keyframes float {
@@ -120,6 +123,7 @@
             gap: 1.5rem;
             max-width: 1000px;
             margin: auto;
+            padding: 0 1rem;
         }
 
         .modulo {
@@ -142,7 +146,9 @@
 
         .icono-modulo {
             width: 100%;
-            height: 100px;
+            height: auto; /* Ajuste para mantener la proporción */
+            max-height: 100px;
+            object-fit: contain;
             margin-bottom: 1rem;
             border-radius: 30px;
         }
@@ -171,11 +177,12 @@
             padding: 2.5rem;
             border-radius: 2rem;
             text-align: center;
-            max-width: 500px;
-            width: 90%;
+            max-width: 90%; /* Ajuste para ser responsive */
+            width: 500px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             transform: scale(0.95);
             animation: pop-up 0.3s forwards;
+            box-sizing: border-box;
         }
 
         @keyframes pop-up {
@@ -214,7 +221,7 @@
         .seccion-adicional {
             margin-top: 4rem;
             background-color: #f8f8f8;
-            padding: 3rem;
+            padding: 3rem 1rem; /* Ajuste de padding */
             border-radius: 2rem;
             text-align: center;
             max-width: 800px;
@@ -235,9 +242,8 @@
             margin-bottom: 2rem;
         }
         
-        /* Estilos para el nuevo juego de adivinar la palabra */
         .juego-adivina-palabra {
-            padding: 2rem;
+            padding: 2rem 1rem;
             border-radius: 1.5rem;
             background-color: #f0f0f0;
             border: 2px solid var(--color-principal-lila);
@@ -267,6 +273,7 @@
             border-radius: 10px;
             outline: none;
             text-transform: lowercase;
+            margin-bottom: 1rem; /* Espacio para móviles */
         }
 
         .adivinar-btn {
@@ -279,8 +286,15 @@
             font-size: 1.1rem;
             font-weight: bold;
             transition: background-color 0.3s, transform 0.2s;
-            margin-left: 1rem;
+            margin-left: 0;
         }
+
+        @media (min-width: 480px) {
+            .adivinar-btn {
+                margin-left: 1rem;
+            }
+        }
+
         .adivinar-btn:hover {
             background-color: var(--color-secundario-morado);
             transform: translateY(-2px);
@@ -298,10 +312,9 @@
             color: var(--color-texto-oscuro);
         }
         
-        /* Estilos para el juego de arrastrar y soltar (se mantienen) */
         .juego-arrastrar-soltar {
             margin-top: 3rem;
-            padding: 2rem;
+            padding: 2rem 1rem;
             background-color: #f0f0f0;
             border-radius: 1.5rem;
             border: 2px dashed var(--color-principal-lila);
@@ -317,6 +330,7 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
+            padding: 0 1rem;
         }
         
         .contenedor-imagenes-arrastrar img {
@@ -335,6 +349,7 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
+            padding: 0 1rem;
         }
 
         .destino {
@@ -351,8 +366,13 @@
             position: relative;
             font-weight: bold;
             color: var(--color-texto-oscuro);
+            text-align: center;
         }
-        #arrastrable-muscles{
+
+        #arrastrable-muscles, #arrastrable-brain {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
             border-radius: 30px;
         }
         
@@ -362,23 +382,184 @@
         }
         
         .destino img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 90%;
+            max-height: 90%;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
         }
-        
+
+        /* Footer Responsive */
         .footer {
-            background-color: var(--color-secundario-morado);
-            color: var(--color-texto-claro);
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            font-size: 1rem;
+            background: #243b55;
+            color: #e0e0e0;
+            padding: 40px 20px 20px;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: auto; /* Empuja el footer hacia abajo */
         }
+
+        .footer-content-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            text-align: left;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: #c0c0c0;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: block;
+            line-height: 1;
+        }
+
+        .social-icons img {
+            width: 28px;
+            height: 28px;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.15);
+        }
+
+        .footer-links-group h3,
+        .footer-contact-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .footer-links-group h3::after,
+        .footer-contact-info h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #3498db;
+            border-radius: 1px;
+        }
+
+        .footer-links-group ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links-group li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links-group a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links-group a:hover {
+            color: #fff;
+        }
+
+        .footer-contact-info p {
+            font-size: 0.9rem;
+            color: #c0c0c0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact-info p i {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.1em;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #a0a0a0;
+        }
+
+        .footer-legal-links {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-legal-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal-links a:hover {
+            color: #fff;
+        }
+
+        /* Responsive para el footer */
+        @media (max-width: 768px) {
+            .footer-content-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand,
+            .footer-links-group,
+            .footer-contact-info {
+                align-items: center;
+            }
+
+            .footer-links-group h3::after,
+            .footer-contact-info h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+        
     </style> 
 </head>
 <body>
@@ -452,16 +633,17 @@
     </div>
 
 </section>
- <footer class="footer">
+
+<footer class="footer">
     <div class="footer-content-wrapper">
         <div class="footer-brand">
             <h3 class="footer-logo">LearnSphere</h3>
             <p class="footer-tagline">Your path to knowledge.</p>
             <div class="social-icons">
-                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
-                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
-                <a href="#"><img src="img/whassap.jpg"></a>
-                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28PNG%29.png/600px-Facebook_logo_%28PNG%29.png" alt="Facebook"></a>
+                <a href="#"><img src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-yixgqg2p.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/023/986/704/original/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png" alt="YouTube"></a>
             </div>
         </div>
 
@@ -493,6 +675,7 @@
     </div>
 </footer>
 
+
 <script>
     // Datos para el nuevo juego de adivinar la palabra
     const ejerciciosAdivinaPalabra = ["arm", "leg", "foot", "mouth", "eye", "hand", "nose", "ear", "head", "neck"];
@@ -512,6 +695,9 @@
         palabraOculta = Array(palabraActual.length).fill("_");
         intentos = 5;
 
+        adivinarBtn.disabled = false;
+        letraInput.disabled = false;
+
         actualizarJuego();
         letraInput.focus();
     }
@@ -525,19 +711,27 @@
 
     function verificarLetra() {
         const letra = letraInput.value.toLowerCase().trim();
-        if (!letra) {
-            feedbackAdivina.textContent = "Please enter a letter.";
+        if (!letra || letra.length > 1) {
+            feedbackAdivina.textContent = "Please enter a single letter.";
+            feedbackAdivina.style.color = "var(--color-error)";
             return;
         }
 
         if (palabraActual.includes(letra)) {
+            let acierto = false;
             for (let i = 0; i < palabraActual.length; i++) {
-                if (palabraActual[i] === letra) {
+                if (palabraActual[i] === letra && palabraOculta[i] === "_") {
                     palabraOculta[i] = letra;
+                    acierto = true;
                 }
             }
-            feedbackAdivina.textContent = "✅ Correct!";
-            feedbackAdivina.style.color = "var(--color-acierto)";
+            if (acierto) {
+                feedbackAdivina.textContent = "✅ Correct!";
+                feedbackAdivina.style.color = "var(--color-acierto)";
+            } else {
+                 feedbackAdivina.textContent = "You already guessed that letter.";
+                 feedbackAdivina.style.color = "var(--color-texto-oscuro)";
+            }
         } else {
             intentos--;
             feedbackAdivina.textContent = "❌ Incorrect. Try another letter.";
