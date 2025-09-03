@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
-  <title>LearnSphere</title>
+    <title>✈️ The Adventure Planner 🗺️</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --color-principal-morado: #6A1B9A;
@@ -31,12 +31,12 @@
 
         .leccion-sociales {
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
             flex-grow: 1;
         }
 
         .titulo-leccion {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             color: var(--color-fondo-oscuro);
             font-weight: 800;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -50,7 +50,7 @@
         }
 
         .descripcion-leccion {
-            font-size: 1.4rem;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
             margin-bottom: 2rem;
             color: var(--color-texto-oscuro);
         }
@@ -62,6 +62,7 @@
             justify-content: center;
             max-width: 900px;
             margin: 0 auto 2rem;
+            padding: 0 1rem;
         }
 
         .header-content-inner {
@@ -69,17 +70,22 @@
             flex-direction: column;
             align-items: center;
             gap: 2rem;
+            width: 100%;
         }
 
         @media (min-width: 768px) {
             .header-content-inner {
                 flex-direction: row;
+                text-align: left;
+            }
+            .intro-text {
+                text-align: left;
             }
         }
 
         .mascot-container {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             flex-shrink: 0;
             order: 1;
         }
@@ -102,7 +108,8 @@
         }
 
         .map-svg {
-            max-width: 600px;
+            max-width: 90%;
+            height: auto;
             margin: 2rem auto;
             animation: float 6s ease-in-out infinite;
             border-radius: 30px;
@@ -116,10 +123,11 @@
 
         .cultura-paises {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             max-width: 1000px;
             margin: auto;
+            padding: 0 1rem;
         }
 
         .pais {
@@ -145,6 +153,7 @@
             height: 110px;
             margin-bottom: 1rem;
             border-radius: 25px;
+            object-fit: cover;
         }
 
         .pais h3 {
@@ -171,8 +180,8 @@
             padding: 2.5rem;
             border-radius: 2rem;
             text-align: center;
-            max-width: 500px;
-            width: 90%;
+            max-width: 90%;
+            width: 500px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             transform: scale(0.95);
             animation: pop-up 0.3s forwards;
@@ -185,13 +194,13 @@
         .modal h3 {
             margin-bottom: 1rem;
             color: var(--color-principal-morado);
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
         }
 
         .modal p {
             margin-bottom: 1.5rem;
             color: var(--color-texto-oscuro);
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2vw, 1.1rem);
         }
 
         .modal button {
@@ -214,10 +223,10 @@
         .seccion-adicional {
             margin-top: 4rem;
             background-color: #f8f8f8;
-            padding: 3rem;
+            padding: 2rem 1.5rem;
             border-radius: 2rem;
             text-align: center;
-            max-width: 800px;
+            max-width: 90%;
             margin-left: auto;
             margin-right: auto;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -225,18 +234,18 @@
 
         .seccion-adicional h2 {
             color: var(--color-principal-morado);
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 2.5rem);
             margin-bottom: 1rem;
         }
 
         .seccion-adicional p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: var(--color-texto-oscuro);
             margin-bottom: 2rem;
         }
         
         .quiz-section {
-            padding: 2rem;
+            padding: 2rem 1.5rem;
             border-radius: 1.5rem;
             background-color: #f0f0f0;
             border: 2px solid var(--color-secundario-morado);
@@ -245,15 +254,22 @@
         .quiz-section h3 {
             color: var(--color-principal-morado);
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
         }
 
+        .quiz-opciones {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.7rem;
+        }
+        
         .quiz-opciones button {
-            margin: 0.7rem;
+            margin: 0.5rem;
             padding: 0.8rem 1.5rem;
             border: none;
             border-radius: 9999px;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             background-color: var(--color-secundario-morado);
             color: white;
             cursor: pointer;
@@ -269,12 +285,12 @@
         .respuesta {
             margin-top: 1.5rem;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
         }
 
         .mensaje-final {
             margin-top: 1.5rem;
-            font-size: 1.5rem;
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
             font-weight: 800;
             color: var(--color-principal-morado);
         }
@@ -289,7 +305,7 @@
         
         .juego-ordenar h3 {
             color: var(--color-principal-morado);
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
             margin-bottom: 1rem;
         }
 
@@ -309,6 +325,7 @@
             cursor: grab;
             transition: transform 0.2s, opacity 0.2s;
             font-weight: bold;
+            text-align: center;
         }
 
         .paso-arrastrable:hover {
@@ -329,7 +346,7 @@
         }
 
         .destino {
-            width: 150px;
+            min-width: 140px;
             height: 80px;
             border: 2px dashed var(--color-principal-morado);
             border-radius: 1rem;
@@ -358,14 +375,169 @@
             color: white;
             border-style: solid;
         }
-        
+
+        /* Footer Minimalista y Estilizado */
         .footer {
-            background-color: var(--color-fondo-oscuro);
-            color: var(--color-texto-claro);
+            background: #243b55;
+            color: #e0e0e0;
+            padding: 40px 20px 20px;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            text-align: left;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: #c0c0c0;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: block;
+            line-height: 1;
+        }
+
+        .social-icons img {
+            width: 28px;
+            height: 28px;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.15);
+        }
+
+        .footer-links-group h3,
+        .footer-contact-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .footer-links-group h3::after,
+        .footer-contact-info h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #3498db;
+            border-radius: 1px;
+        }
+
+        .footer-links-group ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links-group li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links-group a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links-group a:hover {
+            color: #fff;
+        }
+
+        .footer-contact-info p {
+            font-size: 0.9rem;
+            color: #c0c0c0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact-info p i {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.1em;
+        }
+
+        .footer-bottom {
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            font-size: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #a0a0a0;
+        }
+
+        .footer-legal-links {
+            margin-top: 10px;
+        }
+
+        .footer-legal-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal-links a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand,
+            .footer-links-group,
+            .footer-contact-info {
+                align-items: center;
+            }
+
+            .footer-links-group h3::after,
+            .footer-contact-info h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -443,16 +615,17 @@
         </div>
     </div>
 </section>
- <footer class="footer">
+
+<footer class="footer">
     <div class="footer-content-wrapper">
         <div class="footer-brand">
             <h3 class="footer-logo">LearnSphere</h3>
             <p class="footer-tagline">Your path to knowledge.</p>
             <div class="social-icons">
-                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
-                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
-                <a href="#"><img src="img/whassap.jpg"></a>
-                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28PNG%29.png/600px-Facebook_logo_%28PNG%29.png" alt="Facebook"></a>
+                <a href="#"><img src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-yixgqg2p.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/023/986/704/original/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png" alt="YouTube"></a>
             </div>
         </div>
 
@@ -483,6 +656,7 @@
         </div>
     </div>
 </footer>
+
 
 <script>
     const preguntas = [
@@ -628,7 +802,7 @@
             e.preventDefault();
             const arrastrando = document.querySelector('.paso-arrastrable.dragging');
             if (arrastrando && destino.childElementCount === 1) {
-                 destino.classList.add('hovered');
+                    destino.classList.add('hovered');
             }
         });
 
