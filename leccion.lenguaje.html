@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
-  <title>LearnSphere</title>
+    <title>📚 Language Academy 📖</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Variables de color y tipografía */
         :root {
             --color-principal-morado: #6A1B9A;
             --color-secundario-morado: #9C27B0;
@@ -19,32 +18,33 @@
             --color-error: #F44336;
         }
 
-        /* Estilos generales del cuerpo */
         body {
             font-family: 'Nunito', sans-serif;
             margin: 0;
-            background: linear-gradient(135deg, var(--color-fondo-claro), #f0f0f0);
+            background-color: var(--color-fondo-claro);
             color: var(--color-texto-oscuro);
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            line-height: 1.6;
         }
-
-        /* Contenedor principal de la lección */
-        .leccion-lenguaje {
-            text-align: center;
-            padding: 3rem 1rem;
+        
+        main {
             flex-grow: 1;
         }
 
-        /* Título principal con animación de pulso */
+        .leccion-lenguaje {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
         .titulo-leccion {
-            font-size: clamp(2rem, 8vw, 3.5rem); /* Título responsivo */
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
             color: var(--color-fondo-oscuro);
             font-weight: 800;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            animation: pulse 2s infinite ease-in-out;
+            animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
@@ -53,14 +53,12 @@
             100% { transform: scale(1); }
         }
 
-        /* Descripción introductoria */
         .descripcion-leccion {
-            font-size: clamp(1rem, 4vw, 1.4rem);
+            font-size: clamp(1rem, 3vw, 1.4rem);
             margin-bottom: 2rem;
             color: var(--color-texto-oscuro);
         }
 
-        /* Contenido del encabezado (mascota y texto) */
         .header-content {
             display: flex;
             flex-direction: column;
@@ -68,73 +66,59 @@
             justify-content: center;
             max-width: 900px;
             margin: 0 auto 2rem;
-        }
-
-        .header-content-inner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             gap: 2rem;
-            width: 100%;
         }
 
         @media (min-width: 768px) {
-            .header-content-inner {
+            .header-content {
                 flex-direction: row;
+                text-align: left;
             }
         }
 
-        /* Contenedor de la mascota con animación */
         .mascot-container {
-            width: 200px;
-            height: 200px;
+            width: clamp(150px, 30vw, 200px);
+            height: clamp(150px, 30vw, 200px);
             flex-shrink: 0;
-            order: 1;
-            animation: float 3s infinite ease-in-out;
         }
 
         .mascot-container img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 50%;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
-
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0); }
+        
+        .mascot-container img:hover {
+            transform: scale(1.05);
         }
-
-        /* Estilos para los géneros de cuentos */
+        
         .storybook-genres {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
             max-width: 1000px;
             margin: auto;
+            padding: 0 1rem;
         }
 
         .genre {
-            background: linear-gradient(145deg, #f8f8f8, #e0e0e0);
+            background: #f8f8f8;
             border: 2px solid var(--color-secundario-morado);
-            border-radius: 2rem;
+            border-radius: 1.5rem;
             padding: 1.5rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .genre:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
             z-index: 10;
         }
 
@@ -143,13 +127,7 @@
             height: 110px;
             margin-bottom: 1rem;
             border-radius: 25px;
-            transition: transform 0.5s ease-in-out;
-            border: 3px solid var(--color-principal-morado);
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        .genre:hover .genre-icon {
-            transform: scale(1.1);
+            object-fit: cover;
         }
 
         .genre h3 {
@@ -158,22 +136,20 @@
             font-size: 1.5rem;
         }
 
-        /* Estilos para el modal y la caja de mensajes */
-        .modal-overlay, .message-box-overlay {
+        .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.7);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 1000;
         }
 
-        .modal, .message-box {
+        .modal {
             background: var(--color-fondo-claro);
             padding: 2.5rem;
             border-radius: 2rem;
@@ -184,29 +160,24 @@
             transform: scale(0.95);
             animation: pop-up 0.3s forwards;
         }
-        
-        .message-box {
-            background: linear-gradient(to bottom, #fff, #f0f0f0);
-            border: 2px solid var(--color-secundario-morado);
-        }
 
         @keyframes pop-up {
             to { transform: scale(1); }
         }
 
-        .modal h3, .message-box h3 {
+        .modal h3 {
             margin-bottom: 1rem;
             color: var(--color-principal-morado);
             font-size: 2rem;
         }
 
-        .modal p, .message-box p {
+        .modal p {
             margin-bottom: 1.5rem;
             color: var(--color-texto-oscuro);
             font-size: 1.1rem;
         }
 
-        .modal button, .message-box button {
+        .modal button {
             padding: 0.8rem 2rem;
             border: none;
             border-radius: 9999px;
@@ -216,39 +187,32 @@
             font-size: 1.1rem;
             font-weight: bold;
             transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .modal button:hover, .message-box button:hover {
+        .modal button:hover {
             background-color: var(--color-fondo-oscuro);
             transform: translateY(-2px);
         }
 
-        /* Estilos de las secciones de contenido */
         .seccion-adicional {
             margin-top: 4rem;
-            background-color: #f8f8f8;
-            padding: 3rem;
-            border-radius: 2rem;
-            text-align: center;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 2px dashed var(--color-secundario-morado);
+            padding: 3rem 1rem;
         }
-
+        
         .comprension-lectora-section {
             padding: 2rem;
             border-radius: 1.5rem;
             background-color: #f0f0f0;
             border: 2px solid var(--color-secundario-morado);
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .comprension-lectora-section h3 {
             color: var(--color-principal-morado);
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 5vw, 1.8rem);
         }
 
         .texto-lectura {
@@ -258,7 +222,7 @@
             background-color: var(--color-fondo-claro);
             border-radius: 1rem;
             line-height: 1.6;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
             box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
@@ -269,12 +233,11 @@
 
         .pregunta-comprension p {
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
             color: var(--color-fondo-oscuro);
             margin-bottom: 1rem;
         }
 
-        /* Botones de opciones con animaciones */
         .opciones button {
             display: block;
             width: 100%;
@@ -286,55 +249,50 @@
             background-color: var(--color-fondo-claro);
             color: var(--color-texto-oscuro);
             cursor: pointer;
-            font-size: 1.1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            transition: background-color 0.3s, transform 0.2s, border-color 0.3s;
         }
 
-        .opciones button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        .opciones button:hover:not(:disabled) {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
         }
 
         .opciones button.correcta {
             background-color: var(--color-acierto);
             color: var(--color-texto-claro);
             border-color: var(--color-acierto);
-            animation: pop-in 0.3s forwards;
-            box-shadow: 0 4px 10px var(--color-acierto);
         }
 
         .opciones button.incorrecta {
             background-color: var(--color-error);
             color: var(--color-texto-claro);
             border-color: var(--color-error);
-            animation: shake 0.5s;
-            box-shadow: 0 4px 10px var(--color-error);
-        }
-        
-        @keyframes pop-in {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
         }
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-5px); }
-            40%, 80% { transform: translateX(5px); }
+        .respuesta-feedback {
+            margin-top: 2rem;
+            font-weight: bold;
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
         }
 
-        /* Contenedor del juego de arrastrar y soltar */
         .juego-ordenar {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: linear-gradient(160deg, #f0f0f0, #e9e9e9);
+            margin-top: 4rem;
+            padding: 2rem 1rem;
+            background-color: #f0f0f0;
             border-radius: 1.5rem;
             border: 2px dashed var(--color-secundario-morado);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
+        .juego-ordenar h2 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--color-principal-morado);
+            margin-bottom: 1rem;
+        }
+
         .contenedor-pasos {
             display: flex;
             justify-content: center;
@@ -347,19 +305,23 @@
             background-color: var(--color-secundario-morado);
             color: white;
             padding: 1rem 1.5rem;
-            border-radius: 1.5rem;
+            border-radius: 1rem;
             cursor: grab;
-            transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, opacity 0.2s;
             font-weight: bold;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 10;
+            flex-grow: 1;
+            max-width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+        @media (max-width: 500px) {
+            .paso-arrastrable {
+                width: 100%;
+            }
+        }
+
         .paso-arrastrable:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.3);
         }
         
         .paso-arrastrable.dragging {
@@ -376,10 +338,10 @@
         }
 
         .destino {
-            width: 150px;
-            height: 80px;
+            width: clamp(120px, 30vw, 180px);
+            height: 100px;
             border: 2px dashed var(--color-principal-morado);
-            border-radius: 1.5rem;
+            border-radius: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -388,95 +350,239 @@
             font-weight: bold;
             background-color: #e9e9e9;
             padding: 0.5rem;
-            transition: background-color 0.3s, border-color 0.3s;
+            transition: background-color 0.3s;
         }
         
         .destino p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
             color: #666;
         }
         
         .destino.hovered {
             background-color: #ce93d8;
-            border-color: var(--color-secundario-morado);
-            transform: scale(1.05);
         }
         
         .destino.correcta {
             background-color: var(--color-acierto);
             color: white;
             border-style: solid;
-            animation: bounce 0.5s;
         }
         
+        .destino.correcta p {
+            display: none;
+        }
+        
+        /* Footer Minimalista y Estilizado */
         .footer {
-            background-color: var(--color-fondo-oscuro);
-            color: var(--color-texto-claro);
+          background: #243b55;
+          color: #e0e0e0;
+          padding: 40px 20px 20px;
+          font-family: 'Poppins', sans-serif;
+          width: 100%;
+          box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content-wrapper {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 30px;
+          max-width: 1200px;
+          margin: 0 auto 30px;
+          text-align: left;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: #fff;
+          margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+          font-size: 0.95rem;
+          color: #c0c0c0;
+          margin-bottom: 15px;
+          line-height: 1.5;
+        }
+
+        .social-icons {
+          display: flex;
+          gap: 12px;
+          margin-top: 10px;
+        }
+
+        .social-icons a {
+          display: block;
+          line-height: 1;
+        }
+
+        .social-icons img {
+          width: 28px;
+          height: 28px;
+          filter: brightness(0) invert(1);
+          transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+          transform: scale(1.15);
+        }
+
+        .footer-links-group h3,
+        .footer-contact-info h3 {
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: #fff;
+          margin-bottom: 15px;
+          position: relative;
+          padding-bottom: 5px;
+        }
+
+        .footer-links-group h3::after,
+        .footer-contact-info h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #3498db;
+            border-radius: 1px;
+        }
+
+        .footer-links-group ul {
+          list-style: none;
+        }
+
+        .footer-links-group li {
+          margin-bottom: 8px;
+        }
+
+        .footer-links-group a {
+          color: #c0c0c0;
+          text-decoration: none;
+          font-size: 0.9rem;
+          transition: color 0.3s ease;
+        }
+
+        .footer-links-group a:hover {
+          color: #fff;
+        }
+
+        .footer-contact-info p {
+          font-size: 0.9rem;
+          color: #c0c0c0;
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+        }
+
+        .footer-contact-info p i {
+          margin-right: 10px;
+          color: #3498db;
+          font-size: 1.1em;
+        }
+
+        .footer-bottom {
+          text-align: center;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          padding-top: 20px;
+          margin-top: 20px;
+          font-size: 0.8rem;
+          color: #a0a0a0;
+        }
+
+        .footer-legal-links {
+          margin-top: 10px;
+        }
+
+        .footer-legal-links a {
+          color: #a0a0a0;
+          text-decoration: none;
+          margin: 0 10px;
+          transition: color 0.3s ease;
+        }
+
+        .footer-legal-links a:hover {
+          color: #fff;
+        }
+
+        /* Responsive para el footer */
+        @media (max-width: 768px) {
+          .footer-content-wrapper {
+            grid-template-columns: 1fr;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            font-size: 1rem;
+          }
+
+          .footer-brand,
+          .footer-links-group,
+          .footer-contact-info {
+            align-items: center;
+          }
+
+          .footer-links-group h3::after,
+          .footer-contact-info h3::after {
+              left: 50%;
+              transform: translateX(-50%);
+          }
+
+          .social-icons {
+            justify-content: center;
+          }
         }
     </style>
 </head>
 <body>
 
-<section class="leccion-lenguaje">
+<main class="leccion-lenguaje">
     <h2 class="titulo-leccion">📚 Language Academy 📖</h2>
 
     <div class="header-content">
-        <div class="header-content-inner">
-            <div class="mascot-container">
-                <img src="img/ChatGPT Image 17 ago 2025, 11_25_43.png" alt="Language Mascot" />
-            </div>
-            <div class="intro-text">
-                <p class="descripcion-leccion">¡Hola! Sumérgete en el maravilloso mundo de las palabras y las historias. Hoy practicaremos la comprensión lectora para que te conviertas en un experto. ¡A leer! 🚀</p>
-            </div>
+        <div class="mascot-container">
+            <img src="img/ChatGPT Image 18 ago 2025, 23_05_17.png" alt="Language Mascot" />
+        </div>
+        <div class="intro-text">
+            <p class="descripcion-leccion">Welcome! Dive into the wonderful world of words and stories. Today we'll practice reading comprehension so you can become a pro at understanding everything. Let's read! 🚀</p>
         </div>
     </div>
     
     <div class="storybook-genres">
-        <div class="genre" data-title="✨ Fantasía" data-desc="Las historias de fantasía te llevan a mundos mágicos con valientes caballeros, sabios magos y dragones voladores.">
+        <div class="genre" data-title="✨ Fantasy" data-desc="Fantasy stories take you to magical lands with brave knights, wise wizards, and flying dragons.">
             <img src="img/Fantasy.jpg" alt="Fantasy Icon" class="genre-icon" />
-            <h3>Fantasía</h3>
-            <p>¡Magia y aventuras!</p>
+            <h3>Fantasy</h3>
+            <p>Magic & adventures!</p>
         </div>
-        <div class="genre" data-title="🕵️‍♂️ Misterio" data-desc="¡Los libros de misterio son como acertijos! Tienes que buscar pistas para resolver un secreto o descubrir quién lo hizo.">
+        <div class="genre" data-title="🕵️‍♂️ Mystery" data-desc="Mystery books are like puzzles! You have to look for clues to solve a secret or find out who did it.">
             <img src="img/misterio.jpg" alt="Mystery Icon" class="genre-icon" />
-            <h3>Misterio</h3>
-            <p>¡Resuelve el acertijo!</p>
+            <h3>Mystery</h3>
+            <p>Solve the puzzle!</p>
         </div>
-        <div class="genre" data-title="😂 Comedia" data-desc="¡La comedia es para divertirse! Estos libros están llenos de personajes graciosos y situaciones tontas que te harán reír.">
+        <div class="genre" data-title="😂 Comedy" data-desc="Comedy is all about having fun! These books are full of funny characters and silly situations that will make you laugh.">
             <img src="img/Comedy.jpg" alt="Comedy Icon" class="genre-icon" />
-            <h3>Comedia</h3>
-            <p>¡Ríe y lee!</p>
+            <h3>Comedy</h3>
+            <p>Laugh and read!</p>
         </div>
     </div>
 
-    <!-- Modal para información del género -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal" id="modal">
             <h3 id="modal-titulo"></h3>
             <p id="modal-descripcion"></p>
-            <button id="modal-cerrar">Cerrar</button>
-        </div>
-    </div>
-    
-    <!-- Caja de mensajes personalizada -->
-    <div class="message-box-overlay" id="message-box-overlay">
-        <div class="message-box" id="message-box">
-            <h3 id="message-box-title"></h3>
-            <p id="message-box-text"></p>
-            <button id="message-box-button">OK</button>
+            <button id="modal-cerrar">Close</button>
         </div>
     </div>
 
-    <div class="seccion-adicional">
+    <section class="seccion-adicional">
         <div class="comprension-lectora-section">
-            <h3 id="titulo-lectura">Cuento del Día: El Mago del Bosque 🌳</h3>
+            <h3 id="titulo-lectura">Story of the Day: The Forest Wizard 🌳</h3>
             <div class="texto-lectura">
-                <p>En lo profundo de un bosque encantado vivía un viejo mago llamado Elio. Elio no usaba varitas mágicas; él creaba su magia con palabras. Cada mañana, escribía en un libro gigante que brillaba con luz propia. Las palabras que escribía se convertían en criaturas del bosque: si escribía "mariposa", una mariposa de colores brillantes salía volando de la página. Si escribía "río", un pequeño arroyo comenzaba a fluir entre los árboles. Los animales del bosque lo querían mucho, porque Elio siempre escribía palabras de amabilidad y alegría, haciendo del bosque un lugar feliz para todos.</p>
+                <p>Deep within an enchanted forest, lived an old wizard named Elio. Elio didn't use magic wands; he created his magic with words. Every morning, he wrote in a giant book that glowed with its own light. The words he wrote turned into forest creatures: if he wrote "butterfly," a butterfly with bright colors flew off the page. If he wrote "river," a small stream began to flow between the trees. The forest animals loved him very much, because Elio always wrote words of kindness and joy, making the forest a happy place for everyone.</p>
             </div>
             
             <div id="ejercicios-container">
@@ -484,39 +590,40 @@
             
             <div class="respuesta-feedback" id="feedback"></div>
         </div>
-    </div>
+    </section>
 
-    <div class="seccion-adicional juego-ordenar">
-        <h2>🎮 Juego Interactivo: Ordena la Historia</h2>
-        <p>¡Arrastra y suelta los eventos en el orden correcto en que sucedieron en el cuento!</p>
+    <section class="seccion-adicional juego-ordenar">
+        <h2>🎮 Interactive Game: Order the Story</h2>
+        <p>Drag and drop the events in the correct order as they happened in the story.!</p>
         <div class="contenedor-pasos" id="pasos-arrastrables">
-            <div class="paso-arrastrable" draggable="true" data-paso="2">Los animales querían a Elio.</div>
-            <div class="paso-arrastrable" draggable="true" data-paso="1">Elio escribía en su libro.</div>
-            <div class="paso-arrastrable" draggable="true" data-paso="3">Escribía palabras de alegría y amabilidad.</div>
+            <div class="paso-arrastrable" draggable="true" data-paso="2">The animals loved Elio.</div>
+            <div class="paso-arrastrable" draggable="true" data-paso="1">Elio wrote in his book.</div>
+            <div class="paso-arrastrable" draggable="true" data-paso="3">He wrote words of joy and kindness.</div>
         </div>
         <div class="contenedor-destinos" id="contenedor-destinos">
             <div class="destino" data-paso-correcto="1">
-                <p>Primer Evento</p>
+                <p>First Event</p>
             </div>
             <div class="destino" data-paso-correcto="2">
-                <p>Segundo Evento</p>
+                <p>Second Event</p>
             </div>
             <div class="destino" data-paso-correcto="3">
-                <p>Tercer Evento</p>
+                <p>Third Event</p>
             </div>
         </div>
-    </div>
-</section>
- <footer class="footer">
+    </section>
+</main>
+
+<footer class="footer">
     <div class="footer-content-wrapper">
         <div class="footer-brand">
             <h3 class="footer-logo">LearnSphere</h3>
             <p class="footer-tagline">Your path to knowledge.</p>
             <div class="social-icons">
-                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
-                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
-                <a href="#"><img src="img/whassap.jpg"></a>
-                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28PNG%29.png/600px-Facebook_logo_%28PNG%29.png" alt="Facebook"></a>
+                <a href="#"><img src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-yixgqg2p.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/023/986/704/original/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png" alt="YouTube"></a>
             </div>
         </div>
 
@@ -547,54 +654,34 @@
         </div>
     </div>
 </footer>
+
 <script>
-    // Función para mostrar la caja de mensajes personalizada
-    function showMessageBox(title, message, isSuccess = true) {
-        const messageBoxOverlay = document.getElementById('message-box-overlay');
-        const messageBoxTitle = document.getElementById('message-box-title');
-        const messageBoxText = document.getElementById('message-box-text');
-
-        messageBoxTitle.textContent = title;
-        messageBoxText.textContent = message;
-
-        // Cambia el color del título según el resultado (éxito o error)
-        messageBoxTitle.style.color = isSuccess ? 'var(--color-acierto)' : 'var(--color-error)';
-
-        messageBoxOverlay.style.display = 'flex';
-    }
-
-    // Event listener para el botón de la caja de mensajes
-    document.getElementById('message-box-button').addEventListener('click', () => {
-        document.getElementById('message-box-overlay').style.display = 'none';
-    });
-    
-    // Datos de los ejercicios de comprensión lectora
     const ejercicios = [
         {
-            pregunta: "¿Cómo hacía magia el mago Elio?",
+            pregunta: "How did the wizard Elio make magic?",
             opciones: [
-                { texto: "Con una varita mágica.", correcta: false },
-                { texto: "Con palabras que escribía en un libro.", correcta: true },
-                { texto: "Cantando canciones.", correcta: false },
-                { texto: "Usando polvo de hadas.", correcta: false }
+                { texto: "With a magic wand.", correcta: false },
+                { texto: "With words he wrote in a book.", correcta: true },
+                { texto: "By singing songs.", correcta: false },
+                { texto: "By using fairy dust.", correcta: false }
             ]
         },
         {
-            pregunta: "¿Qué pasaba cuando Elio escribía la palabra 'mariposa'?",
+            pregunta: "What happened when Elio wrote the word 'butterfly'?",
             opciones: [
-                { texto: "El libro se cerraba.", correcta: false },
-                { texto: "Crecía un árbol.", correcta: false },
-                { texto: "Una mariposa de colores brillantes salía volando de la página.", correcta: true },
-                { texto: "Empezaba a llover.", correcta: false }
+                { texto: "The book closed.", correcta: false },
+                { texto: "A tree grew.", correcta: false },
+                { texto: "A colorful butterfly flew off the page.", correcta: true },
+                { texto: "It started to rain.", correcta: false }
             ]
         },
         {
-            pregunta: "¿Por qué los animales del bosque querían tanto a Elio?",
+            pregunta: "Why did the forest animals love Elio so much?",
             opciones: [
-                { texto: "Porque les daba comida.", correcta: false },
-                { texto: "Porque les construía casas.", correcta: false },
-                { texto: "Porque siempre escribía palabras de amabilidad y alegría.", correcta: true },
-                { texto: "Porque les contaba chistes.", correcta: false }
+                { texto: "Because he gave them food.", correcta: false },
+                { texto: "Because he built houses for them.", correcta: false },
+                { texto: "Because he always wrote words of kindness and joy.", correcta: true },
+                { texto: "Because he told them jokes.", correcta: false }
             ]
         }
     ];
@@ -604,7 +691,6 @@
     const ejerciciosContainer = document.getElementById('ejercicios-container');
     const feedbackDiv = document.getElementById('feedback');
 
-    // Crea un ejercicio en el DOM
     function crearEjercicio(ejercicio) {
         const divPregunta = document.createElement('div');
         divPregunta.classList.add('pregunta-comprension');
@@ -617,7 +703,7 @@
             const boton = document.createElement('button');
             boton.textContent = opcion.texto;
             boton.dataset.correcta = opcion.correcta;
-            boton.addEventListener('click', () => verificarRespuesta(boton, opcion.correcta));
+            boton.addEventListener('click', () => verificarRespuesta(boton, opcion.correcta, ejercicio.opciones.map(opt => opt.correcta)));
             divOpciones.appendChild(boton);
         });
 
@@ -625,8 +711,7 @@
         ejerciciosContainer.appendChild(divPregunta);
     }
 
-    // Verifica si la respuesta es correcta y actualiza la UI
-    function verificarRespuesta(botonClicado, esCorrecta) {
+    function verificarRespuesta(botonClicado, esCorrecta, correctas) {
         const botones = botonClicado.parentElement.querySelectorAll('button');
         botones.forEach(btn => {
             btn.disabled = true;
@@ -646,30 +731,28 @@
         }
 
         setTimeout(() => {
-            const allQuestionsAnswered = ejercicios.every((_, index) => {
-                const container = ejerciciosContainer.children[index];
-                return container.querySelector('.opciones button.correcta, .opciones button.incorrecta');
-            });
-
-            if (allQuestionsAnswered) {
+            if (++ejercicioActual < ejercicios.length) {
+                // You can add logic here to load the next exercise, but for now, they are all visible.
+                // We'll just manage the feedback.
+            } else {
                 mostrarMensajeFinal();
             }
         }, 1000);
     }
 
-    // Muestra el mensaje final del quiz
     function mostrarMensajeFinal() {
-        const totalEjercicios = ejercicios.length;
-        const mensaje = `¡Obtuviste ${aciertos} de ${totalEjercicios} respuestas correctas!`;
-        const titulo = aciertos === totalEjercicios ? "🎉 ¡Puntuación Perfecta! 🎉" : "✨ ¡Ejercicios Terminados! ✨";
-        const isSuccess = aciertos === totalEjercicios;
-        showMessageBox(titulo, mensaje, isSuccess);
-        
-        feedbackDiv.innerHTML = `🎉 ¡Ejercicios Terminados! Obtuviste **${aciertos} de ${ejercicios.length}** respuestas correctas. ¡Eres un gran lector! 👏`;
-        feedbackDiv.style.color = isSuccess ? "var(--color-acierto)" : "var(--color-fondo-oscuro)";
+        const allQuestionsAnswered = ejercicios.every((_, index) => {
+            const container = ejerciciosContainer.children[index];
+            return container.querySelector('.opciones button.correcta, .opciones button.incorrecta');
+        });
+
+        if (allQuestionsAnswered) {
+            feedbackDiv.innerHTML = `🎉 Exercises Finished! You got **${aciertos} out of ${ejercicios.length}** correct answers. You are a great reader! 👏`;
+            feedbackDiv.style.color = aciertos === ejercicios.length ? "var(--color-acierto)" : "var(--color-fondo-oscuro)";
+        }
     }
 
-    // Lógica para el modal de información de géneros
+    // Modal
     const genres = document.querySelectorAll('.genre');
     const overlay = document.getElementById('modal-overlay');
     const modalTitulo = document.getElementById('modal-titulo');
@@ -694,7 +777,7 @@
         }
     });
 
-    // Lógica del juego de arrastrar y soltar
+    // Drag and drop game
     const arrastrables = document.querySelectorAll('.paso-arrastrable');
     const destinos = document.querySelectorAll('.destino');
 
@@ -708,9 +791,9 @@
 
         arrastrable.addEventListener('dragend', () => {
             arrastrable.classList.remove('dragging');
-            const allPlacedCorrectly = Array.from(destinos).every(dest => dest.querySelector('.paso-arrastrable') && dest.classList.contains('correcta'));
+            const allPlacedCorrectly = Array.from(destinos).every(dest => dest.querySelector('.paso-arrastrable'));
             if (allPlacedCorrectly) {
-                showMessageBox("🎉 ¡Excelente Trabajo!", "¡Ordenaste la historia correctamente!");
+                alert("🎉 Congratulations! You ordered the story correctly!");
             }
         });
     });
@@ -719,7 +802,7 @@
         destino.addEventListener('dragover', (e) => {
             e.preventDefault();
             const arrastrando = document.querySelector('.paso-arrastrable.dragging');
-            if (arrastrando && destino.childElementCount === 1) {
+            if (arrastrando && destino.childElementCount === 1) { // Check if only the 'p' tag is inside
                 destino.classList.add('hovered');
             }
         });
@@ -733,22 +816,21 @@
             destino.classList.remove('hovered');
             const pasoArrastrado = e.dataTransfer.getData('text/plain');
             const pasoCorrecto = destino.dataset.pasoCorrecto;
-            
-            const elementoArrastrado = document.querySelector(`.paso-arrastrable[data-paso="${pasoArrastrado}"]`);
 
             if (pasoArrastrado === pasoCorrecto) {
-                destino.innerHTML = '';
+                const elementoArrastrado = document.querySelector(`[data-paso="${pasoArrastrado}"]`);
+                destino.innerHTML = ''; // Clear the 'p' tag
                 destino.appendChild(elementoArrastrado);
                 destino.classList.add('correcta');
                 elementoArrastrado.style.cursor = 'default';
                 elementoArrastrado.draggable = false;
+                
             } else {
-                showMessageBox("❌ ¡Oh, no!", "Ese no es el lugar correcto. ¡Intenta de nuevo!", false);
+                alert("❌ Oops! That's not the right place. Try again!");
             }
         });
     });
 
-    // Inicializa los ejercicios al cargar la página
     document.addEventListener('DOMContentLoaded', () => {
         ejercicios.forEach(ej => crearEjercicio(ej));
     });
