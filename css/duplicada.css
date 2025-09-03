@@ -1,4 +1,9 @@
 /* --- Modal de Pago --- */
+/*
+  - Sets the modal container to a fixed position and makes it a flexbox for centering content.
+  - Hides the modal by default using `display: none;` and shows it with a class `.activo`.
+  - Applies a transform and opacity for a smooth pop-in animation.
+*/
 .modal-oculto {
     display: none;
     position: fixed;
@@ -10,6 +15,7 @@
     background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
+    box-sizing: border-box; /* Ensures padding/borders don't affect width/height */
 }
 
 .modal-oculto.activo {
@@ -52,18 +58,19 @@
 }
 
 .modal-logo {
-    width: 220px;
+    width: clamp(150px, 40vw, 220px); /* Fluid width */
     margin-bottom: 20px;
+    height: auto;
 }
 
 .modal-contenido h3 {
     color: #1c3b68;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem); /* Fluid font size */
     margin-bottom: 10px;
 }
 
 .modal-contenido p {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Fluid font size */
     color: #555;
     line-height: 1.5;
     margin-bottom: 25px;
@@ -72,7 +79,7 @@
 .btn-planes {
     background-color: #002244;
     color: #ffffff;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Fluid font size */
     font-weight: bold;
     padding: 12px 25px;
     border: none;
@@ -107,6 +114,11 @@
 
 
 /* --- Navbar & Hero Sections --- */
+/*
+  - Fluid font sizes for the hero section to adjust based on screen size.
+  - Changes `display` property of search box and menu toggle for mobile.
+  - Stacks navigation links vertically on smaller screens.
+*/
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #002244;
@@ -127,6 +139,8 @@ header {
     background: linear-gradient(to right, #0a192f, #1c3b68);
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1000;
 }
 
 .logo {
@@ -140,6 +154,7 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-links li {
@@ -160,7 +175,8 @@ header {
 
 .search-box {
     position: relative;
-    display: none; /* Hidden on mobile by default */
+    display: block; /* Show search box on all devices */
+    width: 250px;
 }
 
 .search-box input {
@@ -170,13 +186,16 @@ header {
     background: white;
     font-size: 14px;
     color: #333;
+    width: 100%;
 }
 
 .search-box i {
     position: absolute;
     right: 15px;
-    top: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     color: #555;
+    pointer-events: none;
 }
 
 /* Responsive navbar */
@@ -185,6 +204,12 @@ header {
     font-size: 28px;
     cursor: pointer;
     color: white;
+}
+
+@media (max-width: 992px) {
+    .nav-links li {
+        margin: 0 15px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -198,11 +223,11 @@ header {
         background: #1c3b68;
         padding: 20px;
         position: absolute;
-        top: 60px;
-        right: 30px;
+        top: 65px;
+        right: 20px;
+        left: 20px;
         border-radius: 10px;
-        width: 180px;
-        text-align: center;
+        width: auto;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
@@ -211,12 +236,14 @@ header {
     }
 
     .nav-links li {
-        margin: 10px 0;
+        margin: 15px 0;
     }
 
     .search-box {
-        display: block; /* Show search box on mobile */
-        margin-left: auto;
+        display: block;
+        width: 100%;
+        margin-top: 15px;
+        order: 1; /* Puts search box below other links in the mobile menu */
     }
 
     .navbar {
@@ -225,6 +252,11 @@ header {
 }
 
 /* --- English Section --- */
+/*
+  - Uses `clamp()` for fluid typography.
+  - Changes the grid layout to a single column on smaller screens.
+  - Adjusts padding and margins for better spacing on mobile.
+*/
 .ingles-encabezado {
     background: linear-gradient(to right, #1c3b68, #1c3b68);
     color: white;
@@ -234,12 +266,12 @@ header {
 }
 
 .ingles-bienvenida h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 6vw, 2.5rem);
     margin-bottom: 15px;
 }
 
 .ingles-bienvenida p {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
     max-width: 700px;
     margin: 0 auto;
 }
@@ -247,7 +279,7 @@ header {
 /* Título */
 .ingles-titulo {
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 5vw, 2rem);
     color: #1c3b68;
     margin: 40px 0 20px;
 }
@@ -255,7 +287,7 @@ header {
 /* Grid */
 .ingles-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Fluid columns */
     gap: 30px;
     padding: 0 30px 40px;
     max-width: 1100px;
@@ -272,7 +304,8 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
     text-align: center;
-    width: 320px;
+    width: 100%; /* Changed to 100% to fill grid column */
+    max-width: 320px;
 }
 
 .ingles-box:hover {
@@ -282,12 +315,12 @@ header {
 .ingles-box h3 {
     color: #1c3b68;
     margin: 15px 0 10px;
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 3vw, 1.2rem);
 }
 
 .ingles-box p {
     color: #444;
-    font-size: 0.95rem;
+    font-size: clamp(0.9rem, 2vw, 0.95rem);
     margin-bottom: 15px;
     line-height: 1.4;
 }
@@ -401,6 +434,11 @@ header {
 
 
 /* --- Footer Minimalista y Estilizado --- */
+/*
+  - Adapts grid layout to a single column for smaller screens.
+  - Centers text and aligns items for a cleaner mobile view.
+  - Reduces padding on mobile for better use of space.
+*/
 .footer {
     background: #243b55;
     color: #e0e0e0;
