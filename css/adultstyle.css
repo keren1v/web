@@ -1,4 +1,4 @@
-/* Pop-up Container and Overlay */
+/* --- Pop-up Container and Overlay --- */
 /* Estilo para la "tarjeta" de login en estado normal */
 .login-card {
     list-style: none;
@@ -73,7 +73,28 @@
     text-transform: uppercase;
 }
 
+/* Responsive adjustments for login card */
+@media (max-width: 576px) {
+    .login-card {
+        top: 10px;
+        right: 10px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
 
+    .login-card a {
+        font-size: 0.9rem;
+    }
+
+    .login-card.minimized {
+        width: 40px;
+        height: 40px;
+    }
+
+    .login-card.minimized #login-initials {
+        font-size: 1rem;
+    }
+}
 
 .popup-container {
     position: fixed;
@@ -169,7 +190,6 @@
     transform: translateY(2px);
     color: #ffff;
     margin-right: 10px;
-  
 }
 
 .tab-content {
@@ -181,7 +201,8 @@
     display: block;
 }
 
-#login-form, #signup-form {
+#login-form,
+#signup-form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -203,9 +224,11 @@
     border-color: #2f4a78;
     box-shadow: 0 0 0 4px rgba(159, 122, 234, 0.2);
 }
-.left{
+
+.left {
     margin-left: 60px;
 }
+
 .popup-content button {
     background-color: #2f4a78;
     color: white;
@@ -235,201 +258,281 @@
 .forgot-password:hover {
     color: #2f4a78;
 }
-  
 
+/* Responsive adjustments for popup */
+@media (max-width: 576px) {
+    .popup-content {
+        padding: 2rem 1.5rem;
+        border-radius: 1rem;
+    }
 
+    .popup-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.8rem;
+    }
 
+    .tab-link {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+    }
 
+    #login-form,
+    #signup-form {
+        width: 100%;
+        gap: 1rem;
+    }
 
-/* Tipografía y cuerpo */
-body {
-margin: 0;
-padding: 0;
-    font-family: 'Inter', sans-serif;
-  background: #f7f9fc;
-  color: #222;
-  line-height: 2.12;
+    .popup-content input {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .popup-content button {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
 }
+
+/* --- Navbar & Hero Sections --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f7f9fc;
+    color: #222;
+    line-height: 2.12;
+}
+
 header {
-  background: linear-gradient(to right, #141e30, #243b55);
-  padding: 6px 12px;
+    background: linear-gradient(to right, #141e30, #243b55);
+    padding: 6px 12px;
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: linear-gradient(to right, #0a192f, #1c3b68);
-  color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(to right, #0a192f, #1c3b68);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 800;
-  color: #fff;
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
 }
 
 .nav-links {
-  display: flex;
-  list-style: none;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
-  margin: 0 40px;
-  color: #fff;
+    margin: 0 40px;
+    color: #fff;
 }
 
 .nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
-  color: #00d9ff;
+    color: #00d9ff;
 }
 
 .search-box {
-  position: relative;
+    position: relative;
+    display: none; /* Hide on mobile to start */
 }
 
 .search-box input {
-  padding: 8px 15px;
-  border-radius: 30px;
-  border: none;
-  background: white;
-  font-size: 14px;
-  color: #333;
+    padding: 8px 15px;
+    border-radius: 30px;
+    border: none;
+    background: white;
+    font-size: 14px;
+    color: #333;
 }
 
 .search-box i {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  color: #555;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #555;
 }
 
 /* Responsive navbar */
 .menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
 }
 
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
+    .menu-toggle {
+        display: block;
+    }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #1c3b68;
-    padding: 20px;
-    position: absolute;
-    top: 60px;
-    right: 30px;
-    border-radius: 10px;
-  }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #1c3b68;
+        padding: 20px;
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        border-radius: 10px;
+        width: 180px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
 
-  .nav-links.active {
-    display: flex;
-  }
+    .nav-links.active {
+        display: flex;
+    }
 
-  .nav-links li {
-    margin: 10px 0;
-  }
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .search-box {
+        display: block;
+        margin-left: auto;
+    }
 }
+
 .hero {
-  background: #1c3b68;
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
+    background: #1c3b68;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
 }
 
 .hero h1 {
-  font-size: 36px;
-  margin-bottom: 15px;
-  font-family: 'Arial Narrow Bold', sans-serif;
+    font-size: 36px;
+    margin-bottom: 15px;
+    font-family: 'Arial Narrow Bold', sans-serif;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Contenedor general */
+/* Responsive adjustments for hero section */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* --- Card Section --- */
 .contenedor-materias-dosfilas {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 0 20px;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
 /* Fila con dos columnas */
 .fila-materias {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
 /* Tarjetas */
 .card {
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s ease;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .card h3 {
-  margin-top: 15px;
-  font-size: 1.3rem;
-  color: #1c3b68;
+    margin-top: 15px;
+    font-size: 1.3rem;
+    color: #1c3b68;
 }
 
 .card p {
-  padding: 0 15px;
-  color: #555;
-  margin: 10px 0 25px 0;
+    padding: 0 15px;
+    color: #555;
+    margin: 10px 0 25px 0;
 }
 
 .card a {
-  display: inline-block;
-  margin-bottom: 15px;
-  text-decoration: none;
-  background: linear-gradient(135deg, #1c3b68, #375d96);
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    background: linear-gradient(135deg, #1c3b68, #375d96);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .card a:hover {
-  background: linear-gradient(135deg, #162e52, #2f4a78);
-  transform: scale(1.05);
+    background: linear-gradient(135deg, #162e52, #2f4a78);
+    transform: scale(1.05);
 }
-/* 🔄 Sección general */
+
+/* Responsive for card section */
+@media (max-width: 768px) {
+    .fila-materias {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contenedor-materias-dosfilas {
+        padding: 0 15px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* --- Animated Scroll Section --- */
 .seccion-animada-scroll {
     background-color: #FFF;
     padding: 4rem 2rem;
@@ -442,7 +545,6 @@ header {
     overflow: hidden;
 }
 
-/* ✨ Título principal de cada sección */
 .titulo-seccion-animada {
     font-size: 2.5rem;
     font-weight: 800;
@@ -452,7 +554,6 @@ header {
     line-height: 1.2;
 }
 
-/* 🧱 Contenedor general de bloques */
 .contenedor-bloques-animados {
     display: flex;
     flex-direction: column;
@@ -460,7 +561,6 @@ header {
     gap: 4rem;
 }
 
-/* 🎬 Estilo de los bloques animados */
 .bloque-animado {
     display: flex;
     flex-direction: column;
@@ -487,22 +587,26 @@ header {
     flex-direction: column;
 }
 
-/* 📱 Responsive para pantallas medianas/grandes */
+/* 📱 Responsive for medium/large screens */
 @media (min-width: 768px) {
     .bloque-animado {
         flex-direction: row;
         text-align: left;
         gap: 2rem;
     }
+
     .bloque-animado.derecha {
         flex-direction: row-reverse;
     }
+
     .bloque-animado.izquierda {
         flex-direction: row;
     }
+
     .bloque-animado .contenido-texto {
         flex: 1;
     }
+
     .bloque-animado .imagen-bloque {
         flex-shrink: 0;
         width: 250px;
@@ -557,185 +661,200 @@ header {
     transform: translateY(-2px);
 }
 
-
-/* Responsive para móviles */
+/* Responsive for mobile */
 @media (max-width: 768px) {
-  .fila-materias {
-    grid-template-columns: 1fr;
-  }
+    .seccion-animada-scroll {
+        padding: 2rem 1rem;
+    }
 
-  .card {
-    max-width: 100%;
-  }
+    .titulo-seccion-animada {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .contenedor-bloques-animados {
+        gap: 2rem;
+    }
+
+    .bloque-animado {
+        padding: 1.5rem;
+    }
+
+    .titulo-bloque-animado {
+        font-size: 1.5rem;
+    }
+
+    .parrafo-bloque-animado {
+        font-size: 1rem;
+    }
+
+    .imagen-bloque {
+        height: auto;
+    }
 }
 
-/* Footer Minimalista y Estilizado */
+
+/* --- Footer Minimalista y Estilizado --- */
 .footer {
-  background: #243b55; /* Color base */
-  color: #e0e0e0;
-  padding: 40px 20px 20px; /* Ajuste de padding */
-  font-family: 'Poppins', sans-serif; /* Usamos la fuente principal de tu sitio */
-  width: 100%;
-  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil superior */
+    background: #243b55;
+    color: #e0e0e0;
+    padding: 40px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .footer-content-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3 columnas en escritorio, adaptable */
-  gap: 30px; /* Espaciado entre columnas */
-  max-width: 1200px;
-  margin: 0 auto 30px; /* Margen inferior para separar del footer-bottom */
-  text-align: left; /* Alineación de texto predeterminada */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    text-align: left;
 }
 
-/* Sección de Marca/Logo */
 .footer-brand {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alineación a la izquierda */
+    align-items: flex-start;
 }
 
 .footer-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 .footer-tagline {
-  font-size: 0.95rem;
-  color: #c0c0c0;
-  margin-bottom: 15px;
-  line-height: 1.5;
+    font-size: 0.95rem;
+    color: #c0c0c0;
+    margin-bottom: 15px;
+    line-height: 1.5;
 }
 
 .social-icons {
-  display: flex;
-  gap: 12px; /* Espacio entre iconos */
-  margin-top: 10px;
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 .social-icons a {
-  display: block; /* Asegura que el enlace envuelva bien la imagen */
-  line-height: 1; /* Elimina espacio extra debajo de las imágenes */
+    display: block;
+    line-height: 1;
 }
 
 .social-icons img {
-  width: 28px; /* Tamaño de icono */
-  height: 28px;
-  filter: brightness(0) invert(1); /* Pone los iconos blancos */
-  transition: transform 0.3s ease;
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
 }
 
 .social-icons img:hover {
-  transform: scale(1.15);
+    transform: scale(1.15);
 }
 
-/* Secciones de enlaces y contacto */
 .footer-links-group h3,
 .footer-contact-info h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 15px;
-  position: relative;
-  padding-bottom: 5px; /* Pequeño padding para una línea sutil si se desea */
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 5px;
 }
 
-/* Línea sutil debajo de los títulos (opcional, si quieres un toque más) */
 .footer-links-group h3::after,
 .footer-contact-info h3::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 40px; /* Longitud de la línea */
-    height: 2px; /* Grosor de la línea */
-    background-color: #3498db; /* Color de tu azul de acento */
+    width: 40px;
+    height: 2px;
+    background-color: #3498db;
     border-radius: 1px;
 }
 
 
 .footer-links-group ul {
-  list-style: none;
+    list-style: none;
 }
 
 .footer-links-group li {
-  margin-bottom: 8px; /* Espacio entre elementos de la lista */
+    margin-bottom: 8px;
 }
 
 .footer-links-group a {
-  color: #c0c0c0;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
+    color: #c0c0c0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
 .footer-links-group a:hover {
-  color: #fff;
+    color: #fff;
 }
 
 .footer-contact-info p {
-  font-size: 0.9rem;
-  color: #c0c0c0;
-  margin-bottom: 10px;
-  display: flex; /* Para alinear ícono y texto */
-  align-items: center;
+    font-size: 0.9rem;
+    color: #c0c0c0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .footer-contact-info p i {
-  margin-right: 10px; /* Espacio entre ícono y texto */
-  color: #3498db; /* Color de acento para los íconos */
-  font-size: 1.1em;
+    margin-right: 10px;
+    color: #3498db;
+    font-size: 1.1em;
 }
 
-
-/* Footer Bottom - Derechos de autor y enlaces legales */
 .footer-bottom {
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria más suave */
-  padding-top: 20px;
-  margin-top: 20px;
-  font-size: 0.8rem;
-  color: #a0a0a0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #a0a0a0;
 }
 
 .footer-legal-links {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .footer-legal-links a {
-  color: #a0a0a0;
-  text-decoration: none;
-  margin: 0 10px;
-  transition: color 0.3s ease;
+    color: #a0a0a0;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
 }
 
 .footer-legal-links a:hover {
-  color: #fff;
+    color: #fff;
 }
 
 /* Responsive para el footer */
 @media (max-width: 768px) {
-  .footer-content-wrapper {
-    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
-    text-align: center; /* Centrar texto */
-  }
+    .footer-content-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 
-  .footer-brand,
-  .footer-links-group,
-  .footer-contact-info {
-    align-items: center; /* Centrar elementos en la columna */
-  }
+    .footer-brand,
+    .footer-links-group,
+    .footer-contact-info {
+        align-items: center;
+    }
 
-  .footer-links-group h3::after,
-  .footer-contact-info h3::after {
-      left: 50%; /* Centrar la línea del título */
-      transform: translateX(-50%);
-  }
+    .footer-links-group h3::after,
+    .footer-contact-info h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-  .social-icons {
-    justify-content: center; /* Centrar iconos sociales */
-  }
+    .social-icons {
+        justify-content: center;
+    }
 }
-
