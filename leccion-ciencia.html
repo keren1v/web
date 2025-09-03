@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
-  <title>LearnSphere</title>
+    <title>💧 Water Adventures 💜</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --color-principal-morado: #6A1B9A;
@@ -18,6 +18,7 @@
             --color-error: #F44336;
         }
 
+        /* Estilos generales y base */
         body {
             font-family: 'Nunito', sans-serif;
             margin: 0;
@@ -33,6 +34,8 @@
             text-align: center;
             padding: 3rem 1rem;
             flex-grow: 1;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .titulo-leccion {
@@ -71,14 +74,8 @@
             gap: 2rem;
         }
 
-        @media (min-width: 768px) {
-            .header-content-inner {
-                flex-direction: row;
-            }
-        }
-
         .mascot-container {
-            width: 200px; /* Tamaño fijo para la mascota */
+            width: 200px;
             height: 200px;
             flex-shrink: 0;
             order: 1;
@@ -87,7 +84,7 @@
         .mascot-container img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Para que la imagen se ajuste sin distorsionarse */
+            object-fit: contain;
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
@@ -103,6 +100,8 @@
 
         .ciclo-svg {
             max-width: 600px;
+            width: 100%; /* Asegura que la imagen sea responsiva */
+            height: auto;
             margin: 2rem auto;
             animation: float 6s ease-in-out infinite;
         }
@@ -130,6 +129,9 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .paso:hover {
@@ -140,6 +142,7 @@
 
         .icono-paso-ciencia {
             width: 90px;
+            height: auto;
             margin-bottom: 1rem;
         }
 
@@ -149,6 +152,7 @@
             font-size: 1.5rem;
         }
 
+        /* Modal y sus estilos */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -207,13 +211,14 @@
             transform: translateY(-2px);
         }
 
+        /* Secciones adicionales y juegos */
         .seccion-adicional {
             margin-top: 4rem;
             background-color: #f8f8f8;
-            padding: 3rem;
+            padding: 3rem 1.5rem; /* Ajuste de padding para móviles */
             border-radius: 2rem;
             text-align: center;
-            max-width: 800px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -232,7 +237,7 @@
         }
         
         .quiz-section {
-            padding: 2rem;
+            padding: 2rem 1.5rem;
             border-radius: 1.5rem;
             background-color: #f0f0f0;
             border: 2px solid var(--color-secundario-morado);
@@ -244,8 +249,17 @@
             font-size: 1.8rem;
         }
 
+        .quiz-opciones {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            align-items: center;
+            justify-content: center;
+        }
+
         .quiz-opciones button {
-            margin: 0.7rem;
+            width: 100%;
+            max-width: 300px;
             padding: 0.8rem 1.5rem;
             border: none;
             border-radius: 9999px;
@@ -256,10 +270,15 @@
             transition: transform 0.2s, background-color 0.3s;
             font-weight: bold;
         }
-
-        .quiz-opciones button:hover {
+        
+        .quiz-opciones button:hover:not([disabled]) {
             transform: scale(1.05);
             background-color: var(--color-principal-morado);
+        }
+
+        .quiz-opciones button[disabled] {
+            cursor: default;
+            opacity: 0.7;
         }
 
         .respuesta {
@@ -277,7 +296,7 @@
 
         .juego-ordenar {
             margin-top: 3rem;
-            padding: 2rem;
+            padding: 2rem 1rem;
             background-color: #f0f0f0;
             border-radius: 1.5rem;
             border: 2px dashed var(--color-principal-morado);
@@ -305,6 +324,7 @@
             cursor: grab;
             transition: transform 0.2s, opacity 0.2s;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         .paso-arrastrable:hover {
@@ -354,14 +374,194 @@
             color: white;
             border-style: solid;
         }
-        
+
+        /* Footer Responsive */
         .footer {
-            background-color: var(--color-fondo-oscuro);
-            color: var(--color-texto-claro);
+            background: #243b55;
+            color: #e0e0e0;
+            padding: 40px 20px 20px;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            text-align: left;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: #c0c0c0;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: block;
+            line-height: 1;
+        }
+
+        .social-icons img {
+            width: 28px;
+            height: 28px;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.15);
+        }
+
+        .footer-links-group h3,
+        .footer-contact-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .footer-links-group h3::after,
+        .footer-contact-info h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #3498db;
+            border-radius: 1px;
+        }
+
+        .footer-links-group ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links-group li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links-group a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links-group a:hover {
+            color: #fff;
+        }
+
+        .footer-contact-info p {
+            font-size: 0.9rem;
+            color: #c0c0c0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact-info p i {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.1em;
+        }
+
+        .footer-bottom {
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            font-size: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #a0a0a0;
+        }
+
+        .footer-legal-links {
+            margin-top: 10px;
+        }
+
+        .footer-legal-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal-links a:hover {
+            color: #fff;
+        }
+
+        /* Responsive para el footer y otros elementos */
+        @media (max-width: 768px) {
+            .header-content-inner {
+                flex-direction: column;
+            }
+
+            .pasos-ciclo-agua {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand,
+            .footer-links-group,
+            .footer-contact-info {
+                align-items: center;
+            }
+
+            .footer-links-group h3::after,
+            .footer-contact-info h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+        
+        /* Ajustes adicionales para dispositivos muy pequeños */
+        @media (max-width: 480px) {
+            .titulo-leccion {
+                font-size: 2.5rem;
+            }
+
+            .descripcion-leccion {
+                font-size: 1.2rem;
+            }
+            
+            .paso {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -372,7 +572,6 @@
 
     <div class="header-content">
         <div class="header-content-inner">
-          
             <div class="intro-text">
                 <p class="descripcion-leccion">Join little water drop "Pure" on his great journey through the water cycle. Learn by playing!</p>
             </div>
@@ -469,16 +668,16 @@
     </div>
 </section>
 
- <footer class="footer">
+<footer class="footer">
     <div class="footer-content-wrapper">
         <div class="footer-brand">
             <h3 class="footer-logo">LearnSphere</h3>
             <p class="footer-tagline">Your path to knowledge.</p>
             <div class="social-icons">
-                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
-                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
-                <a href="#"><img src="img/whassap.jpg"></a>
-                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28PNG%29.png/600px-Facebook_logo_%28PNG%29.png" alt="Facebook"></a>
+                <a href="#"><img src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-yixgqg2p.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/023/986/704/original/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png" alt="YouTube"></a>
             </div>
         </div>
 
@@ -509,7 +708,8 @@
         </div>
     </div>
 </footer>
-
+    
+</body>
 <script>
     const preguntas = [
         {
@@ -695,6 +895,4 @@
         cargarPregunta();
     });
 </script>
-
-</body>
 </html>
