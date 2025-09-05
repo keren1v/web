@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/Untitled design (14).png" type="image/x-icon">
-  <title>LearnSphere</title>
+    <title>LearnSphere</title>
     <style>
         /* General Styles */
         body {
@@ -21,99 +21,131 @@
         .texto-morado-acento { color: #9F7AEA; }
         .texto-morado-oscuro { color: #5A32A3; }
 
-       header {
-  background: linear-gradient(to right, #141e30, #243b55);
-  padding: 6px 12px;
-}
+        header {
+            background: linear-gradient(to right, #141e30, #243b55);
+            padding: 6px 12px;
+        }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: linear-gradient(to right, #0a192f, #1c3b68);
-  color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #0a192f, #1c3b68);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        }
 
-.logo {
-  font-size: 24px;
-  font-weight: 800;
-  color: #fff;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #fff;
+        }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.nav-links li {
-  margin: 0 40px;
-  color: #fff;
-}
+        .nav-links li {
+            margin: 0 40px;
+            color: #fff;
+        }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-.nav-links a:hover {
-  color: #00d9ff;
-}
+        .nav-links a:hover {
+            color: #00d9ff;
+        }
 
-.search-box {
-  position: relative;
-}
+        .search-box {
+            position: relative;
+        }
 
-.search-box input {
-  padding: 8px 15px;
-  border-radius: 30px;
-  border: none;
-  background: white;
-  font-size: 14px;
-  color: #333;
-}
+        .search-box input {
+            padding: 8px 15px;
+            border-radius: 30px;
+            border: none;
+            background: white;
+            font-size: 14px;
+            color: #333;
+        }
 
-.search-box i {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  color: #555;
-}
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            color: #555;
+        }
 
-/* Responsive navbar */
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-}
+        /* Responsive navbar */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #1c3b68;
-    padding: 20px;
-    position: absolute;
-    top: 60px;
-    right: 30px;
-    border-radius: 10px;
-  }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #1c3b68;
+                padding: 20px;
+                position: absolute;
+                top: 60px;
+                right: 30px;
+                border-radius: 10px;
+                width: 200px;
+                text-align: center;
+            }
 
-  .nav-links.active {
-    display: flex;
-  }
+            .nav-links.active {
+                display: flex;
+            }
 
-  .nav-links li {
-    margin: 10px 0;
-  }
-}
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .search-box {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .search-box input {
+                width: 90%;
+            }
+        }
+        
+        /* Contenedor del video para hacerlo responsive */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 (9/16 = 0.5625) */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         /* Footer */
         .footer {
             background: #9F7AEA;
@@ -281,40 +313,18 @@
             }
         }
 
-        /* Full Screen Vertical Snap Section */
-        .full-screen-vertical-snap-section {
-            width: 100vw;
-            height: 100vh;
-            overflow-y: auto;
-            scroll-snap-type: y mandatory;
-            -webkit-overflow-scrolling: touch;
-            position: relative;
-        }
-
-        video {
-            padding: 0px;
-            width: 1300px;
-        }
-
-        /* Content Sections */
-        .seccion-contenido-materias {
-            background-color: #F8F8F8;
-            padding: 4rem 2rem;
-            margin-bottom: 4rem;
+        /* Contenido de secciones */
+        .seccion-contenido-materias,
+        .seccion-ingles-dinamica,
+        .seccion-caminito-ingles {
             max-width: 80rem;
             margin-left: auto;
             margin-right: auto;
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
         }
-
-        .titulo-contenido-materias {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1F2937;
-            text-align: center;
-            margin-bottom: 3rem;
-            line-height: 1.2;
-        }
-
+        
+        /* Cards */
         .contenedor-tarjetas-contenido {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -362,240 +372,12 @@
             color: #333;
             line-height: 1.4;
         }
-
-        /* Progress Bar Styling */
-        .progress-container {
-            width: 100%;
-            height: 12px;
-            background-color: #e0e0e0;
-            border-radius: 6px;
-            margin-top: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #9F7AEA, #6B46C1);
-            border-radius: 6px;
-            transition: width 0.4s ease-in-out;
-            /* The width is set inline in the HTML to show progress */
-        }
-
-        .progress-text {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.75rem;
-            font-weight: bold;
-            color: #4B5563;
-            z-index: 10;
-        }
-
-        /* English Section */
-        .seccion-caminito-ingles {
-            background-color: #E1F0FF;
-            padding: 4rem 2rem;
-            margin-bottom: 4rem;
-            border-radius: 1.5rem;
-            max-width: 80rem;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            background-image: none;
-            animation: none;
-        }
-
-        .seccion-caminito-ingles::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background-color: #F8F8F8;
-            clip-path: ellipse(50% 100% at 50% 0%);
-            transform: translateY(-50px);
-            z-index: 1;
-        }
-
-        .contenedor-principal-ingles {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-
-        @media (min-width: 1024px) {
-            .contenedor-principal-ingles {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-                text-align: left;
-            }
-        }
-
-        .columna-izquierda-ingles {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 1024px) {
-            .columna-izquierda-ingles {
-                align-items: flex-start;
-                margin-bottom: 0;
-                margin-right: 2rem;
-            }
-        }
-
-        .titulo-seccion-ingles {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #1F2937;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            max-width: 500px;
-        }
-
-        @media (min-width: 768px) {
-            .titulo-seccion-ingles {
-                font-size: 4rem;
-            }
-        }
-
-        .bloque-paso-ingles {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 2rem;
-            max-width: 350px;
-            background-color: white;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .bloque-paso-ingles:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (min-width: 1024px) {
-            .bloque-paso-ingles {
-                flex-direction: row;
-                align-items: flex-start;
-                text-align: left;
-                margin-bottom: 1.5rem;
-            }
-        }
-
-        .icono-paso-contenedor {
-            background-color: #D6BCFA;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1rem;
-            flex-shrink: 0;
-        }
-
-        @media (min-width: 1024px) {
-            .icono-paso-contenedor {
-                margin-right: 1rem;
-                margin-bottom: 0;
-            }
-        }
-
-        .icono-paso {
-            font-size: 2rem;
-            color: #6B46C1;
-        }
-
-        .contenido-paso {
-            flex: 1;
-        }
-
-        .titulo-paso {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .descripcion-paso {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.5;
-        }
-
-        .boton-comenzar-ingles {
-            background-color: #9F7AEA;
-            color: white;
-            font-weight: 700;
-            padding: 0.9rem 2.5rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-            margin-top: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .boton-comenzar-ingles:hover {
-            background-color: #6B46C1;
-            transform: translateY(-3px);
-        }
-
-        .columna-derecha-ingles {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            min-height: 300px;
-        }
-
-        .imagen-mascota-ingles {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.2));
-            transition: transform 0.5s ease-in-out;
-            animation: flotar-mascota 3s infinite ease-in-out alternate;
-        }
-
-        @keyframes flotar-mascota {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        /* Dynamic English Section */
+        
+        /* Secciones de texto e imagen */
         .seccion-ingles-dinamica {
             background-color: #6B46C1;
-            padding: 4rem 2rem;
-            margin-bottom: 4rem;
             border-radius: 1.5rem;
-            max-width: 80rem;
-            margin-left: auto;
             margin-top: 70px;
-            margin-right: auto;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
@@ -603,29 +385,6 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-        }
-
-        .seccion-ingles-dinamica::before,
-        .seccion-ingles-dinamica::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background-color: #F8F8F8;
-            z-index: 1;
-        }
-
-        .seccion-ingles-dinamica::before {
-            top: 0;
-            clip-path: ellipse(50% 100% at 50% 0%);
-            transform: translateY(-50px);
-        }
-
-        .seccion-ingles-dinamica::after {
-            bottom: 0;
-            clip-path: ellipse(50% 100% at 50% 100%);
-            transform: translateY(50px);
         }
 
         .contenedor-contenido-dinamico {
@@ -666,90 +425,6 @@
             }
         }
 
-        .titulo-dinamico {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        @media (min-width: 768px) {
-            .titulo-dinamico {
-                font-size: 3.5rem;
-            }
-        }
-
-        .subtitulo-dinamico {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.5;
-            max-width: 500px;
-        }
-
-        .lista-caracteristicas {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        @media (min-width: 1024px) {
-            .lista-caracteristicas {
-                text-align: left;
-            }
-        }
-
-        .lista-caracteristicas li {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (min-width: 1024px) {
-            .lista-caracteristicas li {
-                justify-content: flex-start;
-            }
-        }
-
-        .lista-caracteristicas li span {
-            font-size: 1.5rem;
-            margin-right: 0.8rem;
-            color: #FFD700;
-        }
-
-        .botones-accion-dinamico {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        @media (min-width: 1024px) {
-            .botones-accion-dinamico {
-                justify-content: flex-start;
-            }
-        }
-
-        .boton-dinamico {
-            background-color: #9F7AEA;
-            color: white;
-            font-weight: 700;
-            padding: 0.9rem 2.5rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .boton-dinamico:hover {
-            background-color: #D6BCFA;
-            transform: translateY(-3px);
-        }
-
         .columna-mockup-dinamico {
             flex: 1;
             display: flex;
@@ -759,8 +434,9 @@
         }
 
         .pantalla-mockup {
-            width: 600px;
-            height: 400px;
+            width: 100%; /* El ancho del mockup se ajusta al 100% del contenedor */
+            height: auto;
+            aspect-ratio: 16 / 9; /* Mantiene la relación de aspecto 16:9 */
             background-color: #333;
             border-radius: 1.5rem;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -779,41 +455,7 @@
             border-radius: 1rem;
         }
 
-        @media (max-width: 1023px) {
-            .seccion-ingles-dinamica {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-            }
-
-            .contenedor-contenido-dinamico {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .columna-texto-dinamica {
-                padding-right: 1rem;
-                margin-bottom: 3rem;
-            }
-
-            .columna-mockup-dinamica {
-                min-height: auto;
-            }
-
-            .pantalla-mockup {
-                width: 90%;
-                height: auto;
-                aspect-ratio: 16 / 9;
-                margin-bottom: 3rem;
-            }
-        }
-
-        @media (max-width: 639px) {
-            .pantalla-mockup {
-                width: 100%;
-            }
-        }
-        /* --- Modal Styles --- */
+        /* Modal */
         .modal-oculto {
             display: none;
             position: fixed;
@@ -896,11 +538,11 @@
             background-color: #275191;
             transform: translateY(-2px);
         }
-        
+
     </style>
 </head>
 <body>
-   <nav class="navbar">
+    <nav class="navbar">
         <div class="logo">LearnSphere</div>
         <div class="menu-toggle" id="menu-toggle">&#9776;</div>
         <ul class="nav-links" id="nav-links">
@@ -908,20 +550,21 @@
             <li><a href="niños.html">Kids</a></li>
             <li><a href="jovenes.html">Teenagers</a></li>
             <li><a href="adultsbienvenida.html">Adults</a></li>
-                     <li><a href="aboutus.html">About us</a></li>
+            <li><a href="aboutus.html">About us</a></li>
         </ul>
         <div class="search-box">
             <input type="text" placeholder="Search...">
             <i class="fas fa-search"></i>
         </div>
     </nav>
+    
+    <div class="video-container">
+        <video src="img/Copy of Presentación para Emprendimiento de Pasteleria Galletas Azul y Amarillo Moderno y Divertido .mp4" autoplay loop muted playsinline></video>
+    </div>
 
-    <video src="img/Copy of Presentación para Emprendimiento de Pasteleria Galletas Azul y Amarillo Moderno y Divertido .mp4" autoplay ></video>
-
-      <div id="modal-pago" class="modal-oculto">
+    <div id="modal-pago" class="modal-oculto">
         <div class="modal-contenido">
             <span class="cerrar-modal">&times;</span>
-            <!-- Using a placeholder for the logo -->
             <img src="img/logo_expo.png" class="modal-logo" style="margin-left: 100px;">
             <h3>Unlock This Lesson</h3>
             <p>This lesson is part of our premium content. Unlock all courses and special features by choosing a plan that fits you best!</p>
@@ -930,7 +573,7 @@
             </a>
         </div>
     </div>
-  
+    
     <section class="seccion-ingles-dinamica" >
         <div class="contenedor-contenido-dinamico">
             <div class="columna-texto-dinamico">
@@ -945,7 +588,7 @@
                     <li><span>✅</span> Photo & video sharing</li>
                     <li><span>✅</span> Easy announcements</li>
                 </ul>
-                
+            </div>
 
             <div class="columna-mockup-dinamico">
                 <div class="pantalla-mockup">
@@ -959,49 +602,50 @@
         <h2 class="titulo-contenido-materias">
             Dive into Our Learning Resources!
         </h2>
-        <a href="leccion-ingles.html"><div class="contenedor-tarjetas-contenido">
-            <div class="tarjeta-contenido">
-                <img src="img/books-5211309_1280.jpg" alt="Brain is like a muscle" class="imagen-tarjeta-contenido">
-                <div class="cuerpo-tarjeta-contenido">
-                    <h3 class="titulo-tarjeta-contenido">Your Brain is Like a Muscle</h3>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 75%;"></div>
-                        <span class="progress-text">75% Complete</span>
-                    </div>
-                </div>
-            </div></a>
-
-            <div class="tarjeta-contenido" onclick="openpap()">
-                <img src="img/pexels-ann-h-45017-32392305.jpg" alt="The magic of mistakes" class="imagen-tarjeta-contenido">
-                <div class="cuerpo-tarjeta-contenido">
-                    <h3 class="titulo-tarjeta-contenido">The Magic of Mistakes</h3>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 50%;"></div>
-                        <span class="progress-text">50% Complete</span>
+        <a href="leccion-ingles.html">
+            <div class="contenedor-tarjetas-contenido">
+                <div class="tarjeta-contenido">
+                    <img src="img/books-5211309_1280.jpg" alt="Brain is like a muscle" class="imagen-tarjeta-contenido">
+                    <div class="cuerpo-tarjeta-contenido">
+                        <h3 class="titulo-tarjeta-contenido">Your Brain is Like a Muscle</h3>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                            <span class="progress-text">75% Complete</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </a>
 
-            <div class="tarjeta-contenido" onclick="openpap()">
-                <img src="img/pexels-lina-1741230.jpg" alt="The incredible power of yet" class="imagen-tarjeta-contenido">
-                <div class="cuerpo-tarjeta-contenido">
-                    <h3 class="titulo-tarjeta-contenido">The Incredible Power of Yet</h3>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 90%;"></div>
-                        <span class="progress-text">90% Complete</span>
-                    </div>
+        <div class="tarjeta-contenido" onclick="openpap()">
+            <img src="img/pexels-ann-h-45017-32392305.jpg" alt="The magic of mistakes" class="imagen-tarjeta-contenido">
+            <div class="cuerpo-tarjeta-contenido">
+                <h3 class="titulo-tarjeta-contenido">The Magic of Mistakes</h3>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 50%;"></div>
+                    <span class="progress-text">50% Complete</span>
                 </div>
             </div>
+        </div>
 
+        <div class="tarjeta-contenido" onclick="openpap()">
+            <img src="img/pexels-lina-1741230.jpg" alt="The incredible power of yet" class="imagen-tarjeta-contenido">
+            <div class="cuerpo-tarjeta-contenido">
+                <h3 class="titulo-tarjeta-contenido">The Incredible Power of Yet</h3>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                    <span class="progress-text">90% Complete</span>
+                </div>
+            </div>
+        </div>
 
-            <div class="tarjeta-contenido" onclick="openpap()">
-                <img src="img/pexels-mikhail-nilov-8923566.jpg" alt="Reflecting on our language" class="imagen-tarjeta-contenido">
-                <div class="cuerpo-tarjeta-contenido">
-                    <h3 class="titulo-tarjeta-contenido">Reflecting on Our Language</h3>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 85%;"></div>
-                        <span class="progress-text">85% Complete</span>
-                    </div>
+        <div class="tarjeta-contenido" onclick="openpap()">
+            <img src="img/pexels-mikhail-nilov-8923566.jpg" alt="Reflecting on our language" class="imagen-tarjeta-contenido">
+            <div class="cuerpo-tarjeta-contenido">
+                <h3 class="titulo-tarjeta-contenido">Reflecting on Our Language</h3>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 85%;"></div>
+                    <span class="progress-text">85% Complete</span>
                 </div>
             </div>
         </div>
@@ -1045,59 +689,62 @@
             </div>
         </div>
     </section>
- <footer class="footer">
-    <div class="footer-content-wrapper">
-        <div class="footer-brand">
-            <h3 class="footer-logo">LearnSphere</h3>
-            <p class="footer-tagline">Your path to knowledge.</p>
-            <div class="social-icons">
-                <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
-                <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
-                <a href="#"><img src="img/whassap.jpg"></a>
-                <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+
+    <footer class="footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-brand">
+                <h3 class="footer-logo">LearnSphere</h3>
+                <p class="footer-tagline">Your path to knowledge.</p>
+                <div class="social-icons">
+                    <a href="#"><img src="img/instagram.jpg" alt="Instagram"></a>
+                    <a href="#"><img src="img/facebook.jpg" alt="Facebook"></a>
+                    <a href="#"><img src="img/whassap.jpg"></a>
+                    <a href="#"><img src="img/yutu.png" alt="YouTube"></a>
+                </div>
+            </div>
+
+            <div class="footer-links-group">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact-info">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
+                <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
+                <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
             </div>
         </div>
 
-        <div class="footer-links-group">
-            <h3>Navigation</h3>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Courses</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LearnSphere. All rights reserved.</p>
+            <div class="footer-legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
         </div>
-
-        <div class="footer-contact-info">
-            <h3>Contact</h3>
-            <p><i class="fas fa-map-marker-alt"></i> 123 Knowledge Street, Innovation City</p>
-            <p><i class="fas fa-envelope"></i> info@learnsphere.com</p>
-            <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2024 LearnSphere. All rights reserved.</p>
-        <div class="footer-legal-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-        </div>
-    </div>
-</footer>
-    <script>  function openpap() {
+    </footer>
+    <script>
+        function openpap() {
             const modal = document.getElementById('modal-pago');
             modal.style.display = 'flex';
             setTimeout(() => {
                 modal.classList.add('activo');
             }, 10);
         }
-   const closeModalBtn = document.querySelector('.cerrar-modal');
-    const modal = document.getElementById('modal-pago');
-    closeModalBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-        modal.classList.remove('activo');
-    });</script>
-</body>
 
+        const closeModalBtn = document.querySelector('.cerrar-modal');
+        const modal = document.getElementById('modal-pago');
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modal.classList.remove('activo');
+        });
+    </script>
+</body>
 </html>
